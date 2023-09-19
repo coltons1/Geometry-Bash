@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 1549246283}
   - component: {fileID: 1549246282}
   - component: {fileID: 1549246281}
+  - component: {fileID: 1549246285}
   m_Layer: 0
   m_Name: SubZero
   m_TagString: Untagged
@@ -330,6 +331,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1549246285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549246280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fd0b13a7b15404eaf5cdbb3d295c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1611539238
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,9 +529,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.0056423354}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.52821183
 --- !u!212 &1959607393
 SpriteRenderer:
   m_ObjectHideFlags: 0
