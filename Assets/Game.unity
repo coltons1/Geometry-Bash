@@ -336,7 +336,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -5177388603050735206, guid: 71ebafeef3c03457483266a33ab2b270, type: 3}
   m_Color: {r: 0.4479886, g: 0.881924, b: 0.9811321, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -521,6 +521,7 @@ GameObject:
   - component: {fileID: 1959607393}
   - component: {fileID: 1959607392}
   - component: {fileID: 1959607391}
+  - component: {fileID: 1959607395}
   m_Layer: 0
   m_Name: RedGuy
   m_TagString: Untagged
@@ -606,7 +607,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -5177388603050735206, guid: 71ebafeef3c03457483266a33ab2b270, type: 3}
   m_Color: {r: 1, g: 0.009308021, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -632,3 +633,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1959607395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959607390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 110fdb229ab58914e938d45d1fae8122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpHeight: 0
+  moveSpeed: 0
