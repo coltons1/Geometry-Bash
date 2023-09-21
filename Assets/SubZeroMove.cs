@@ -16,8 +16,8 @@ public class SubZeroMove : MonoBehaviour
     void Start()
     {
         gameObject.name = "SubZeroDude";
-        moveSpeed = 5;
-        jumpHeight = 5;
+        moveSpeed = 10;
+        jumpHeight = 15;
         
     }
 

@@ -13,8 +13,8 @@ public class RedGuyMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        moveSpeed = 5;
-        jumpHeight = 5;
+        moveSpeed = 10;
+        jumpHeight = 15;
     }
 
     // Update is called once per frame
