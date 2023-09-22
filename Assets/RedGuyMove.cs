@@ -34,5 +34,9 @@ public class RedGuyMove : MonoBehaviour
 		    GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed,GetComponent<Rigidbody2D>().velocity.y);
 		
 	    }
+
+        if(Input.GetKey(KeyCode.K)){
+            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x,-jumpHeight);
+        }
     }
 }
