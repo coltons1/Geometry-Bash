@@ -15,7 +15,6 @@ public class SubZeroMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.name = "SubZeroDude";
         moveSpeed = 10;
         jumpHeight = 15;
         

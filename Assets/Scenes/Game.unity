@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 1549246285}
   - component: {fileID: 1549246286}
   m_Layer: 0
-  m_Name: SubZero
+  m_Name: Player 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -636,7 +636,7 @@ GameObject:
   - component: {fileID: 1959607395}
   - component: {fileID: 1959607396}
   m_Layer: 0
-  m_Name: RedGuy
+  m_Name: Player 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
