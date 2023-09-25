@@ -8,13 +8,14 @@ public class SubZeroMove : MonoBehaviour
     //https://discussions.unity.com/t/how-to-move-a-2d-sprite/139655
 
     //creation of jumpheight and movespeed
-
+    private Rigidbody2D playerOne;
     public float jumpHeight;
     public float moveSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.name = "SubZeroDude";
         moveSpeed = 10;
         jumpHeight = 15;
         
