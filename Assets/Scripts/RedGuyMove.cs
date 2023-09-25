@@ -10,9 +10,11 @@ public class RedGuyMove : MonoBehaviour
 
     public float jumpHeight;
     public float moveSpeed;
+    private Rigidbody2D redGuy;
     // Start is called before the first frame update
     void Start()
     {
+        redGuy = GetComponent<Rigidbody2D>();
         moveSpeed = 10;
         jumpHeight = 15;
     }
@@ -20,23 +22,23 @@ public class RedGuyMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.I)){
-		    GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x,jumpHeight);
+        if(Input.GetKeyDown(KeyCode.I) && redGuy.velocity.y == 0){
+		    redGuy.velocity = new Vector3(redGuy.velocity.x, jumpHeight, 0);
 		
 	    }
 
 	    if(Input.GetKey(KeyCode.L)){
-		    GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed,GetComponent<Rigidbody2D>().velocity.y);
+		    redGuy.velocity = new Vector3(moveSpeed, redGuy.velocity.y, 0);
 		
 	    }
 
 	    if(Input.GetKey(KeyCode.J)){
-		    GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed,GetComponent<Rigidbody2D>().velocity.y);
+		    redGuy.velocity = new Vector3(-moveSpeed, redGuy.velocity.y, 0);
 		
 	    }
 
         if(Input.GetKey(KeyCode.K)){
-            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x,-jumpHeight);
+            redGuy.velocity = new Vector3(redGuy.velocity.x, -jumpHeight, 0);
         }
     }
 }
