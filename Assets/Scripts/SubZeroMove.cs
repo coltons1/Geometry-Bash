@@ -8,14 +8,15 @@ public class SubZeroMove : MonoBehaviour
     //https://discussions.unity.com/t/how-to-move-a-2d-sprite/139655
 
     //creation of jumpheight and movespeed
-    private Rigidbody2D playerOne;
+
     public float jumpHeight;
     public float moveSpeed;
+    private Rigidbody2D subZero;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.name = "SubZeroDude";
+        subZero = GetComponent<Rigidbody2D>();
         moveSpeed = 10;
         jumpHeight = 15;
         
@@ -24,23 +25,22 @@ public class SubZeroMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.W)){
-		    GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x,jumpHeight);
+        if(Input.GetKeyDown(KeyCode.W) && subZero.velocity.y == 0){
+		    subZero.velocity = new Vector3(subZero.velocity.x, jumpHeight, 0);
 		
 	    }
 
 	    if(Input.GetKey(KeyCode.D)){
-		    GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed,GetComponent<Rigidbody2D>().velocity.y);
-		
+		    subZero.velocity = new Vector3(moveSpeed, subZero.velocity.y, 0);
+	
 	    }
 
 	    if(Input.GetKey(KeyCode.A)){
-		    GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed,GetComponent<Rigidbody2D>().velocity.y);
-		
+            subZero.velocity = new Vector3(-moveSpeed, subZero.velocity.y, 0);		
 	    }
 
         if(Input.GetKey(KeyCode.S)){
-            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x,-jumpHeight);
+            subZero.velocity = new Vector3(subZero.velocity.x, -jumpHeight, 0);
         }
     }
 }
