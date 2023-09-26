@@ -9,7 +9,7 @@ public class playerNumberDecision : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -19,8 +19,7 @@ public class playerNumberDecision : MonoBehaviour
     }
 }
 
-public class playerNum{
-    public int[] playNum = {1, 2, 3, 4};
-
-}
+//player objects
+//tie movement to playerobject
+//fill player object with player color etc.
 
