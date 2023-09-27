@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 276301890}
   - component: {fileID: 276301889}
   m_Layer: 0
-  m_Name: MiddleGround2
+  m_Name: LeftGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -746,7 +746,7 @@ GameObject:
   - component: {fileID: 1543001226}
   - component: {fileID: 1543001225}
   m_Layer: 0
-  m_Name: MiddleGround2 (1)
+  m_Name: TopGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1094,7 +1094,7 @@ GameObject:
   - component: {fileID: 1729530888}
   - component: {fileID: 1729530887}
   m_Layer: 0
-  m_Name: MiddleGround1
+  m_Name: RightGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
