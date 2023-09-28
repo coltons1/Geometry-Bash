@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SubZeroMove : MonoBehaviour
 {
-    //code from johnz1234 off of the unity discussions boards
-    //https://discussions.unity.com/t/how-to-move-a-2d-sprite/139655
 
     //creation of jumpheight and movespeed
 
