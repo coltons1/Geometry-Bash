@@ -14,6 +14,8 @@ public class MenuController : MonoBehaviour
     [SerializeField] private InputField CreateGameInput;
     [SerializeField] private InputField JoinGameInput;
 
+    [SerializeField] private GameObject StartButton;
+
     private void Awake()
     {
         PhotonNetwork.ConnectUsingSettings(VersionName);
@@ -23,6 +25,24 @@ public class MenuController : MonoBehaviour
     {
         PhotonNetwork.JoinLobby(TypedLobby.Default);
         Debug.Log("Connected");
+    }
+
+    public void ChangeUserNameInput()
+    {
+        if(UsernameInput.text.Length >= 3)
+        {
+            StartButton.SetActive(true);
+        } 
+        else 
+        {
+            StartButton.SetActive(false);
+        }
+    }
+
+    public void SetUserName()
+    {
+        UsernameMenu.SetActive(false);
+        PhotonNetwork.playerName = UsernameInput.text;
     }
 
     // Start is called before the first frame update
