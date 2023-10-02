@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+//code courtesy of diving_squid on youtube.com
+//https://www.youtube.com/watch?v=l2ybEFWHsz8
+//https://www.youtube.com/watch?v=l2ybEFWHsz8
+
 public class MenuController : MonoBehaviour
 {
 
@@ -45,6 +50,17 @@ public class MenuController : MonoBehaviour
         PhotonNetwork.playerName = UsernameInput.text;
     }
 
+    public void CreateGame()
+    {
+        PhotonNetwork.CreateRoom(CreateGameInput.text, new RoomOptions() ( maxPlayers = 4), null);
+    }
+
+    public void JoinGame()
+    {
+        RoomOptions roomOptions = new RoomOptions();
+        roomOptions.maxPlayers = 4;
+        PhotonNetwork.JoinOrCreateRoom(JoinGameInput.text, roomOptions, TypedLobby.Deafult);
+    }
     // Start is called before the first frame update
     void Start()
     {
