@@ -50,7 +50,7 @@ public class MenuController : MonoBehaviour
         PhotonNetwork.playerName = UsernameInput.text;
     }
 
-    public void CreateGame()
+    /*public void CreateGame()
     {
         PhotonNetwork.CreateRoom(CreateGameInput.text, new RoomOptions() ( maxPlayers = 4), null);
     }
@@ -59,8 +59,8 @@ public class MenuController : MonoBehaviour
     {
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.maxPlayers = 4;
-        PhotonNetwork.JoinOrCreateRoom(JoinGameInput.text, roomOptions, TypedLobby.Deafult);
-    }
+        PhotonNetwork.JoinOrCreateRoom(JoinGameInput.text, roomOptions, TypedLobby.Default);
+    } */
     // Start is called before the first frame update
     void Start()
     {
