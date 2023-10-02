@@ -304,7 +304,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.7169812, g: 0.24801229, b: 0.70322865, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -497,6 +497,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedGuy
       objectReference: {fileID: 0}
+    - target: {fileID: 3881363890177923991, guid: fffac70307f920c449d32faf280e5ea7, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3881363890177923991, guid: fffac70307f920c449d32faf280e5ea7, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 3881363890177924010, guid: fffac70307f920c449d32faf280e5ea7, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -541,6 +549,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3881363890177924012, guid: fffac70307f920c449d32faf280e5ea7, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 23f13d73a8177f54bb6298fb9684e050, type: 2}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: fffac70307f920c449d32faf280e5ea7, type: 3}
@@ -1004,9 +1016,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1847007856081826229, guid: d51a5dc5c057cf54baf2432ccadda815, type: 3}
+<<<<<<< HEAD
       propertyPath: m_LinearDrag
       value: 1
       objectReference: {fileID: 0}
+=======
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 23f13d73a8177f54bb6298fb9684e050, type: 2}
+>>>>>>> 6823e7fb8eb0787e0051571a2835f463a6e47fc9
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: d51a5dc5c057cf54baf2432ccadda815, type: 3}
