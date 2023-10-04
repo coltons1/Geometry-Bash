@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3422754919191616424}
   - component: {fileID: 2581500655486917892}
   - component: {fileID: 7897464307084743531}
+  - component: {fileID: -3002616919012021861}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Untagged
@@ -48,12 +49,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_GravityScale: 1.8
+  m_Material: {fileID: 6200000, guid: 23f13d73a8177f54bb6298fb9684e050, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &7897464307084743531
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -80,3 +81,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-3002616919012021861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195221770572169006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 110fdb229ab58914e938d45d1fae8122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpHeight: 15
+  moveSpeed: 10
