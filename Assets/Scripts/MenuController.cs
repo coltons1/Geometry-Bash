@@ -20,6 +20,7 @@ public class MenuController : MonoBehaviour
     [SerializeField] private InputField JoinGameInput;
 
     [SerializeField] private GameObject StartButton;
+    //private static PhotonView ScenePhotonView;
 
     private void Awake()
     {
@@ -52,13 +53,13 @@ public class MenuController : MonoBehaviour
 
     public void CreateGame()
     {
-        PhotonNetwork.CreateRoom(CreateGameInput.text, new RoomOptions(){maxPlayers = 4}, null);
+        PhotonNetwork.CreateRoom(CreateGameInput.text, new RoomOptions() {MaxPlayers = 4}, null);
     }
 
     public void JoinGame()
     {
         RoomOptions roomOptions = new RoomOptions();
-        roomOptions.maxPlayers = 4;
+        roomOptions.MaxPlayers = 4;
         PhotonNetwork.JoinOrCreateRoom(JoinGameInput.text, roomOptions, TypedLobby.Default);
     } 
 
@@ -69,9 +70,10 @@ public class MenuController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //ScenePhotonView = this.GetComponent<PhotonView>();
         UsernameMenu.SetActive(true);
+        
     }
-
     // Update is called once per frame
     void Update()
     {
