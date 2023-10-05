@@ -1,7 +1,8 @@
-/*using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
 
 //code courtesy of diving_squid on youtube.com
@@ -79,4 +80,4 @@ public class MenuController : MonoBehaviour
     {
         
     }
-}*/
+}
