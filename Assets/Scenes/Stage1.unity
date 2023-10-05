@@ -224,6 +224,8 @@ GameObject:
   - component: {fileID: 769277520}
   - component: {fileID: 769277519}
   - component: {fileID: 769277518}
+  - component: {fileID: 769277522}
+  - component: {fileID: 769277521}
   m_Layer: 0
   m_Name: LeftPlatform
   m_TagString: Untagged
@@ -291,7 +293,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.95, y: 1}
   m_EdgeRadius: 0
 --- !u!212 &769277520
 SpriteRenderer:
@@ -345,6 +347,58 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &769277521
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769277516}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 9affdcdbf04bc0d4c8a17574e406a602, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.5, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 1}
+  m_EdgeRadius: 0
+--- !u!61 &769277522
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769277516}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 9affdcdbf04bc0d4c8a17574e406a602, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.5, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &840171864
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,19 +561,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7897464307084743531, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
       propertyPath: m_Size.x
-      value: 0.6734848
+      value: 0.6979871
       objectReference: {fileID: 0}
     - target: {fileID: 7897464307084743531, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
       propertyPath: m_Size.y
-      value: 0.6385013
+      value: 0.6782136
       objectReference: {fileID: 0}
     - target: {fileID: 7897464307084743531, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
       propertyPath: m_Offset.x
-      value: 0
+      value: -0.002396822
       objectReference: {fileID: 0}
     - target: {fileID: 7897464307084743531, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
       propertyPath: m_Offset.y
-      value: 0.005830586
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7897464307084743531, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -548,6 +602,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1488408045}
     m_Modifications:
+    - target: {fileID: -7773709299847468600, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7773709299847468600, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: -7773709299847468600, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.8
+      objectReference: {fileID: 0}
     - target: {fileID: 38319137734660700, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: m_Size.x
       value: 0.6979871
@@ -583,6 +649,14 @@ PrefabInstance:
     - target: {fileID: 38319137734660700, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: m_SpriteTilingProperty.drawMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 38319137734660700, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 38319137734660700, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.64
       objectReference: {fileID: 0}
     - target: {fileID: 38319137734660700, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
