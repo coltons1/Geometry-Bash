@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &14874558
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1419,7 +1419,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a8cec1a9dbee741a7bd0c18120c8e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VersionName: 0.1
   UsernameMenu: {fileID: 212580113}
   ConnectPanel: {fileID: 430959883}
   UsernameInput: {fileID: 536792994}
