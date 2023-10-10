@@ -1,9 +1,18 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+<<<<<<< HEAD
+
+
+
+//code courtesy of diving_squid on youtube.com
+//https://www.youtube.com/watch?v=l2ybEFWHsz8
+//https://www.youtube.com/watch?v=l2ybEFWHsz8
+=======
 using Photon.Pun;
 using Photon.Realtime;
+>>>>>>> b7f27f3bbdbed0dcc16753579a51c06d906baa10
 
 public class MenuController : MonoBehaviour
 {
@@ -83,3 +92,4 @@ public class MenuController : MonoBehaviour
         
     }
 }
+*/
