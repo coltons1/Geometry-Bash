@@ -2,45 +2,56 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+<<<<<<< HEAD
 
 
 
 //code courtesy of diving_squid on youtube.com
 //https://www.youtube.com/watch?v=l2ybEFWHsz8
 //https://www.youtube.com/watch?v=l2ybEFWHsz8
+=======
+using Photon.Pun;
+using Photon.Realtime;
+>>>>>>> b7f27f3bbdbed0dcc16753579a51c06d906baa10
 
 public class MenuController : MonoBehaviour
 {
 
-    [SerializeField] private string VersionName = "0.1";
     [SerializeField] private GameObject UsernameMenu;
     [SerializeField] private GameObject ConnectPanel;
-
     [SerializeField] private InputField UsernameInput;
     [SerializeField] private InputField CreateGameInput;
     [SerializeField] private InputField JoinGameInput;
-
     [SerializeField] private GameObject StartButton;
-    //private static PhotonView ScenePhotonView;
+    
+    
+
 
     private void Awake()
     {
-        PhotonNetwork.ConnectUsingSettings(VersionName);
+        //var appSettings = new AppSettings();
+        PhotonNetwork.ConnectUsingSettings();
     }
 
-    private void OnConnectedToMaster()
+    /*private void OnConnectedToMaster()
     {
         PhotonNetwork.JoinLobby(TypedLobby.Default);
-        Debug.Log("Connected");
+        Debug.Log("Connected"); 
+    } */
+
+    public void OnConnectedToMaster()
+    {
+        PhotonNetwork.JoinLobby(TypedLobby.Default);
+        Debug.Log("Connected to: " + PhotonNetwork.CloudRegion);
+ 
     }
 
-    public void ChangeUserNameInput()
-    {
+    public void ChangeUserNameInput(){
         if(UsernameInput.text.Length >= 3)
         {
             StartButton.SetActive(true);
-        } 
-        else 
+        }
+        else
         {
             StartButton.SetActive(false);
         }
@@ -49,7 +60,7 @@ public class MenuController : MonoBehaviour
     public void SetUserName()
     {
         UsernameMenu.SetActive(false);
-        PhotonNetwork.playerName = UsernameInput.text;
+        PhotonNetwork.NickName = UsernameInput.text;
     }
 
     public void CreateGame()
@@ -62,19 +73,19 @@ public class MenuController : MonoBehaviour
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 4;
         PhotonNetwork.JoinOrCreateRoom(JoinGameInput.text, roomOptions, TypedLobby.Default);
-    } 
+    }
 
     private void OnJoinedRoom()
     {
         PhotonNetwork.LoadLevel("Stage1");
     }
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        //ScenePhotonView = this.GetComponent<PhotonView>();
         UsernameMenu.SetActive(true);
-        
     }
+
     // Update is called once per frame
     void Update()
     {
