@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
+<<<<<<< HEAD
 
 
 
@@ -11,6 +12,8 @@ using Photon.Realtime;
 //code courtesy of diving_squid on youtube.com
 //https://www.youtube.com/watch?v=l2ybEFWHsz8
 //https://www.youtube.com/watch?v=l2ybEFWHsz8
+=======
+>>>>>>> feb92b47b86f89967efab824e8441e6d6edf8e86
 
 public class MenuController : MonoBehaviour
 {
