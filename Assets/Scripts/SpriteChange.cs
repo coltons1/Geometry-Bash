@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class SpriteChange : MonoBehaviour
 {
-    public Sprite red, blue;
-    public void Update(){
-            GetComponent<SpriteRenderer>().sprite = red;
+    public Sprite sprite;
+    public GameObject p1, p2;
+    public void changeSprite(){
+            p1.GetComponent<SpriteRenderer>().sprite = sprite;
     }
 
 }
