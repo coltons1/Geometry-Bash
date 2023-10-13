@@ -5,6 +5,13 @@ using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 
+
+
+
+//code courtesy of diving_squid on youtube.com
+//https://www.youtube.com/watch?v=l2ybEFWHsz8
+//https://www.youtube.com/watch?v=l2ybEFWHsz8
+
 public class MenuController : MonoBehaviour
 {
 
@@ -23,13 +30,7 @@ public class MenuController : MonoBehaviour
         //var appSettings = new AppSettings();
         PhotonNetwork.ConnectUsingSettings();
     }
-
-    /*private void OnConnectedToMaster()
-    {
-        PhotonNetwork.JoinLobby(TypedLobby.Default);
-        Debug.Log("Connected"); 
-    } */
-
+    
     public void OnConnectedToMaster()
     {
         PhotonNetwork.JoinLobby(TypedLobby.Default);
@@ -54,6 +55,18 @@ public class MenuController : MonoBehaviour
         PhotonNetwork.NickName = UsernameInput.text;
     }
 
+    private void Start()
+    {
+        UsernameMenu.SetActive(true);
+        PhotonNetwork.ConnectToServer();
+    }
+
+    public void OnJoinedLobby()
+    {
+        
+    }
+
+
     public void CreateGame()
     {
         PhotonNetwork.CreateRoom(CreateGameInput.text, new RoomOptions() {MaxPlayers = 4}, null);
@@ -71,11 +84,6 @@ public class MenuController : MonoBehaviour
         PhotonNetwork.LoadLevel("Stage1");
     }
 
-    // Start is called before the first frame update
-    private void Start()
-    {
-        UsernameMenu.SetActive(true);
-    }
 
     // Update is called once per frame
     void Update()
