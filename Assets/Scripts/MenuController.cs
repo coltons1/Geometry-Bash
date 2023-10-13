@@ -58,7 +58,7 @@ public class MenuController : MonoBehaviour
     private void Start()
     {
         UsernameMenu.SetActive(true);
-        PhotonNetwork.ConnectToServer();
+        //PhotonNetwork.ConnectToServer();
     }
 
     public void OnJoinedLobby()
