@@ -309,6 +309,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1488408045}
     m_Modifications:
+    - target: {fileID: -3002616919012021861, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
+      propertyPath: jumpHeight
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 195221770572169006, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
       propertyPath: m_Name
       value: Player 2
@@ -318,12 +322,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6200000, guid: 23f13d73a8177f54bb6298fb9684e050, type: 2}
     - target: {fileID: 2581500655486917892, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581500655486917892, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581500655486917892, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2581500655486917892, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
       propertyPath: m_GravityScale
-      value: 1.8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3422754919191616424, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
       propertyPath: m_RootOrder
@@ -420,9 +432,17 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1488408045}
     m_Modifications:
+    - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
+      propertyPath: jumpHeight
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: -7773709299847468600, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 23f13d73a8177f54bb6298fb9684e050, type: 2}
     - target: {fileID: -7773709299847468600, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: m_LinearDrag
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7773709299847468600, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: m_AngularDrag
@@ -430,7 +450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7773709299847468600, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: m_GravityScale
-      value: 1.8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 38319137734660700, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: m_Size.x
@@ -832,7 +852,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.05, y: 1}
+  m_Size: {x: 0.005, y: 1}
   m_EdgeRadius: 0
 --- !u!61 &1835947829
 BoxCollider2D:
@@ -858,7 +878,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.05, y: 1}
+  m_Size: {x: 0.005, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &1967280689 stripped
 GameObject:
@@ -927,11 +947,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1921415073013243173, guid: 6363fddff7579e4469582ffe68ded685, type: 3}
       propertyPath: m_Size.x
-      value: 0.05
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 1921415073013243174, guid: 6363fddff7579e4469582ffe68ded685, type: 3}
       propertyPath: m_Size.x
-      value: 0.05
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 1921415073013243192, guid: 6363fddff7579e4469582ffe68ded685, type: 3}
       propertyPath: m_Name
@@ -994,11 +1014,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7461517219933937888, guid: f97517c187eac0b4697b28233d8696f0, type: 3}
       propertyPath: m_Size.x
-      value: 0.05
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 7461517219933937889, guid: f97517c187eac0b4697b28233d8696f0, type: 3}
       propertyPath: m_Size.x
-      value: 0.05
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 7461517219933937898, guid: f97517c187eac0b4697b28233d8696f0, type: 3}
       propertyPath: m_Name

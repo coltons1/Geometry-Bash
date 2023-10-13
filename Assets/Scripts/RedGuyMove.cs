@@ -19,10 +19,8 @@ public class RedGuyMove : MonoBehaviour
     {
         redGuy = GetComponent<Rigidbody2D>();
         moveSpeed = 10f;
-        jumpHeight = 15f;
-        //coll = GetComponent<BoxCollider2D>();
-        //dynFriction = 0f;
-        //statFriction = 1.0f;
+        jumpHeight = 18f;
+
     }
 
     // Update is called once per frame
@@ -30,11 +28,9 @@ public class RedGuyMove : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.I) && redGuy.velocity.y == 0){
 		    redGuy.velocity = new Vector3(redGuy.velocity.x, jumpHeight, 0);
-            //coll.material.dynamicFriction = dynFriction;
+
 		
-	    } //else {
-            //coll.material.staticFriction = statFriction;
-        //}
+	    }
 
 	    if(Input.GetKey(KeyCode.L)){
 		    redGuy.velocity = new Vector3(moveSpeed, redGuy.velocity.y, 0);

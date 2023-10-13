@@ -15,8 +15,8 @@ public class SubZeroMove : MonoBehaviour
     void Start()
     {
         subZero = GetComponent<Rigidbody2D>();
-        moveSpeed = 10;
-        jumpHeight = 15;
+        moveSpeed = 10f;
+        jumpHeight = 18f;
         
     }
 
