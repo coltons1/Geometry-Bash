@@ -5,9 +5,9 @@ using UnityEngine;
 public class SpriteChange : MonoBehaviour
 {
     public Sprite sprite;
-    public GameObject p1, p2;
+    public GameObject player;
     public void changeSprite(){
-            p1.GetComponent<SpriteRenderer>().sprite = sprite;
+            player.GetComponent<SpriteRenderer>().sprite = sprite;
     }
 
 }
