@@ -24,22 +24,29 @@ public class RedGuyMove : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.I) && redGuy.velocity.y == 0){
 		    redGuy.velocity = new Vector3(redGuy.velocity.x, jumpHeight, 0);
-
 		
 	    }
 
 	    if(Input.GetKey(KeyCode.L)){
-		    redGuy.velocity = new Vector3(moveSpeed, redGuy.velocity.y, 0);
-		
+		    if(redGuy.velocity.y != 0){
+                redGuy.velocity = new Vector3(moveSpeed / 1.5f, redGuy.velocity.y, 0);
+            } 
+            else {
+                redGuy.velocity = new Vector3(moveSpeed, redGuy.velocity.y, 0);
+            }
 	    }
 
 	    if(Input.GetKey(KeyCode.J)){
-		    redGuy.velocity = new Vector3(-moveSpeed, redGuy.velocity.y, 0);
-		
+		    if(redGuy.velocity.y != 0){
+                redGuy.velocity = new Vector3(-moveSpeed / 1.5f, redGuy.velocity.y, 0);
+            } 
+            else {
+                redGuy.velocity = new Vector3(-moveSpeed, redGuy.velocity.y, 0);
+            }
 	    }
 
         if(Input.GetKey(KeyCode.K)){
-            redGuy.velocity = new Vector3(redGuy.velocity.x, -jumpHeight, 0);
+            redGuy.velocity = new Vector3(redGuy.velocity.x, -jumpHeight / 1.25f, 0);
         }
     }
 }
