@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class RedGuyMove : MonoBehaviour
 {
-
-    //code from johnz1234 off of the unity discussions boards
-    //https://discussions.unity.com/t/how-to-move-a-2d-sprite/139655
-
     public float jumpHeight;
     public float moveSpeed;
     private Rigidbody2D redGuy;
