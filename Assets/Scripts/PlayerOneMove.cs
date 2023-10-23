@@ -50,5 +50,6 @@ public class PlayerOneMove : MonoBehaviour
         if(Input.GetKey(KeyCode.S)){
             subZero.velocity = new Vector3(subZero.velocity.x, -jumpHeight / 1.25f, 0);
         }
+
     }
 }
