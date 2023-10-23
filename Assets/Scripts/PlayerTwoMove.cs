@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RedGuyMove : MonoBehaviour
+public class PlayerTwoMove : MonoBehaviour
 {
     public float jumpHeight;
     public float moveSpeed;

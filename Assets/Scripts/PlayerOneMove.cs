@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SubZeroMove : MonoBehaviour
+public class PlayerOneMove : MonoBehaviour
 {
 
     //creation of jumpheight and movespeed
