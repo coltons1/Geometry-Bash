@@ -19,10 +19,10 @@ public class HealthController : MonoBehaviour
     }
 
 
-    void OnCollisionEnter(Collision Collider){
+    void OnCollisionEnter(){
         hpValue -= 5;
         p1Healthbar.value = hpValue;
-        //Debug.Log("taken damage");
+        Debug.Log("taken damage");
     }
 
     // Update is called once per frame
