@@ -7,7 +7,7 @@ public class HealthController : MonoBehaviour
 {
 
     public Slider p1Healthbar;
-    int hpValue = 100;
+    public int hpValue = 100;
 
     //BoxCollider2D floor;
 
@@ -29,5 +29,9 @@ public class HealthController : MonoBehaviour
     void Update()
     {
         //OnCollisionEnter(floor);
+    }
+
+    public int getHealth(){
+        return hpValue;
     }
 }
