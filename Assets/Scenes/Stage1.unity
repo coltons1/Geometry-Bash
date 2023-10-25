@@ -1366,6 +1366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p1Healthbar: {fileID: 93757575}
+  hpValue: 100
 --- !u!114 &1967280705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1378,6 +1379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8265ef95aaa4fb847b501a185d025ba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hpValue: {fileID: 93757573}
 --- !u!1001 &1921415072271508340
 PrefabInstance:
   m_ObjectHideFlags: 0

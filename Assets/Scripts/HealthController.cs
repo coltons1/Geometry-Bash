@@ -7,7 +7,7 @@ public class HealthController : MonoBehaviour
 {
 
     public Slider p1Healthbar;
-    int hpValue = 100;
+    public int hpValue = 100;
 
     //BoxCollider2D floor;
 
@@ -17,17 +17,10 @@ public class HealthController : MonoBehaviour
         //floor = BottomPlatform.GetComponent<BoxCollider2D>();
     
     }
-
-
-    void OnCollisionEnter(){
-        hpValue -= 5;
-        p1Healthbar.value = hpValue;
-        Debug.Log("taken damage");
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
-        //OnCollisionEnter(floor);
+
     }
 }
