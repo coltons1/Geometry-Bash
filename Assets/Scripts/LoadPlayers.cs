@@ -8,6 +8,8 @@ public class LoadPlayers : MonoBehaviour
     public GameObject p1, p2;
     public void setPositions()
     {
+        p1 = GameObject.Find("Player 1");
+        p2 = GameObject.Find("Player 2");
         p1.transform.position = new Vector2(-10.0f, 0.0f);
         p1.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f,0.0f);
         p2.transform.position = new Vector2(10.0f, 0.0f);
