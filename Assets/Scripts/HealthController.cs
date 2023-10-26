@@ -9,13 +9,10 @@ public class HealthController : MonoBehaviour
     public Slider p1Healthbar;
     public int hpValue = 100;
 
-    //BoxCollider2D floor;
-
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        //floor = BottomPlatform.GetComponent<BoxCollider2D>();
-    
+        
     }
     
     // Update is called once per frame

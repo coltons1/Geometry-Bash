@@ -235,6 +235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 93757574}
   - component: {fileID: 93757575}
+  - component: {fileID: 93757576}
   m_Layer: 5
   m_Name: p1Healthbar
   m_TagString: Untagged
@@ -309,12 +310,26 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 1
+  m_MaxValue: 100
+  m_WholeNumbers: 1
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &93757576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93757573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e4619d9c96d3c4c96613612f9765d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1Healthbar: {fileID: 93757575}
+  hpValue: 100
 --- !u!4 &511953057 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3422754919191616424, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
@@ -1179,7 +1194,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.2}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!212 &1835947826
 SpriteRenderer:
@@ -1383,7 +1398,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371be1a76f498584b8cf025992a6c154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpValue: {fileID: 0}
 --- !u!1001 &1921415072271508340
 PrefabInstance:
   m_ObjectHideFlags: 0
