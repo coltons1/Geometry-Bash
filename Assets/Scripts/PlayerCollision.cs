@@ -6,18 +6,17 @@ public class PlayerCollision : MonoBehaviour
 {
 
     HealthController healthController;
-    public GameObject hpValue;
-
     void Awake()
     {
         healthController = GameObject.Find("p1Healthbar").GetComponent<HealthController>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.name == "BottomPlatform")
         {
-            //hpValue -= 10; 
+            Debug.Log("enter");
+            healthController.hpValue -= 5;
         }
     }
 
@@ -25,7 +24,7 @@ public class PlayerCollision : MonoBehaviour
     {
         if(collision.gameObject.name == "BottomPlatform")
         {
-            Debug.Log("stay");    
+            Debug.Log("stay");
         }
     }
     
