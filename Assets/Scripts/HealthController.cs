@@ -23,4 +23,8 @@ public class HealthController : MonoBehaviour
     {
 
     }
+
+    public int getHealth(){
+        return hpValue;
+    }
 }
