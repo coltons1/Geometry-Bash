@@ -16,7 +16,8 @@ public class PlayerCollision : MonoBehaviour
         if(collision.gameObject.name == "BottomPlatform")
         {
             Debug.Log("enter");
-            healthController.hpValue -= 5;
+            //healthController.hpValue -= 5;
+            healthController.takeDamage(5);
         }
     }
 

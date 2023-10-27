@@ -18,10 +18,24 @@ public class HealthController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log("ballin");
+        //p1Healthbar.value = hpValue;
     }
 
     public int getHealth(){
         return hpValue;
+    }
+
+    public void takeDamage(int damage)
+    {
+        hpValue -= damage;
+        p1Healthbar.value = hpValue;
+    }
+
+    public void isHealthZero(){
+        if(hpValue == 0)
+        {
+
+        }
     }
 }
