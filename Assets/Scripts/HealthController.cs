@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class HealthController : MonoBehaviour
 {
 
-    public Slider p1Healthbar;
-    public int hpValue = 100;
+    public Slider healthbar;
+    public int hpValueP1 = 100;
+    public int hpValueP2 = 100;
 
     // Start is called before the first frame update
     void Awake()
@@ -18,24 +19,26 @@ public class HealthController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("ballin");
-        //p1Healthbar.value = hpValue;
+        //a
     }
 
     public int getHealth(){
-        return hpValue;
+        return 0;
     }
 
     public void takeDamage(int damage)
     {
-        hpValue -= damage;
-        p1Healthbar.value = hpValue;
+        //hpValue -= damage;
     }
 
-    public void isHealthZero(){
+    public void updateHealthbar(){
+
+    }
+
+   /* public void isHealthZero(){
         if(hpValue == 0)
         {
-
+            Debug.Log("game over pal");
         }
-    }
+    }*/
 }
