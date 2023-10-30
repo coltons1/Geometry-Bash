@@ -156,8 +156,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f7bd678f1ea5bb42bf180709361ee3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p1: {fileID: 0}
-  p2: {fileID: 0}
+  p1x: -10
+  p1y: 0
+  p2x: 10
+  p2y: 0
 --- !u!114 &750065859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -740,8 +742,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f7bd678f1ea5bb42bf180709361ee3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p1: {fileID: 0}
-  p2: {fileID: 0}
+  p1x: 0
+  p1y: 0
+  p2x: 0
+  p2y: 0
 --- !u!114 &1591389097
 MonoBehaviour:
   m_ObjectHideFlags: 0
