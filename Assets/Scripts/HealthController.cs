@@ -22,18 +22,15 @@ public class HealthController : MonoBehaviour
 
     }
 
-    public int getHealth(){
-        return 0;
-    }
-
     public void takeDamage(int damage)
     {
         hpValue -= damage;
         healthbar.value = hpValue;
     }
 
-    public void updateHealthbar(){
-
+    public void healDamage(int heal){
+        hpValue += heal;
+        healthbar.value = hpValue;
     }
 
    public void isHealthZero(){

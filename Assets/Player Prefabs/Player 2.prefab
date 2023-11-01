@@ -143,8 +143,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 195221770572169006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 110fdb229ab58914e938d45d1fae8122, type: 3}
+  m_Script: {fileID: 11500000, guid: 8cd9f9a0e02a9a447aab5f75caaf12e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 18
-  moveSpeed: 10
+  jumpHeight: 0
+  moveSpeed: 0
+  Player1: {fileID: 0}
+  Player2: {fileID: 0}
