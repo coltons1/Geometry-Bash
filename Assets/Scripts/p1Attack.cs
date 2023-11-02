@@ -6,7 +6,7 @@ public class p1Attack : MonoBehaviour
 {
 
     HealthController healthController;
-    private int hitRange = 5;
+    //private int hitRange = 5;
     // Start is called before the first frame update
     void Start()
     {

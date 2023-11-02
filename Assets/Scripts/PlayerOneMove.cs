@@ -28,6 +28,7 @@ public class PlayerOneMove : MonoBehaviour
 		
 	    }
 
+        //if the player is in the air and tries to move horizontally, they move slower
 	    if(Input.GetKey(KeyCode.D)){
 		    if(subZero.velocity.y != 0){
                 subZero.velocity = new Vector3(moveSpeed / 1.5f, subZero.velocity.y, 0);
