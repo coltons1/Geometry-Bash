@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LoadScene : MonoBehaviour
+public class LoadSceneAssets : MonoBehaviour
 {
     // Start is called before the first frame update
     private GameObject p1, p2;
