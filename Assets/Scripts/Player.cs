@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     //creation of jumpheight and movespeed
-
+    HealthController health1;
+    HealthController health2;
     public float jumpHeight;
     public float moveSpeed;
 
@@ -14,6 +16,18 @@ public class Player : MonoBehaviour
     private Rigidbody2D p1;
     private Rigidbody2D p2;
 
+    void Awake()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+
+        if(sceneName == "Stage1")
+        {
+            health1 = GameObject.Find("p1Healthbar").GetComponent<HealthController>();
+            health2 = GameObject.Find("p2Healthbar").GetComponent<HealthController>();
+        }
+        
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +37,34 @@ public class Player : MonoBehaviour
         moveSpeed = 10f;
         jumpHeight = 18f;
         
+    }
+
+    //When the object starts colliding
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.name == "BottomPlatform")
+        {
+            Debug.Log("enter");
+            health1.takeDamage(5);
+        }
+    }
+
+    //While the object is colliding
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if(collision.gameObject.name == "BottomPlatform")
+        {
+            Debug.Log("stay");
+        }
+    }
+    
+    //When the object stops colliding
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if(collision.gameObject.name == "BottomPlatform")
+        {
+            Debug.Log("exit");    
+        }
     }
 
     // Update is called once per frame
