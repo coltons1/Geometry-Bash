@@ -26,6 +26,12 @@ public class Player : MonoBehaviour
             health1 = GameObject.Find("p1Healthbar").GetComponent<HealthController>();
             health2 = GameObject.Find("p2Healthbar").GetComponent<HealthController>();
         }
+
+        if(sceneName == "Stage Two")
+        {
+            health1 = GameObject.Find("p1Healthbar").GetComponent<HealthController>();
+            health2 = GameObject.Find("p2Healthbar").GetComponent<HealthController>();
+        }
         
     }
     // Start is called before the first frame update
@@ -45,7 +51,7 @@ public class Player : MonoBehaviour
         if(collision.gameObject.name == "BottomPlatform")
         {
             Debug.Log("enter");
-            health1.takeDamage(5);
+            //health1.takeDamage(5);
         }
     }
 

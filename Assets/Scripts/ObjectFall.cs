@@ -2,40 +2,61 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FallingObject : MonoBehaviour
+public class ObjectFall : MonoBehaviour
 {
     // Start is called before the first frame update
+    [SerializeField] GameObject obj;
+    [SerializeField] int posX, posY;
     void Start()
     {
-        
+       obj.GetComponent<Rigidbody2D>().isKinematic = true;
+
     }
 
     // Update is called once per frame
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Check for a match with the specified name on any GameObject that collides with your GameObject
-        if (collision.gameObject.name == "Player 1")
+        if (obj.GetComponent<Rigidbody2D>().isKinematic == true && collision.gameObject.name == "Player 1" 
+            || collision.gameObject.name == "Player 2" )
         {
             //If the GameObject's name matches the one you suggest, output this message in the console
             Debug.Log("Enter");
+            Invoke("fall", 1);
+            Invoke("resetPosition",4);
         }
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
         //Check for a match with the specified name on any GameObject that collides with your GameObject
-        if (collision.gameObject.name == "Player 1")
+        if (collision.gameObject.name == "Player 1"|| collision.gameObject.name == "Player 2")
         {
             //If the GameObject's name matches the one you suggest, output this message in the console
             Debug.Log("Stay");
+            
         }
     }
-        private void OnCollisionExit2D(Collision2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
         //Check for a match with the specified name on any GameObject that collides with your GameObject
-        if (collision.gameObject.name == "Player 1")
+        if (collision.gameObject.name == "Player 1"|| collision.gameObject.name == "Player 2")
         {
             //If the GameObject's name matches the one you suggest, output this message in the console
             Debug.Log("Exit");
         }
+    }
+
+    private void fall()
+    {
+        obj.GetComponent<Rigidbody2D>().isKinematic = false;
+    }
+
+    private void resetPosition()
+    {
+        obj.transform.position = new Vector2(posX, posY);    
+        obj.GetComponent<Rigidbody2D>().isKinematic = true;
+        obj.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f,0.0f);
+
+
     }
 }
