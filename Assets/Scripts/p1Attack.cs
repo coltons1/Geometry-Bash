@@ -5,8 +5,8 @@ using UnityEngine;
 public class p1Attack : MonoBehaviour
 {
 
-    HealthController healthController;
-    /*private GameObject attackArea = default;
+    /*HealthController healthController;
+    private GameObject attackArea = default;
     private bool attacking = false;
     private float timeToAttack = 0.25f;
     private float timer = 0f;
