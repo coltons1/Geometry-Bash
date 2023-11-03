@@ -2328,9 +2328,17 @@ PrefabInstance:
       propertyPath: Player2
       value: 
       objectReference: {fileID: 1118428695}
+    - target: {fileID: -7773709299847468600, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4453898936373084913, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: m_Name
       value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4453898936373084913, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5790393817086087250, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: m_RootOrder
@@ -2741,7 +2749,6 @@ GameObject:
   - component: {fileID: 886988777}
   - component: {fileID: 886988776}
   - component: {fileID: 886988775}
-  - component: {fileID: 886988779}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -2838,7 +2845,7 @@ MonoBehaviour:
           m_StringArgument: Stage Select
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 886988779}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LoadSceneAssets, Assembly-CSharp
         m_MethodName: setPositions
         m_Mode: 1
@@ -2888,22 +2895,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 886988773}
   m_CullTransparentMesh: 1
---- !u!114 &886988779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 886988773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f7bd678f1ea5bb42bf180709361ee3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  p1x: 0
-  p1y: 0
-  p2x: 0
-  p2y: 0
 --- !u!1 &938240408
 GameObject:
   m_ObjectHideFlags: 0
@@ -4475,6 +4466,14 @@ PrefabInstance:
     - target: {fileID: 195221770572169006, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
       propertyPath: m_Name
       value: Player 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 195221770572169006, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581500655486917892, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
+      propertyPath: m_BodyType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3422754919191616424, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
       propertyPath: m_RootOrder
