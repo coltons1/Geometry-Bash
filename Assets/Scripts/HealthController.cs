@@ -24,7 +24,7 @@ public class HealthController : MonoBehaviour
 
     public void takeDamage(int damage)
     {
-        hpValue -= damage;
+        this.hpValue -= damage;
         healthbar.value = hpValue;
     }
 
@@ -39,4 +39,8 @@ public class HealthController : MonoBehaviour
             Debug.Log("game over pal");
         }
     }
+
+    /*public void Die(){
+        Destroy(GameObject);
+    }*/
 }
