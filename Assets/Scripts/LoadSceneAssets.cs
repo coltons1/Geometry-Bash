@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoadSceneAssets : MonoBehaviour
 {
@@ -8,6 +9,35 @@ public class LoadSceneAssets : MonoBehaviour
     private GameObject p1, p2;
     //private GameObject h1, h2;
     [SerializeField] int p1x, p1y, p2x, p2y;
+    
+    Scene currentScene;
+    HealthController healthController;
+
+    void Awake()
+    {
+        currentScene = SceneManager.GetActiveScene();
+
+        if(currentScene.name == "Stage1")
+        {
+            p1 = GameObject.Find("Player 1");
+            p2 = GameObject.Find("Player 2");
+
+            //p1h = GameObject.Find("p1Healthbar");
+            //p2h = GameObject.Find("p2Healthbar");
+
+            /*if(GameObject.name == "p1Healthbar"){
+                p1.GetComponent(HealthController).healthbar = p1Healthbar;
+            }
+
+            if(GameObject.name == "p2Healthbar"){
+                p2.GetComponent(HealthController).healthbar = p2Healthbar;
+            }*/
+            
+
+            //p1.healthController.healthbar = p1Healthbar;
+            //p2.healthController.healthbar = p2Healthbar;
+        }
+    }
 
     //sets p1 position to (p1x,p1y) and p2 position to (p2x,p2y)
     public void setPositions()
