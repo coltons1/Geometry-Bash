@@ -1119,7 +1119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a082f9ee45901df46b81ba9e6ef3873e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 1950485836}
+  fallingObj: {fileID: 1950485836}
   posX: -8
   posY: -3
 --- !u!1001 &5655631750662779875
@@ -1178,6 +1178,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightPlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 5655631750415523307, guid: f68ec1f8eda5c354aa4cd239a3bdc00a, type: 3}
+      propertyPath: fallingObj
+      value: 
+      objectReference: {fileID: 5655631750662779876}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: f68ec1f8eda5c354aa4cd239a3bdc00a, type: 3}
+--- !u!1 &5655631750662779876 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3022044526550154511, guid: f68ec1f8eda5c354aa4cd239a3bdc00a, type: 3}
+  m_PrefabInstance: {fileID: 5655631750662779875}
+  m_PrefabAsset: {fileID: 0}

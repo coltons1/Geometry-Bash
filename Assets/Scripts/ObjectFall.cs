@@ -5,11 +5,11 @@ using UnityEngine;
 public class ObjectFall : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] GameObject obj;
+    [SerializeField] GameObject fallingObj;
     [SerializeField] int posX, posY;
     void Start()
     {
-       obj.GetComponent<Rigidbody2D>().isKinematic = true;
+       fallingObj.GetComponent<Rigidbody2D>().isKinematic = true;
 
     }
 
@@ -17,7 +17,7 @@ public class ObjectFall : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Check for a match with the specified name on any GameObject that collides with your GameObject
-        if (obj.GetComponent<Rigidbody2D>().isKinematic == true && collision.gameObject.name == "Player 1" 
+        if (fallingObj.GetComponent<Rigidbody2D>().isKinematic == true && collision.gameObject.name == "Player 1" 
             || collision.gameObject.name == "Player 2" )
         {
             //If the GameObject's name matches the one you suggest, output this message in the console
@@ -46,16 +46,18 @@ public class ObjectFall : MonoBehaviour
         }
     }
 
+    //makes the object fall by making it a dyaimc object
     private void fall()
     {
-        obj.GetComponent<Rigidbody2D>().isKinematic = false;
+        fallingObj.GetComponent<Rigidbody2D>().isKinematic = false;
     }
 
+    // sets the object positions back to a set vale, makes it static, and sets velocities to 0
     private void resetPosition()
     {
-        obj.transform.position = new Vector2(posX, posY);    
-        obj.GetComponent<Rigidbody2D>().isKinematic = true;
-        obj.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f,0.0f);
+        fallingObj.transform.position = new Vector2(posX, posY);    
+        fallingObj.GetComponent<Rigidbody2D>().isKinematic = true;
+        fallingObj.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f,0.0f);
 
 
     }

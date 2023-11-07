@@ -46,8 +46,10 @@ public class LoadSceneAssets : MonoBehaviour
         p1 = GameObject.Find("Player 1");
         p2 = GameObject.Find("Player 2");
         
+        //allows players 1 and 2 to move
         p1.GetComponent<Rigidbody2D>().isKinematic = false;
         p2.GetComponent<Rigidbody2D>().isKinematic = false;
+
         //sets p1 position and velocity
         p1.transform.position = new Vector2(p1x, p1y);
         p1.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f,0.0f);

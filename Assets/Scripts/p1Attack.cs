@@ -35,6 +35,7 @@ public class p1Attack : MonoBehaviour
         }
     }
 
+    //makes the attack hitbox active to hit things
     private void Attack(){
         attacking = true;
         attackArea.setActive(attacking);
