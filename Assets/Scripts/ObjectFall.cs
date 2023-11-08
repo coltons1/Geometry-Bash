@@ -6,7 +6,7 @@ public class ObjectFall : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] GameObject fallingObj;
-    [SerializeField] int posX, posY;
+    [SerializeField] float posX, posY;
     void Start()
     {
        fallingObj.GetComponent<Rigidbody2D>().isKinematic = true;
@@ -55,9 +55,10 @@ public class ObjectFall : MonoBehaviour
     // sets the object positions back to a set vale, makes it static, and sets velocities to 0
     private void resetPosition()
     {
-        fallingObj.transform.position = new Vector2(posX, posY);    
         fallingObj.GetComponent<Rigidbody2D>().isKinematic = true;
         fallingObj.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f,0.0f);
+        fallingObj.transform.position = new Vector2(posX, posY);    
+
 
 
     }
