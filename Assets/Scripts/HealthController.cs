@@ -5,26 +5,26 @@ using UnityEngine.UI;
 
 public class HealthController : MonoBehaviour
 {
-    [SerializeField] Health health;
+    public Health health;
     private float currentHealth;
     [SerializeField] Slider healthbar;
 
     private void Start()
     {
-        currentHealth = health.maxHealth;
+        currentHealth = health.maxHP;
     }
 
     public void takeDamage(float damage)
     {
         currentHealth -= damage;
-        currentHealth = Mathf.Clamp(currentHealth, 0f, health.maxHealth);
+        currentHealth = Mathf.Clamp(currentHealth, 0f, health.maxHP);
         healthbar.value = currentHealth;
     }
 
     public void healDamage(float amount)
     {
         currentHealth -= amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0f, health.maxHealth);
+        currentHealth = Mathf.Clamp(currentHealth, 0f, health.maxHP);
         healthbar.value = currentHealth;
     }
 
