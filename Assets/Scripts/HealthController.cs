@@ -33,7 +33,7 @@ public class HealthController : MonoBehaviour
         healthbar.value = hpValue;
     }
 
-   public void isHealthZero(){
+    public void isHealthZero(){
         if(hpValue == 0)
         {
             Debug.Log("game over pal");
