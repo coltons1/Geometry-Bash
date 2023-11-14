@@ -15,10 +15,9 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject Player2;
     private Rigidbody2D p1;
     private Rigidbody2D p2;
-
     void Awake()
     {
-        Scene currentScene = SceneManager.GetActiveScene();
+        /*Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 
         if(sceneName == "Stage1")
@@ -31,7 +30,7 @@ public class Player : MonoBehaviour
         {
             health1 = GameObject.Find("p1Healthbar").GetComponent<HealthController>();
             health2 = GameObject.Find("p2Healthbar").GetComponent<HealthController>();
-        }
+        }*/
         
     }
     // Start is called before the first frame update
@@ -40,8 +39,12 @@ public class Player : MonoBehaviour
         //movement 
         p1 = Player1.GetComponent<Rigidbody2D>();
         p2 = Player2.GetComponent<Rigidbody2D>();
+
         moveSpeed = 10f;
         jumpHeight = 18f;
+
+        health1 = GameObject.Find("Player 1").GetComponent<HealthController>();
+        health2 = GameObject.Find("Player 2").GetComponent<HealthController>();
         
     }
 
@@ -51,7 +54,9 @@ public class Player : MonoBehaviour
         if(collision.gameObject.name == "BottomPlatform")
         {
             Debug.Log("enter");
-            //health1.takeDamage(5);
+            health1.takeDamage(5);
+            Debug.Log("p1 took damage");
+
         }
     }
 

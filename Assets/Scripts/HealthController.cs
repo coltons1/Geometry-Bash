@@ -7,7 +7,7 @@ public class HealthController : MonoBehaviour
 {
     public Health health;
     private float currentHealth;
-    [SerializeField] Slider healthbar;
+    public Slider healthbar;
 
     private void Start()
     {
@@ -18,7 +18,8 @@ public class HealthController : MonoBehaviour
     {
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0f, health.maxHP);
-        healthbar.value = currentHealth;
+        //healthbar.value = currentHealth;
+        Debug.Log(currentHealth);
     }
 
     public void healDamage(float amount)

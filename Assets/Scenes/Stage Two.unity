@@ -873,8 +873,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e4619d9c96d3c4c96613612f9765d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthbar: {fileID: 0}
-  hpValue: 100
+  health: {fileID: 11400000, guid: 02fde933b63febf4d8dddb0cb87769ef, type: 2}
+  healthbar: {fileID: 1802517202}
 --- !u!114 &1802517202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -978,8 +978,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e4619d9c96d3c4c96613612f9765d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthbar: {fileID: 0}
-  hpValue: 100
+  health: {fileID: 11400000, guid: 9c7e09a75cb8bfa4d8c27fe559f60b55, type: 2}
+  healthbar: {fileID: 1947057669}
 --- !u!114 &1947057669
 MonoBehaviour:
   m_ObjectHideFlags: 0
