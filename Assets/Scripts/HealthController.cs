@@ -5,36 +5,36 @@ using UnityEngine.UI;
 
 public class HealthController : MonoBehaviour
 {
+    [SerializeField] Health health;
+    private float currentHealth;
+    [SerializeField] Slider healthbar;
 
-    public Slider healthbar;
-    public int hpValue = 100;
-    //public int hpValueP2 = 100;
-
-    // Start is called before the first frame update
-    void Awake()
+    private void Start()
     {
-        
-    }
-    
-    // Update is called once per frame
-    void Update()
-    {
-
+        currentHealth = health.maxHealth;
     }
 
-    public void takeDamage(int damage)
+    public void takeDamage(float damage)
     {
-        this.hpValue -= damage;
-        healthbar.value = hpValue;
+        currentHealth -= damage;
+        currentHealth = Mathf.Clamp(currentHealth, 0f, health.maxHealth);
+        healthbar.value = currentHealth;
     }
 
-    public void healDamage(int heal){
-        this.hpValue += heal;
-        healthbar.value = hpValue;
+    public void healDamage(float amount)
+    {
+        currentHealth -= amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0f, health.maxHealth);
+        healthbar.value = currentHealth;
+    }
+
+    public float getCurrentHealth()
+    {
+        return currentHealth;
     }
 
     public void isHealthZero(){
-        if(hpValue == 0)
+        if(currentHealth == 0)
         {
             Debug.Log("game over pal");
             Die();

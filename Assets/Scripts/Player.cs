@@ -15,19 +15,15 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject Player2;
     private Rigidbody2D p1;
     private Rigidbody2D p2;
+    private Camera camera;
 
     void Awake()
     {
+        camera = Camera.main;
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 
         if(sceneName == "Stage1")
-        {
-            health1 = GameObject.Find("p1Healthbar").GetComponent<HealthController>();
-            health2 = GameObject.Find("p2Healthbar").GetComponent<HealthController>();
-        }
-
-        if(sceneName == "Stage Two")
         {
             health1 = GameObject.Find("p1Healthbar").GetComponent<HealthController>();
             health2 = GameObject.Find("p2Healthbar").GetComponent<HealthController>();
@@ -45,13 +41,15 @@ public class Player : MonoBehaviour
         
     }
 
+
+
     //When the object starts colliding
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.name == "BottomPlatform")
         {
             Debug.Log("enter");
-            //health1.takeDamage(5);
+            health1.takeDamage(5);
         }
     }
 
@@ -76,6 +74,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        outOfBounds();
+        
         //Player 1 Movement
 
         //Player Jump
@@ -143,6 +143,18 @@ public class Player : MonoBehaviour
         if(Input.GetKey(KeyCode.K)){
             p2.velocity = new Vector3(p2.velocity.x, -jumpHeight / 1.25f, 0);
         }
+        
+    }
 
+    private void outOfBounds(){
+        //Vector2 screenPosition = camera.WorldToScreenPoint(transform.position);
+
+        if(transform.position.x < 0 ||
+        transform.position.x > camera.pixelWidth ||
+        transform.position.y < 0 ||
+        transform.position.y > camera.pixelHeight){
+            Destroy(player1);
+            Debug.Log("Skull Emoji");
+        }
     }
 }

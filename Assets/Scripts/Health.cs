@@ -1,11 +1,7 @@
 using UnityEngine;
-using UnityEngine.UI;
 
-[CreateAssetMenu(fileName = "Health", menuName = "ScriptableObjects/Healthbar")]
+[CreateAssetMenu(fileName = "New Health", menuName = "Health System/Health")]
 public class Health : ScriptableObject
 {
-    public int MAX_HEALTH = 100;
-    public int health = 100;
-    public Slider healthbar;
-
+    public float maxHealth = 100;
 }
