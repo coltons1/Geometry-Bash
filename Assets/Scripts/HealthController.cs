@@ -34,4 +34,15 @@ public class HealthController : MonoBehaviour
         return currentHealth;
     }
 
+    public void isHealthZero(){
+        if(currentHealth == 0)
+        {
+            Debug.Log("game over pal");
+            Die();
+        }
+    }
+
+    public void Die(){
+        Destroy(gameObject);
+    }
 }
