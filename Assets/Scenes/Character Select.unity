@@ -3781,7 +3781,6 @@ GameObject:
   - component: {fileID: 1653596267}
   - component: {fileID: 1653596270}
   - component: {fileID: 1653596269}
-  - component: {fileID: 1653596268}
   m_Layer: 5
   m_Name: p2Healthbar
   m_TagString: Untagged
@@ -3811,18 +3810,6 @@ RectTransform:
   m_AnchoredPosition: {x: 600, y: 400}
   m_SizeDelta: {x: 600, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1653596268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1653596266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c65ed0d283fd5241ac673e8bf7a85cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1653596269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3899,7 +3886,6 @@ GameObject:
   - component: {fileID: 1680569248}
   - component: {fileID: 1680569251}
   - component: {fileID: 1680569250}
-  - component: {fileID: 1680569249}
   m_Layer: 5
   m_Name: p1Healthbar
   m_TagString: Untagged
@@ -3929,18 +3915,6 @@ RectTransform:
   m_AnchoredPosition: {x: -600, y: 400}
   m_SizeDelta: {x: 600, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1680569249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1680569247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c65ed0d283fd5241ac673e8bf7a85cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1680569250
 MonoBehaviour:
   m_ObjectHideFlags: 0

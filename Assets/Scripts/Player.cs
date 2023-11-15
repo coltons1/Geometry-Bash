@@ -7,7 +7,9 @@ public class Player : MonoBehaviour
 {
     //creation of jumpheight and movespeed
     HealthController health1;
+    bool p1Alive;
     HealthController health2;
+    bool p2Alive;
     public float jumpHeight;
     public float moveSpeed;
 
@@ -46,6 +48,8 @@ public class Player : MonoBehaviour
 
         health1 = GameObject.Find("Player 1").GetComponent<HealthController>();
         health2 = GameObject.Find("Player 2").GetComponent<HealthController>();
+        p1Alive = true;
+        p2Alive = true;
         
     }
 
@@ -90,9 +94,15 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        outOfBounds(Player1);
-        outOfBounds(Player2);
+        //if players are alive check if they are inbounds
+        if(p1Alive){
+            outOfBounds(Player1);
+            p1Alive = false;
+        }
+        if(p2Alive){
+            outOfBounds(Player2);
+            p2Alive = false;
+        }
         
         //Player 1 Movement
 
@@ -161,9 +171,9 @@ public class Player : MonoBehaviour
         if(Input.GetKey(KeyCode.K)){
             p2.velocity = new Vector3(p2.velocity.x, -jumpHeight / 1.25f, 0);
         }
-
+    }
     //finds the player position on the camera and if it has fallen out of bounds
-    private void outOfBounds(GameObject theGuy){
+    void outOfBounds(GameObject theGuy){
         if(theGuy.GetComponent<Rigidbody2D>().transform.position.x < -20 ||
         theGuy.GetComponent<Rigidbody2D>().transform.position.x > 20 ||
         theGuy.GetComponent<Rigidbody2D>().transform.position.y < -12 ||
@@ -173,3 +183,4 @@ public class Player : MonoBehaviour
         }
     }
 }
+
