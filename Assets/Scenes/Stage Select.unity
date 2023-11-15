@@ -420,7 +420,7 @@ GameObject:
   - component: {fileID: 1530145264}
   - component: {fileID: 1530145263}
   m_Layer: 5
-  m_Name: Stage 1 Select
+  m_Name: Stage One Select
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -500,7 +500,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Stage1
+          m_StringArgument: Stage One
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 750065858}
@@ -703,7 +703,7 @@ GameObject:
   - component: {fileID: 1591389097}
   - component: {fileID: 1591389096}
   m_Layer: 5
-  m_Name: Stage 2 Select
+  m_Name: Stage Two Select
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
