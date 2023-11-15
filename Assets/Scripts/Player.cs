@@ -15,21 +15,21 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject Player2;
     private Rigidbody2D p1;
     private Rigidbody2D p2;
-    private Camera camera;
-
     void Awake()
     {
-        //initializes camera
-        camera = Camera.main;
-
-        //Finds the active scene and sets the player healthbars
-        Scene currentScene = SceneManager.GetActiveScene();
+        /*Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
         if(sceneName == "Stage1")
         {
             health1 = GameObject.Find("p1Healthbar").GetComponent<HealthController>();
             health2 = GameObject.Find("p2Healthbar").GetComponent<HealthController>();
         }
+
+        if(sceneName == "Stage Two")
+        {
+            health1 = GameObject.Find("p1Healthbar").GetComponent<HealthController>();
+            health2 = GameObject.Find("p2Healthbar").GetComponent<HealthController>();
+        }*/
         
     }
     // Start is called before the first frame update
@@ -38,14 +38,14 @@ public class Player : MonoBehaviour
         //movement 
         p1 = Player1.GetComponent<Rigidbody2D>();
         p2 = Player2.GetComponent<Rigidbody2D>();
+
         moveSpeed = 10f;
         jumpHeight = 18f;
 
-
+        health1 = GameObject.Find("Player 1").GetComponent<HealthController>();
+        health2 = GameObject.Find("Player 2").GetComponent<HealthController>();
         
     }
-
-
 
     //When the object starts colliding
     private void OnCollisionEnter2D(Collision2D collision)
@@ -53,7 +53,17 @@ public class Player : MonoBehaviour
         if(collision.gameObject.name == "BottomPlatform")
         {
             Debug.Log("enter");
-            health1.takeDamage(5);
+            if(collision.gameObject.tag == "Player One")
+            {
+                health1.takeDamage(5);
+                Debug.Log("p1 took damage");
+            }
+            if(collision.gameObject.tag == "Player Two")
+            {
+                health2.takeDamage(5);
+                Debug.Log("p2 took damage");
+            }
+
         }
     }
 
@@ -149,8 +159,6 @@ public class Player : MonoBehaviour
         if(Input.GetKey(KeyCode.K)){
             p2.velocity = new Vector3(p2.velocity.x, -jumpHeight / 1.25f, 0);
         }
-        
-    }
 
     //finds the player position on the camera and if it has fallen out of bounds
     private void outOfBounds(GameObject theGuy){
