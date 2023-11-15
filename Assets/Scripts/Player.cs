@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
         /*Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 
-        if(sceneName == "Stage1")
+        if(sceneName == "Stage One")
         {
             health1 = GameObject.Find("p1Healthbar").GetComponent<HealthController>();
             health2 = GameObject.Find("p2Healthbar").GetComponent<HealthController>();
@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
         }*/
         
     }
+
     // Start is called before the first frame update
     void Start()
     {
