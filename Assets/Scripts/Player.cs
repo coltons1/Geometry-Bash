@@ -19,10 +19,12 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
+        //initializes camera
         camera = Camera.main;
+
+        //Finds the active scene and sets the player healthbars
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
-
         if(sceneName == "Stage1")
         {
             health1 = GameObject.Find("p1Healthbar").GetComponent<HealthController>();
@@ -38,6 +40,8 @@ public class Player : MonoBehaviour
         p2 = Player2.GetComponent<Rigidbody2D>();
         moveSpeed = 10f;
         jumpHeight = 18f;
+
+
         
     }
 
@@ -74,7 +78,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        outOfBounds();
+
+        outOfBounds(Player1);
+        outOfBounds(Player2);
         
         //Player 1 Movement
 
@@ -146,14 +152,13 @@ public class Player : MonoBehaviour
         
     }
 
-    private void outOfBounds(){
-        //Vector2 screenPosition = camera.WorldToScreenPoint(transform.position);
-
-        if(transform.position.x < 0 ||
-        transform.position.x > camera.pixelWidth ||
-        transform.position.y < 0 ||
-        transform.position.y > camera.pixelHeight){
-            Destroy(player1);
+    //finds the player position on the camera and if it has fallen out of bounds
+    private void outOfBounds(GameObject theGuy){
+        if(theGuy.GetComponent<Rigidbody2D>().transform.position.x < -20 ||
+        theGuy.GetComponent<Rigidbody2D>().transform.position.x > 20 ||
+        theGuy.GetComponent<Rigidbody2D>().transform.position.y < -12 ||
+        theGuy.GetComponent<Rigidbody2D>().transform.position.y > 12){
+            Destroy(theGuy);
             Debug.Log("Skull Emoji");
         }
     }

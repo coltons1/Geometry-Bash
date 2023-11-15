@@ -873,8 +873,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e4619d9c96d3c4c96613612f9765d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 0}
   healthbar: {fileID: 0}
-  hpValue: 100
 --- !u!114 &1802517202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -978,8 +978,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e4619d9c96d3c4c96613612f9765d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 0}
   healthbar: {fileID: 0}
-  hpValue: 100
 --- !u!114 &1947057669
 MonoBehaviour:
   m_ObjectHideFlags: 0
