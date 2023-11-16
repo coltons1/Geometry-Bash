@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     //creation of jumpheight and movespeed
-    HealthController health1;
     bool p1Alive;
-    HealthController health2;
     bool p2Alive;
     public float jumpHeight;
     public float moveSpeed;
@@ -17,6 +16,9 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject Player2;
     private Rigidbody2D p1;
     private Rigidbody2D p2;
+    public int MaxHealth = 100;
+    public int health;
+    public HealthBar Healthbar;
     void Awake()
     {
         /*Scene currentScene = SceneManager.GetActiveScene();
@@ -43,11 +45,12 @@ public class Player : MonoBehaviour
         p1 = Player1.GetComponent<Rigidbody2D>();
         p2 = Player2.GetComponent<Rigidbody2D>();
 
+        health = MaxHealth;
+        Healthbar.SetMaxHealth(MaxHealth);
+
         moveSpeed = 10f;
         jumpHeight = 18f;
 
-        health1 = GameObject.Find("Player 1").GetComponent<HealthController>();
-        health2 = GameObject.Find("Player 2").GetComponent<HealthController>();
         p1Alive = true;
         p2Alive = true;
         
@@ -58,16 +61,14 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.name == "BottomPlatform")
         {
-            Debug.Log("enter");
-            if(collision.gameObject.tag == "Player One")
-            {
-                health1.takeDamage(5);
-                Debug.Log("p1 took damage");
-            }
+
+            health = health - 10;
+            Healthbar.SetHealth(health);
+            Debug.Log("p1 took damage");
             if(collision.gameObject.tag == "Player Two")
             {
-                health2.takeDamage(5);
-                Debug.Log("p2 took damage");
+               /* health2.takeDamage(5);
+                Debug.Log("p2 took damage");*/
             }
 
         }

@@ -11,7 +11,7 @@ public class LoadSceneAssets : MonoBehaviour
     [SerializeField] int p1x, p1y, p2x, p2y;
     
     Scene currentScene;
-    HealthController healthController;
+    //HealthController healthController;
 
     void Awake()
     {

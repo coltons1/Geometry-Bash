@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
 
-    HealthController healthController;
+    /*HealthController healthController;
     void Awake()
     {
         healthController = GameObject.Find("p1Healthbar").GetComponent<HealthController>();
@@ -40,5 +40,5 @@ public class PlayerCollision : MonoBehaviour
     void Update()
     {
         
-    }
+    }*/
 }

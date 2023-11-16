@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 750065861}
   - component: {fileID: 750065860}
   - component: {fileID: 750065859}
-  - component: {fileID: 750065858}
   - component: {fileID: 750065863}
   m_Layer: 5
   m_Name: Canvas
@@ -144,22 +143,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &750065858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 750065857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f7bd678f1ea5bb42bf180709361ee3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  p1x: -10
-  p1y: 0
-  p2x: 10
-  p2y: 0
 --- !u!114 &750065859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,6 +402,7 @@ GameObject:
   - component: {fileID: 1530145265}
   - component: {fileID: 1530145264}
   - component: {fileID: 1530145263}
+  - component: {fileID: 1530145266}
   m_Layer: 5
   m_Name: Stage One Select
   m_TagString: Untagged
@@ -503,8 +487,8 @@ MonoBehaviour:
           m_StringArgument: Stage One
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 750065858}
-        m_TargetAssemblyTypeName: LoadPlayers, Assembly-CSharp
+      - m_Target: {fileID: 1530145266}
+        m_TargetAssemblyTypeName: LoadSceneAssets, Assembly-CSharp
         m_MethodName: setPositions
         m_Mode: 1
         m_Arguments:
@@ -553,6 +537,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1530145261}
   m_CullTransparentMesh: 1
+--- !u!114 &1530145266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530145261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f7bd678f1ea5bb42bf180709361ee3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1x: -9
+  p1y: 0
+  p2x: 9
+  p2y: 0
 --- !u!1 &1556270139
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,9 +742,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f7bd678f1ea5bb42bf180709361ee3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p1x: 0
+  p1x: -10
   p1y: 0
-  p2x: 0
+  p2x: 10
   p2y: 0
 --- !u!114 &1591389097
 MonoBehaviour:
@@ -814,9 +814,9 @@ MonoBehaviour:
           m_StringArgument: Stage Two
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 750065858}
+      - m_Target: {fileID: 1591389094}
         m_TargetAssemblyTypeName: LoadPlayers, Assembly-CSharp
-        m_MethodName: setPositions
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
