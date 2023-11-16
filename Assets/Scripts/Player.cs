@@ -79,7 +79,6 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.name == "BottomPlatform")
         {
-            Debug.Log("stay");
         }
     }
     
@@ -88,7 +87,6 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.name == "BottomPlatform")
         {
-            Debug.Log("exit");    
         }
     }
 
