@@ -814,9 +814,9 @@ MonoBehaviour:
           m_StringArgument: Stage Two
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1591389094}
-        m_TargetAssemblyTypeName: LoadPlayers, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 1591389096}
+        m_TargetAssemblyTypeName: LoadSceneAssets, Assembly-CSharp
+        m_MethodName: setPositions
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
