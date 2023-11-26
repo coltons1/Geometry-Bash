@@ -7,7 +7,7 @@ public class LoadSceneAssets : MonoBehaviour
 {
     // Start is called before the first frame update
     private GameObject p1, p2;
-    //private GameObject h1, h2;
+    private GameObject h1, h2;
     [SerializeField] int p1x, p1y, p2x, p2y;
     
     Scene currentScene;
@@ -46,6 +46,7 @@ public class LoadSceneAssets : MonoBehaviour
         p1 = GameObject.Find("Player 1");
         p2 = GameObject.Find("Player 2");
         
+
         //allows players 1 and 2 to move
         p1.GetComponent<Rigidbody2D>().isKinematic = false;
         p2.GetComponent<Rigidbody2D>().isKinematic = false;
@@ -58,12 +59,20 @@ public class LoadSceneAssets : MonoBehaviour
         p2.transform.position = new Vector2(p2x, p2y);
         p2.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f,0.0f);
 
+
+
+
         //assigns h1 and h2 to player 1 health bar and player 2 healthbar
-        //h1 = GameObject.Find("p1Healthbar");
-        //h2 = GameObject.Find("p2Healthbar");
-        
-        //h1.transform.position = new Vector2(-600, 400);
-        //h2.transform.position = new Vector2(600, 400);
+        h1 = GameObject.Find("P1HealthBar");
+        h2 = GameObject.Find("P2HealthBar");
+
+        //displays player 1 healthbar
+        h1.transform.GetChild(0).gameObject.SetActive(true);
+        h1.transform.GetChild(1).gameObject.SetActive(true);
+
+        h2.transform.GetChild(0).gameObject.SetActive(true);
+        h2.transform.GetChild(1).gameObject.SetActive(true);
+
 
 
 
