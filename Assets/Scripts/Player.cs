@@ -19,24 +19,7 @@ public class Player : MonoBehaviour
     public int MaxHealth = 100;
     public int health;
     public HealthBar Healthbar;
-    void Awake()
-    {
-        /*Scene currentScene = SceneManager.GetActiveScene();
-        string sceneName = currentScene.name;
 
-        if(sceneName == "Stage One")
-        {
-            health1 = GameObject.Find("p1Healthbar").GetComponent<HealthController>();
-            health2 = GameObject.Find("p2Healthbar").GetComponent<HealthController>();
-        }
-
-        if(sceneName == "Stage Two")
-        {
-            health1 = GameObject.Find("p1Healthbar").GetComponent<HealthController>();
-            health2 = GameObject.Find("p2Healthbar").GetComponent<HealthController>();
-        }*/
-        
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -44,12 +27,14 @@ public class Player : MonoBehaviour
         //movement 
         p1 = Player1.GetComponent<Rigidbody2D>();
         p2 = Player2.GetComponent<Rigidbody2D>();
+        moveSpeed = 10f;
+        jumpHeight = 18f;
 
+
+        //player health
         health = MaxHealth;
         Healthbar.SetMaxHealth(MaxHealth);
 
-        moveSpeed = 10f;
-        jumpHeight = 18f;
 
         p1Alive = true;
         p2Alive = true;
@@ -59,17 +44,12 @@ public class Player : MonoBehaviour
     //When the object starts colliding
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // makes the player take damage ob collsion
         if(collision.gameObject.name == "BottomPlatform")
         {
-
-            health = health - 10;
+            takeDamage(10);
             Healthbar.SetHealth(health);
             Debug.Log("p1 took damage");
-            if(collision.gameObject.tag == "Player Two")
-            {
-               /* health2.takeDamage(5);
-                Debug.Log("p2 took damage");*/
-            }
 
         }
     }
@@ -180,6 +160,12 @@ public class Player : MonoBehaviour
             Destroy(theGuy);
             Debug.Log("Skull Emoji");
         }
+    }
+
+    //makes the player take damage
+    private void takeDamage(int damage){
+        health = health - damage;
+        Debug.Log("*Ooh Ouch Yikes Yowch Oof Skeeouch Yeeowch*");
     }
 }
 
