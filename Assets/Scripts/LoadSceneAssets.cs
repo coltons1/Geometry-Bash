@@ -7,7 +7,7 @@ public class LoadSceneAssets : MonoBehaviour
 {
     // Start is called before the first frame update
     private GameObject p1, p2;
-    private GameObject h1, h2;
+    private GameObject h1,h2;
     [SerializeField] int p1x, p1y, p2x, p2y;
     
     Scene currentScene;
@@ -22,20 +22,6 @@ public class LoadSceneAssets : MonoBehaviour
             p1 = GameObject.Find("Player 1");
             p2 = GameObject.Find("Player 2");
 
-            //p1h = GameObject.Find("p1Healthbar");
-            //p2h = GameObject.Find("p2Healthbar");
-
-            /*if(GameObject.name == "p1Healthbar"){
-                p1.GetComponent(HealthController).healthbar = p1Healthbar;
-            }
-
-            if(GameObject.name == "p2Healthbar"){
-                p2.GetComponent(HealthController).healthbar = p2Healthbar;
-            }*/
-            
-
-            //p1.healthController.healthbar = p1Healthbar;
-            //p2.healthController.healthbar = p2Healthbar;
         }
     }
 
@@ -64,11 +50,13 @@ public class LoadSceneAssets : MonoBehaviour
 
         //assigns h1 and h2 to player 1 health bar and player 2 healthbar
         h1 = GameObject.Find("P1HealthBar");
-        h2 = GameObject.Find("P2HealthBar");
+
 
         //displays player 1 healthbar
         h1.transform.GetChild(0).gameObject.SetActive(true);
         h1.transform.GetChild(1).gameObject.SetActive(true);
+
+        h2 = GameObject.Find("P2HealthBar");
 
         h2.transform.GetChild(0).gameObject.SetActive(true);
         h2.transform.GetChild(1).gameObject.SetActive(true);
