@@ -152,7 +152,7 @@ public class Player : MonoBehaviour
         }
     }
     //finds the player position on the camera and if it has fallen out of bounds
-    void outOfBounds(GameObject theGuy){
+    private void outOfBounds(GameObject theGuy){
         if(theGuy.GetComponent<Rigidbody2D>().transform.position.x < -20 ||
         theGuy.GetComponent<Rigidbody2D>().transform.position.x > 20 ||
         theGuy.GetComponent<Rigidbody2D>().transform.position.y < -12 ||
