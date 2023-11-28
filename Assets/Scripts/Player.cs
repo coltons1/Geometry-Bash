@@ -99,6 +99,7 @@ public class Player : MonoBehaviour
             else {
                 p1.velocity = new Vector3(moveSpeed, p1.velocity.y, 0);
             }
+            p1.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);
 	
 	    }
 
@@ -109,7 +110,8 @@ public class Player : MonoBehaviour
             } 
             else {
                 p1.velocity = new Vector3(-moveSpeed, p1.velocity.y, 0);
-            }		
+            }	
+            p1.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
 	    }
 
         //Player 1 Move Down
@@ -134,6 +136,7 @@ public class Player : MonoBehaviour
             else {
                 p2.velocity = new Vector3(moveSpeed, p2.velocity.y, 0);
             }
+            p1.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);	
 	    }
 
         //Player 2 Move Left
@@ -144,6 +147,7 @@ public class Player : MonoBehaviour
             else {
                 p2.velocity = new Vector3(-moveSpeed, p2.velocity.y, 0);
             }
+            p1.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
 	    }
 
         //Player 2 Move Down
@@ -168,4 +172,3 @@ public class Player : MonoBehaviour
         Debug.Log("*Ooh Ouch Yikes Yowch Oof Skeeouch Yeeowch*");
     }
 }
-
