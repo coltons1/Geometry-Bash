@@ -49,7 +49,6 @@ public class Player : MonoBehaviour
         {
             takeDamage(10);
             Healthbar.SetHealth(health);
-            Debug.Log("p1 took damage");
 
         }
     }
