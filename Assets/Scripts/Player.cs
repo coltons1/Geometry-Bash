@@ -19,11 +19,13 @@ public class Player : MonoBehaviour
     public int MaxHealth = 100;
     public int health;
     public HealthBar Healthbar;
+    public Animator animator;
 
 
     // Start is called before the first frame update
     void Start()
     {
+
         //movement 
         p1 = Player1.GetComponent<Rigidbody2D>();
         p2 = Player2.GetComponent<Rigidbody2D>();
@@ -82,12 +84,16 @@ public class Player : MonoBehaviour
             outOfBounds(Player2);
             p2Alive = false;
         }
+
+        animator.SetFloat("Speed", Mathf.Abs(p1.velocity.x));
+        animator.SetFloat("AirSpeed", Mathf.Abs(p1.velocity.y));
         
         //Player 1 Movement
 
         //Player Jump
         if(Input.GetKeyDown(KeyCode.W) && p1.velocity.y == 0){
 		    p1.velocity = new Vector3(p1.velocity.x, jumpHeight, 0);
+            animator.SetBool("isJumping", true);
 		
 	    }
 
@@ -170,5 +176,9 @@ public class Player : MonoBehaviour
     private void takeDamage(int damage){
         health = health - damage;
         Debug.Log("*Ooh Ouch Yikes Yowch Oof Skeeouch Yeeowch*");
+    }
+
+    public void OnLanding(){
+        animator.SetBool("isJumping", false);
     }
 }
