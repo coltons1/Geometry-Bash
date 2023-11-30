@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject Player2;
     private Rigidbody2D p1;
     private Rigidbody2D p2;
+    private GameObject MeleeAttack;
     public int MaxHealth = 100;
     public int health;
     public HealthBar Healthbar;
@@ -118,6 +119,10 @@ public class Player : MonoBehaviour
             p1.velocity = new Vector3(p1.velocity.x, -jumpHeight / 1.25f, 0);
         }
 
+        //Player 1 attack
+        if(Input.GetKeyUp(KeyCode.E)){
+            meleeAttack(Player1);
+        }
 
         //Player 2 Movement
 
@@ -170,4 +175,20 @@ public class Player : MonoBehaviour
         health = health - damage;
         Debug.Log("*Ooh Ouch Yikes Yowch Oof Skeeouch Yeeowch*");
     }
+
+    //does a basic melee attack
+    private void meleeAttack(GameObject player){
+        MeleeAttack = new GameObject("Melee Attack");
+        MeleeAttack.AddComponent<BoxCollider>();
+        MeleeAttack.AddComponent<Rigidbody2D>();
+        MeleeAttack.transform.parent = player.transform;
+        MeleeAttack.GetComponent<RigidBody2D>().transform.position.x = p1.transform.position.x + 5;
+        Invoke("destroyMelee",5);
+
+    }
+
+    private void destroyMelee(){
+        Destroy(MeleeAttack);
+    }
+
 }
