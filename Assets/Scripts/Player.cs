@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] GameObject Player1;
     [SerializeField] GameObject Player2;
+    [SerializeField] Sprite attackSprite;
     private Rigidbody2D p1;
     private Rigidbody2D p2;
     private GameObject MeleeAttack;
@@ -127,7 +128,7 @@ public class Player : MonoBehaviour
 
         //Player 1 attack
         if(Input.GetKeyUp(KeyCode.E)){
-            meleeAttack(Player1);
+            meleeAttack();
         }
 
         //Player 2 Movement
@@ -183,12 +184,11 @@ public class Player : MonoBehaviour
     }
 
     //does a basic melee attack
-    private void meleeAttack(GameObject player){
+    private void meleeAttack(){
         MeleeAttack = new GameObject("Melee Attack");
+        MeleeAttack.AddComponent<SpriteRenderer>();
+        MeleeAttack.GetComponent<SpriteRenderer>().sprite = attackSprite;
         MeleeAttack.AddComponent<BoxCollider>();
-        MeleeAttack.AddComponent<Rigidbody2D>();
-        MeleeAttack.transform.parent = player.transform;
-        MeleeAttack.GetComponent<RigidBody2D>().transform.position.x = p1.transform.position.x + 5;
         Invoke("destroyMelee",5);
 
     }
