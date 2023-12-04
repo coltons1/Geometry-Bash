@@ -14,8 +14,10 @@ public class Player : MonoBehaviour
 
     [SerializeField] GameObject Player1;
     [SerializeField] GameObject Player2;
+    [SerializeField] Sprite attackSprite;
     private Rigidbody2D p1;
     private Rigidbody2D p2;
+    private GameObject MeleeAttack;
     public int MaxHealth = 100;
     public int health;
     public HealthBar Healthbar;
@@ -51,7 +53,7 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // makes the player take damage ob collsion
-        if(collision.gameObject.name == "BottomPlatform")
+        if(collision.gameObject.name == "MeleeAttack")
         {
             takeDamage(10);
             Healthbar.SetHealth(health);
@@ -139,6 +141,10 @@ public class Player : MonoBehaviour
             p1.velocity = new Vector3(p1.velocity.x, -jumpHeight / 1.25f, 0);
         }
 
+        //Player 1 attack
+        if(Input.GetKeyUp(KeyCode.E)){
+            meleeAttack();
+        }
         p2Animator.SetFloat("Speed", Mathf.Abs(p2.velocity.x));
         p2Animator.SetFloat("AirSpeed", Mathf.Abs(p2.velocity.y));
 
@@ -195,7 +201,26 @@ public class Player : MonoBehaviour
         Debug.Log("*Ooh Ouch Yikes Yowch Oof Skeeouch Yeeowch*");
     }
 
+<<<<<<< HEAD
+    //does a basic melee attack
+    private void meleeAttack(){
+        MeleeAttack = new GameObject("MeleeAttack");
+        MeleeAttack.AddComponent<Rigidbody2D>();
+        MeleeAttack.GetComponent<Rigidbody2D>().isKinematic = true;
+        MeleeAttack.AddComponent<SpriteRenderer>();
+        MeleeAttack.GetComponent<SpriteRenderer>().sprite = attackSprite;
+        Invoke("destroyMelee",5);
+
+    }
+
+    private void destroyMelee(){
+        Destroy(MeleeAttack);
+    }
+
+    public void OnLanding(){
+=======
     public void OnLanding(Animator animator){
+>>>>>>> c0cfe97da0b6a3e6682a744c28871be7e7dad894
         animator.SetBool("isJumping", false);
     }
 }
