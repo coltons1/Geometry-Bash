@@ -21,7 +21,8 @@ public class Player : MonoBehaviour
     public int MaxHealth = 100;
     public int health;
     public HealthBar Healthbar;
-    public Animator animator;
+    public Animator p1Animator;
+    public Animator p2Animator;
 
 
     // Start is called before the first frame update
@@ -43,24 +44,36 @@ public class Player : MonoBehaviour
         p1Alive = true;
         p2Alive = true;
         
+        p1Animator = Player1.GetComponent<Animator>();
+        p2Animator = Player2.GetComponent<Animator>();
+        
     }
 
     //When the object starts colliding
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         // makes the player take damage ob collsion
         if(collision.gameObject.name == "MeleeAttack")
         {
             takeDamage(10);
             Healthbar.SetHealth(health);
-            animator.SetBool("isJumping", false);
+            if(collision.gameObject.tag == "PlayerOne")
+            {
+                p1Animator.SetBool("isJumping", false);
+            }
+            
+            if(collision.gameObject.tag == "PlayerTwo")
+            {
+                p2Animator.SetBool("isJumping", false);
+            }
+            
             Debug.Log("p1 took damage");
 
         }
     }
 
     //While the object is colliding
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.gameObject.name == "BottomPlatform")
         {
@@ -68,7 +81,7 @@ public class Player : MonoBehaviour
     }
     
     //When the object stops colliding
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.gameObject.name == "BottomPlatform")
         {
@@ -88,15 +101,15 @@ public class Player : MonoBehaviour
             p2Alive = false;
         }
 
-        animator.SetFloat("Speed", Mathf.Abs(p1.velocity.x));
-        animator.SetFloat("AirSpeed", Mathf.Abs(p1.velocity.y));
+        p1Animator.SetFloat("Speed", Mathf.Abs(p1.velocity.x));
+        p1Animator.SetFloat("AirSpeed", Mathf.Abs(p1.velocity.y));
         
         //Player 1 Movement
 
         //Player Jump
         if(Input.GetKeyDown(KeyCode.W) && p1.velocity.y == 0){
 		    p1.velocity = new Vector3(p1.velocity.x, jumpHeight, 0);
-            animator.SetBool("isJumping", true);
+            p1Animator.SetBool("isJumping", true);
 		
 	    }
 
@@ -132,6 +145,9 @@ public class Player : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.E)){
             meleeAttack();
         }
+        p2Animator.SetFloat("Speed", Mathf.Abs(p2.velocity.x));
+        p2Animator.SetFloat("AirSpeed", Mathf.Abs(p2.velocity.y));
+
 
         //Player 2 Movement
 
@@ -149,7 +165,7 @@ public class Player : MonoBehaviour
             else {
                 p2.velocity = new Vector3(moveSpeed, p2.velocity.y, 0);
             }
-            p1.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);	
+            p2.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
 	    }
 
         //Player 2 Move Left
@@ -160,7 +176,7 @@ public class Player : MonoBehaviour
             else {
                 p2.velocity = new Vector3(-moveSpeed, p2.velocity.y, 0);
             }
-            p1.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
+            p2.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);	
 	    }
 
         //Player 2 Move Down
@@ -185,6 +201,7 @@ public class Player : MonoBehaviour
         Debug.Log("*Ooh Ouch Yikes Yowch Oof Skeeouch Yeeowch*");
     }
 
+<<<<<<< HEAD
     //does a basic melee attack
     private void meleeAttack(){
         MeleeAttack = new GameObject("MeleeAttack");
@@ -201,6 +218,9 @@ public class Player : MonoBehaviour
     }
 
     public void OnLanding(){
+=======
+    public void OnLanding(Animator animator){
+>>>>>>> c0cfe97da0b6a3e6682a744c28871be7e7dad894
         animator.SetBool("isJumping", false);
     }
 }
