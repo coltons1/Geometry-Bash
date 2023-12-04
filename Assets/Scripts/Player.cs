@@ -201,7 +201,6 @@ public class Player : MonoBehaviour
         Debug.Log("*Ooh Ouch Yikes Yowch Oof Skeeouch Yeeowch*");
     }
 
-<<<<<<< HEAD
     //does a basic melee attack
     private void meleeAttack(){
         MeleeAttack = new GameObject("MeleeAttack");
@@ -217,10 +216,7 @@ public class Player : MonoBehaviour
         Destroy(MeleeAttack);
     }
 
-    public void OnLanding(){
-=======
     public void OnLanding(Animator animator){
->>>>>>> c0cfe97da0b6a3e6682a744c28871be7e7dad894
         animator.SetBool("isJumping", false);
     }
 }
