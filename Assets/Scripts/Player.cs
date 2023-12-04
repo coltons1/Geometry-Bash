@@ -148,7 +148,7 @@ public class Player : MonoBehaviour
         //Player 2 Jump
          if(Input.GetKeyDown(KeyCode.I) && p2.velocity.y == 0){
 		    p2.velocity = new Vector3(p2.velocity.x, jumpHeight, 0);
-		
+            p2Animator.SetBool("isJumping", true);
 	    }
 
         //Player 2 Move Right
