@@ -148,6 +148,10 @@ PrefabInstance:
       value: 0.5058824
       objectReference: {fileID: 0}
     - target: {fileID: 1921415073013243172, guid: 6363fddff7579e4469582ffe68ded685, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1921415073013243172, guid: 6363fddff7579e4469582ffe68ded685, type: 3}
       propertyPath: m_MaskInteraction
       value: 2
       objectReference: {fileID: 0}
@@ -269,7 +273,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 866f9bd68aa75554885132b5ddcfbdfe, type: 3}
-  m_Color: {r: 1, g: 1, b: 0.8980392, a: 0.7019608}
+  m_Color: {r: 1, g: 1, b: 0.8980392, a: 0.827451}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -321,6 +325,10 @@ PrefabInstance:
     - target: {fileID: 1921415073013243172, guid: 6363fddff7579e4469582ffe68ded685, type: 3}
       propertyPath: m_Color.r
       value: 0.50980395
+      objectReference: {fileID: 0}
+    - target: {fileID: 1921415073013243172, guid: 6363fddff7579e4469582ffe68ded685, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1921415073013243172, guid: 6363fddff7579e4469582ffe68ded685, type: 3}
       propertyPath: m_MaskInteraction
@@ -460,6 +468,10 @@ PrefabInstance:
     - target: {fileID: 3022044526550154507, guid: f68ec1f8eda5c354aa4cd239a3bdc00a, type: 3}
       propertyPath: m_Color.r
       value: 0.65882355
+      objectReference: {fileID: 0}
+    - target: {fileID: 3022044526550154507, guid: f68ec1f8eda5c354aa4cd239a3bdc00a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3022044526550154507, guid: f68ec1f8eda5c354aa4cd239a3bdc00a, type: 3}
       propertyPath: m_MaskInteraction
