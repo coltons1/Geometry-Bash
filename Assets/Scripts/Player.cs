@@ -55,8 +55,7 @@ public class Player : MonoBehaviour
         // makes the player take damage ob collsion
         if(collision.gameObject.name == "BottomPlatform")
         {
-            takeDamage(10);
-            Healthbar.SetHealth(health);
+
             
             if(collision.gameObject.tag == "PlayerOne")
             {
@@ -68,6 +67,11 @@ public class Player : MonoBehaviour
                 p2Animator.SetBool("isJumping", false);
             }
             
+
+        }
+        if(collision.gameObject.name == "MeleeAttack"){
+            takeDamage(10);
+            Healthbar.SetHealth(health);
             Debug.Log("p1 took damage");
 
         }
@@ -203,12 +207,8 @@ public class Player : MonoBehaviour
 
     //does a basic melee attack
     private void meleeAttack(){
-        MeleeAttack = new GameObject("MeleeAttack");
-        MeleeAttack.AddComponent<Rigidbody2D>();
-        MeleeAttack.GetComponent<Rigidbody2D>().isKinematic = true;
-        MeleeAttack.AddComponent<SpriteRenderer>();
-        MeleeAttack.GetComponent<SpriteRenderer>().sprite = attackSprite;
-        Invoke("destroyMelee",5);
+        GameObject Melee = GameObject.Find("AttackArea");
+        Melee.gameObject.SetActive(true);
 
     }
 
