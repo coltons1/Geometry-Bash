@@ -92,11 +92,12 @@ public class Player : MonoBehaviour
     void Update()
     {
         //if players are alive check if they are inbounds
-        if(p1Alive){
+
+        while (p1Alive){
             outOfBounds(Player1);
-        }
-        if(p2Alive){
-            outOfBounds(Player2);
+            if(Player1.GetComponent<Rigidbody2D>() == null){
+                p1Alive = false;
+            }
         }
 
         p1Animator.SetFloat("Speed", Mathf.Abs(p1.velocity.x));
