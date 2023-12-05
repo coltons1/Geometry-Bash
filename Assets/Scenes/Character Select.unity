@@ -4812,11 +4812,8 @@ PrefabInstance:
     - target: {fileID: -7351916701510639539, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
       propertyPath: animator
       value: 
-<<<<<<< HEAD
       objectReference: {fileID: 416056371}
-=======
       objectReference: {fileID: 1946572263}
->>>>>>> c0cfe97da0b6a3e6682a744c28871be7e7dad894
     - target: {fileID: -7351916701510639539, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
       propertyPath: p1Health
       value: 
