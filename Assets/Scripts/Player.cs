@@ -95,13 +95,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         //if players are alive check if they are inbounds
-
-        while (p1Alive){
+        if(Player1.GetComponent<Rigidbody2D>() != null){
             outOfBounds(Player1);
-            if(Player1.GetComponent<Rigidbody2D>() == null){
-                p1Alive = false;
-            }
         }
+       
 
         p1Animator.SetFloat("Speed", Mathf.Abs(p1.velocity.x));
         p1Animator.SetFloat("AirSpeed", Mathf.Abs(p1.velocity.y));
