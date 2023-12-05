@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // makes the player take damage ob collsion
-        if(collision.gameObject.name == "MeleeAttack")
+        if(collision.gameObject.name == "BottomPlatform")
         {
             takeDamage(10);
             Healthbar.SetHealth(health);
@@ -77,6 +77,7 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.name == "BottomPlatform")
         {
+            Debug.Log("stay");
         }
     }
     
