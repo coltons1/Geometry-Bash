@@ -50,13 +50,14 @@ public class Player : MonoBehaviour
     }
 
     //When the object starts colliding
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         // makes the player take damage ob collsion
-        if(collision.gameObject.name == "MeleeAttack")
+        if(collision.gameObject.name == "BottomPlatform")
         {
             takeDamage(10);
             Healthbar.SetHealth(health);
+            
             if(collision.gameObject.tag == "PlayerOne")
             {
                 p1Animator.SetBool("isJumping", false);
@@ -73,18 +74,20 @@ public class Player : MonoBehaviour
     }
 
     //While the object is colliding
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if(collision.gameObject.name == "BottomPlatform")
         {
+
         }
     }
     
     //When the object stops colliding
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
         if(collision.gameObject.name == "BottomPlatform")
         {
+
         }
     }
 
@@ -215,6 +218,7 @@ public class Player : MonoBehaviour
         Destroy(MeleeAttack);
     }
 
+    
     public void OnLanding(Animator animator){
         animator.SetBool("isJumping", false);
     }
