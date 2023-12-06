@@ -206,10 +206,14 @@ public class Player : MonoBehaviour
     //does a basic melee attack
     private void meleeAttack(){
         GameObject Melee = GameObject.Find("AttackArea");
-        Melee.gameObject.SetActive(true);
+        Melee.gameObject.AddComponent<SpriteRenderer>();
+        Melee.gameObject.GetComponent<SpriteRenderer>().sprite = attackSprite;
+        invoke
+
 
     }
 
+    //Destroys Melee
     private void destroyMelee(){
         Destroy(MeleeAttack);
     }
