@@ -50,17 +50,13 @@ public class Player : MonoBehaviour
     }
 
     //When the object starts colliding
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         // makes the player take damage ob collsion
         if(collision.gameObject.name == "BottomPlatform")
         {
-<<<<<<< HEAD
             //when player 1 touches the ground, sets isJumping to false
-=======
 
-            
->>>>>>> d118b84e629698bcfeeb1fec872635fcc4dc9453
             if(collision.gameObject.tag == "PlayerOne")
             {
                 p1Animator.SetBool("isJumping", false);
@@ -73,8 +69,8 @@ public class Player : MonoBehaviour
                 p2Animator.SetBool("isJumping", false);
             }
 
-            takeDamage(10);
-            Healthbar.SetHealth(health);
+            //takeDamage(10);
+            //Healthbar.SetHealth(health);
             
 
         }
@@ -86,7 +82,7 @@ public class Player : MonoBehaviour
     }
 
     //While the object is colliding
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.gameObject.name == "BottomPlatform")
         {
@@ -94,7 +90,7 @@ public class Player : MonoBehaviour
     }
     
     //When the object stops colliding
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.gameObject.name == "BottomPlatform")
         {
