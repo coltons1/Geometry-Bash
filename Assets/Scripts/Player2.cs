@@ -11,7 +11,7 @@ public class Player2 : MonoBehaviour
     public float jumpHeight;
     public float moveSpeed;
 
-    [SerializeField] GameObject Player2;
+    [SerializeField] GameObject Player;
     [SerializeField] Sprite attackSprite;
     private Rigidbody2D p2;
     private GameObject MeleeAttack;
@@ -27,7 +27,7 @@ public class Player2 : MonoBehaviour
     {
 
         //movement 
-        p2 = Player2.GetComponent<Rigidbody2D>();
+        p2 = Player.GetComponent<Rigidbody2D>();
         moveSpeed = 10f;
         jumpHeight = 18f;
 
@@ -39,7 +39,7 @@ public class Player2 : MonoBehaviour
 
         p2Alive = true;
         
-        p2Animator = Player2.GetComponent<Animator>();
+        p2Animator = Player.GetComponent<Animator>();
         
     }
 
@@ -90,15 +90,15 @@ public class Player2 : MonoBehaviour
     void Update()
     {
         //if players are alive check if they are inbounds
-        if(p1 != null){
-            outOfBounds(Player1);
+        if(p2 != null){
+            outOfBounds(Player);
         }
        
 
 
         //assigns speed and airspeed variables to velocitys
-        p1Animator.SetFloat("Speed", Mathf.Abs(p1.velocity.x));
-        p1Animator.SetFloat("AirSpeed", Mathf.Abs(p1.velocity.y));
+        p2Animator.SetFloat("Speed", Mathf.Abs(p2.velocity.x));
+        p2Animator.SetFloat("AirSpeed", Mathf.Abs(p2.velocity.y));
         
 
 

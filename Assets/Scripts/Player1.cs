@@ -12,7 +12,7 @@ public class Player1 : MonoBehaviour
     public float jumpHeight;
     public float moveSpeed;
 
-    [SerializeField] GameObject Player1;
+    [SerializeField] GameObject Player;
     [SerializeField] Sprite attackSprite;
     private Rigidbody2D p1;
     private GameObject MeleeAttack;
@@ -27,7 +27,7 @@ public class Player1 : MonoBehaviour
     {
 
         //movement 
-        p1 = Player1.GetComponent<Rigidbody2D>();
+        p1 = Player.GetComponent<Rigidbody2D>();
         moveSpeed = 10f;
         jumpHeight = 18f;
 
@@ -39,7 +39,7 @@ public class Player1 : MonoBehaviour
 
         p1Alive = true;
         
-        p1Animator = Player1.GetComponent<Animator>();
+        p1Animator = Player.GetComponent<Animator>();
         
     }
 
@@ -92,7 +92,7 @@ public class Player1 : MonoBehaviour
     {
         //if players are alive check if they are inbounds
         if(p1 != null){
-            outOfBounds(Player1);
+            outOfBounds(Player);
         }
        
 
@@ -142,8 +142,7 @@ public class Player1 : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.E)){
             meleeAttack();
         }
-        p2Animator.SetFloat("Speed", Mathf.Abs(p2.velocity.x));
-        p2Animator.SetFloat("AirSpeed", Mathf.Abs(p2.velocity.y));
+
 
 
 
