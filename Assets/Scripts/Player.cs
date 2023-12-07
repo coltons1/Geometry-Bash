@@ -98,7 +98,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         //if players are alive check if they are inbounds
-        if(Player1.GetComponent<Rigidbody2D>() != null){
+        if(p1 != null){
             outOfBounds(Player1);
         }
        
