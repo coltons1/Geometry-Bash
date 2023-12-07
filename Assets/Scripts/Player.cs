@@ -55,21 +55,23 @@ public class Player : MonoBehaviour
         // makes the player take damage ob collsion
         if(collision.gameObject.name == "BottomPlatform")
         {
-            takeDamage(10);
-            Healthbar.SetHealth(health);
-            
+            //when player 1 touches the ground, sets isJumping to false
             if(collision.gameObject.tag == "PlayerOne")
             {
                 p1Animator.SetBool("isJumping", false);
+                Debug.Log("it worked");
             }
             
+            //when player 2 touches the ground, sets isJumping to false
             if(collision.gameObject.tag == "PlayerTwo")
             {
                 p2Animator.SetBool("isJumping", false);
             }
+
+            takeDamage(10);
+            Healthbar.SetHealth(health);
             
             Debug.Log("p1 took damage");
-
         }
     }
 
@@ -102,6 +104,8 @@ public class Player : MonoBehaviour
             outOfBounds(Player2);
         }
 
+
+        //assigns speed and airspeed variables to velocitys
         p1Animator.SetFloat("Speed", Mathf.Abs(p1.velocity.x));
         p1Animator.SetFloat("AirSpeed", Mathf.Abs(p1.velocity.y));
         
