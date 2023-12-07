@@ -50,22 +50,27 @@ public class Player : MonoBehaviour
     }
 
     //When the object starts colliding
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         // makes the player take damage ob collsion
         if(collision.gameObject.name == "BottomPlatform")
         {
+            //when player 1 touches the ground, sets isJumping to false
 
-            
             if(collision.gameObject.tag == "PlayerOne")
             {
                 p1Animator.SetBool("isJumping", false);
+                Debug.Log("it worked");
             }
             
+            //when player 2 touches the ground, sets isJumping to false
             if(collision.gameObject.tag == "PlayerTwo")
             {
                 p2Animator.SetBool("isJumping", false);
             }
+
+            //takeDamage(10);
+            //Healthbar.SetHealth(health);
             
 
         }
@@ -73,12 +78,11 @@ public class Player : MonoBehaviour
             takeDamage(10);
             Healthbar.SetHealth(health);
             Debug.Log("p1 took damage");
-
         }
     }
 
     //While the object is colliding
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.gameObject.name == "BottomPlatform")
         {
@@ -86,7 +90,7 @@ public class Player : MonoBehaviour
     }
     
     //When the object stops colliding
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.gameObject.name == "BottomPlatform")
         {
@@ -103,6 +107,8 @@ public class Player : MonoBehaviour
         }
        
 
+
+        //assigns speed and airspeed variables to velocitys
         p1Animator.SetFloat("Speed", Mathf.Abs(p1.velocity.x));
         p1Animator.SetFloat("AirSpeed", Mathf.Abs(p1.velocity.y));
         
