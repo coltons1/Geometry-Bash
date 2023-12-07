@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player : MonoBehaviour
+public class Player1 : MonoBehaviour
 {
     //creation of jumpheight and movespeed
     bool p1Alive;
@@ -13,16 +13,13 @@ public class Player : MonoBehaviour
     public float moveSpeed;
 
     [SerializeField] GameObject Player1;
-    [SerializeField] GameObject Player2;
     [SerializeField] Sprite attackSprite;
     private Rigidbody2D p1;
-    private Rigidbody2D p2;
     private GameObject MeleeAttack;
     public int MaxHealth = 100;
     public int health;
     public HealthBar Healthbar;
     public Animator p1Animator;
-    public Animator p2Animator;
 
 
     // Start is called before the first frame update
@@ -31,7 +28,6 @@ public class Player : MonoBehaviour
 
         //movement 
         p1 = Player1.GetComponent<Rigidbody2D>();
-        p2 = Player2.GetComponent<Rigidbody2D>();
         moveSpeed = 10f;
         jumpHeight = 18f;
 
@@ -42,10 +38,8 @@ public class Player : MonoBehaviour
 
 
         p1Alive = true;
-        p2Alive = true;
         
         p1Animator = Player1.GetComponent<Animator>();
-        p2Animator = Player2.GetComponent<Animator>();
         
     }
 
@@ -63,11 +57,6 @@ public class Player : MonoBehaviour
                 Debug.Log("it worked");
             }
             
-            //when player 2 touches the ground, sets isJumping to false
-            if(collision.gameObject.tag == "PlayerTwo")
-            {
-                p2Animator.SetBool("isJumping", false);
-            }
 
             //takeDamage(10);
             //Healthbar.SetHealth(health);
@@ -157,40 +146,8 @@ public class Player : MonoBehaviour
         p2Animator.SetFloat("AirSpeed", Mathf.Abs(p2.velocity.y));
 
 
-        //Player 2 Movement
 
-        //Player 2 Jump
-         if(Input.GetKeyDown(KeyCode.I) && p2.velocity.y == 0){
-		    p2.velocity = new Vector3(p2.velocity.x, jumpHeight, 0);
-            p2Animator.SetBool("isJumping", true);
-	    }
 
-        //Player 2 Move Right
-	    if(Input.GetKey(KeyCode.L)){
-		    if(p2.velocity.y != 0){
-                p2.velocity = new Vector3(moveSpeed / 1.5f, p2.velocity.y, 0);
-            } 
-            else {
-                p2.velocity = new Vector3(moveSpeed, p2.velocity.y, 0);
-            }
-            p2.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
-	    }
-
-        //Player 2 Move Left
-	    if(Input.GetKey(KeyCode.J)){
-		    if(p2.velocity.y != 0){
-                p2.velocity = new Vector3(-moveSpeed / 1.5f, p2.velocity.y, 0);
-            } 
-            else {
-                p2.velocity = new Vector3(-moveSpeed, p2.velocity.y, 0);
-            }
-            p2.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);	
-	    }
-
-        //Player 2 Move Down
-        if(Input.GetKey(KeyCode.K)){
-            p2.velocity = new Vector3(p2.velocity.x, -jumpHeight / 1.25f, 0);
-        }
     }
     //finds the player position on the camera and if it has fallen out of bounds
     private void outOfBounds(GameObject theGuy){
