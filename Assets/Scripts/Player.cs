@@ -208,7 +208,6 @@ public class Player : MonoBehaviour
         GameObject Melee = GameObject.Find("AttackArea");
         Melee.gameObject.AddComponent<SpriteRenderer>();
         Melee.gameObject.GetComponent<SpriteRenderer>().sprite = attackSprite;
-        invoke
 
 
     }
