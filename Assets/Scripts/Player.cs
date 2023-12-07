@@ -55,7 +55,12 @@ public class Player : MonoBehaviour
         // makes the player take damage ob collsion
         if(collision.gameObject.name == "BottomPlatform")
         {
+<<<<<<< HEAD
             //when player 1 touches the ground, sets isJumping to false
+=======
+
+            
+>>>>>>> d118b84e629698bcfeeb1fec872635fcc4dc9453
             if(collision.gameObject.tag == "PlayerOne")
             {
                 p1Animator.SetBool("isJumping", false);
@@ -71,6 +76,11 @@ public class Player : MonoBehaviour
             takeDamage(10);
             Healthbar.SetHealth(health);
             
+
+        }
+        if(collision.gameObject.name == "MeleeAttack"){
+            takeDamage(10);
+            Healthbar.SetHealth(health);
             Debug.Log("p1 took damage");
         }
     }
@@ -80,7 +90,6 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.name == "BottomPlatform")
         {
-
         }
     }
     
@@ -97,12 +106,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         //if players are alive check if they are inbounds
-        if(p1Alive){
+        if(Player1.GetComponent<Rigidbody2D>() != null){
             outOfBounds(Player1);
         }
-        if(p2Alive){
-            outOfBounds(Player2);
-        }
+       
 
 
         //assigns speed and airspeed variables to velocitys
@@ -208,15 +215,14 @@ public class Player : MonoBehaviour
 
     //does a basic melee attack
     private void meleeAttack(){
-        MeleeAttack = new GameObject("MeleeAttack");
-        MeleeAttack.AddComponent<Rigidbody2D>();
-        MeleeAttack.GetComponent<Rigidbody2D>().isKinematic = true;
-        MeleeAttack.AddComponent<SpriteRenderer>();
-        MeleeAttack.GetComponent<SpriteRenderer>().sprite = attackSprite;
-        Invoke("destroyMelee",5);
+        GameObject Melee = GameObject.Find("AttackArea");
+        Melee.gameObject.AddComponent<SpriteRenderer>();
+        Melee.gameObject.GetComponent<SpriteRenderer>().sprite = attackSprite;
+
 
     }
 
+    //Destroys Melee
     private void destroyMelee(){
         Destroy(MeleeAttack);
     }

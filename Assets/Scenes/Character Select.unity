@@ -2133,7 +2133,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &577613300
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2209,7 +2209,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &647303364
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4813,7 +4813,6 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 416056371}
-      objectReference: {fileID: 1946572263}
     - target: {fileID: -7351916701510639539, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
       propertyPath: p1Health
       value: 
