@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player1 : MonoBehaviour
+public class Player2 : MonoBehaviour
 {
     //creation of jumpheight and movespeed
     bool p2Alive;
