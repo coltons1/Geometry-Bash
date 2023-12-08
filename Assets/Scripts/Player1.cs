@@ -15,7 +15,7 @@ public class Player1 : MonoBehaviour
     [SerializeField] GameObject Player;
     [SerializeField] Sprite attackSprite;
     private Rigidbody2D p1;
-    private GameObject MeleeAttack;
+    private GameObject Melee;
     public int MaxHealth = 100;
     public int health;
     public HealthBar Healthbar;
@@ -25,6 +25,9 @@ public class Player1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        //intializes melee
+        Melee = GameObject.Find("AttackArea");
 
         //movement 
         p1 = Player.GetComponent<Rigidbody2D>();
@@ -167,16 +170,15 @@ public class Player1 : MonoBehaviour
 
     //does a basic melee attack
     private void meleeAttack(){
-        GameObject Melee = GameObject.Find("AttackArea");
-        Melee.gameObject.AddComponent<SpriteRenderer>();
         Melee.gameObject.GetComponent<SpriteRenderer>().sprite = attackSprite;
+        Invoke("destroyMelee",5);
 
 
     }
 
     //Destroys Melee
     private void destroyMelee(){
-        Destroy(MeleeAttack);
+        Melee.gameObject.GetComponent<SpriteRenderer>().sprite = null;
     }
 
     
