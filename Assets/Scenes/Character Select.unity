@@ -1142,18 +1142,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5790393817086087250, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
   m_PrefabInstance: {fileID: 723322158}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &416056366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 416056353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7f335033501984439ea232b913fb978, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &416056371
 Animator:
   serializedVersion: 4
@@ -1862,7 +1850,6 @@ GameObject:
   m_Component:
   - component: {fileID: 564958526}
   - component: {fileID: 564958527}
-  - component: {fileID: 564958529}
   - component: {fileID: 564958528}
   m_Layer: 0
   m_Name: AttackArea
@@ -1964,18 +1951,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &564958529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 564958525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1f3b17f0b2625146b91a3247280ed71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &576016559
 GameObject:
   m_ObjectHideFlags: 0
@@ -2640,8 +2615,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 830350028}
-        m_TargetAssemblyTypeName: SpriteChange, Assembly-CSharp
-        m_MethodName: changeSprite
+        m_TargetAssemblyTypeName: AnimationChange, Assembly-CSharp
+        m_MethodName: changeAnimation
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2698,10 +2673,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 830350023}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c1d96c99b39e06478f2ad86209dad5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d718b53ecede354fbaaf46506e29adf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 1f034ec6e951ef7488b36a68ef6bef26, type: 3}
+  controller: {fileID: 416056371}
   player: {fileID: 416056353}
 --- !u!1 &840931133
 GameObject:
