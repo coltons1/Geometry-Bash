@@ -90,8 +90,8 @@ public class Player2 : MonoBehaviour
     void Update()
     {
         //if players are alive check if they are inbounds
-        if(p2 != null){
-            outOfBounds(Player);
+        if(p2Alive){
+            outOfBounds();
         }
        
 
@@ -138,13 +138,14 @@ public class Player2 : MonoBehaviour
         }
     }
     //finds the player position on the camera and if it has fallen out of bounds
-    private void outOfBounds(GameObject theGuy){
-        if(theGuy.GetComponent<Rigidbody2D>().transform.position.x < -20 ||
-        theGuy.GetComponent<Rigidbody2D>().transform.position.x > 20 ||
-        theGuy.GetComponent<Rigidbody2D>().transform.position.y < -12 ||
-        theGuy.GetComponent<Rigidbody2D>().transform.position.y > 12){
-            Destroy(theGuy);
-            Debug.Log("Skull Emoji");
+    private void outOfBounds(){
+        if(p2.transform.position.x < -20 ||
+        p2.transform.position.x > 20 ||
+        p2.transform.position.y < -12 ||
+        p2.transform.position.y > 12){
+            Destroy(Player);
+            p2Alive = false;
+            Debug.Log("player 2 Skull Emoji");
         }
     }
 
