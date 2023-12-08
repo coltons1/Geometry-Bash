@@ -66,7 +66,7 @@ public class Player1 : MonoBehaviour
             
 
         }
-        if(collision.gameObject.name == "MeleeAttack"){
+        if(collision.gameObject.name == "Melee"){
             takeDamage(10);
             Healthbar.SetHealth(health);
             Debug.Log("p1 took damage");
