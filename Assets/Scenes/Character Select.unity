@@ -895,8 +895,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 238201859}
-        m_TargetAssemblyTypeName: SpriteChange, Assembly-CSharp
-        m_MethodName: changeSprite
+        m_TargetAssemblyTypeName: AnimationChange, Assembly-CSharp
+        m_MethodName: changeAnimation
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -953,10 +953,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 238201854}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c1d96c99b39e06478f2ad86209dad5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d718b53ecede354fbaaf46506e29adf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 1f034ec6e951ef7488b36a68ef6bef26, type: 3}
+  controller: {fileID: 9100000, guid: b95265f99b6d90e438df1308a89c8bab, type: 2}
   player: {fileID: 1118428695}
 --- !u!1 &384187853
 GameObject:
@@ -971,7 +971,7 @@ GameObject:
   - component: {fileID: 384187858}
   - component: {fileID: 384187857}
   - component: {fileID: 384187856}
-  - component: {fileID: 384187855}
+  - component: {fileID: 384187860}
   m_Layer: 5
   m_Name: RedSelect 2
   m_TagString: Untagged
@@ -1000,20 +1000,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000061035156, y: 0}
   m_SizeDelta: {x: 100, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &384187855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384187853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c1d96c99b39e06478f2ad86209dad5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 8fc9270e27f600c4b9065c05bacadfec, type: 3}
-  player: {fileID: 1118428695}
 --- !u!114 &384187856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1070,9 +1056,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 384187855}
-        m_TargetAssemblyTypeName: SpriteChange, Assembly-CSharp
-        m_MethodName: changeSprite
+      - m_Target: {fileID: 384187860}
+        m_TargetAssemblyTypeName: AnimationChange, Assembly-CSharp
+        m_MethodName: changeAnimation
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1120,6 +1106,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 384187853}
   m_CullTransparentMesh: 1
+--- !u!114 &384187860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384187853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d718b53ecede354fbaaf46506e29adf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 9100000, guid: 3c2a5b7097b0fe44394328c0bdb9252e, type: 2}
+  player: {fileID: 1118428695}
 --- !u!1 &416056353 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4453898936373084913, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
@@ -2684,7 +2684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d718b53ecede354fbaaf46506e29adf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 416056371}
+  controller: {fileID: 9100000, guid: b95265f99b6d90e438df1308a89c8bab, type: 2}
   player: {fileID: 416056353}
 --- !u!1 &840931133
 GameObject:
@@ -4552,8 +4552,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1755812531}
-        m_TargetAssemblyTypeName: SpriteChange, Assembly-CSharp
-        m_MethodName: changeSprite
+        m_TargetAssemblyTypeName: AnimationChange, Assembly-CSharp
+        m_MethodName: changeAnimation
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4622,10 +4622,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1755812525}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c1d96c99b39e06478f2ad86209dad5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d718b53ecede354fbaaf46506e29adf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 8fc9270e27f600c4b9065c05bacadfec, type: 3}
+  controller: {fileID: 9100000, guid: 3c2a5b7097b0fe44394328c0bdb9252e, type: 2}
   player: {fileID: 416056353}
 --- !u!1 &1786409896
 GameObject:

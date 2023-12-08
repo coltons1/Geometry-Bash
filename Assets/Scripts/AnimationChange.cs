@@ -9,7 +9,7 @@ public class AnimationChange : MonoBehaviour
     public GameObject player;
     //changes sprite renderer on "player" object to "sprite"
     public void changeAnimation(){
-            player.GetComponent<Animator>().controller = controller;
+        player.GetComponent<Animator>().runtimeAnimatorController = controller;
     }
 
 }
