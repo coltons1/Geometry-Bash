@@ -56,10 +56,10 @@ public class LoadSceneAssets : MonoBehaviour
         h1.transform.GetChild(0).gameObject.SetActive(true);
         h1.transform.GetChild(1).gameObject.SetActive(true);
 
-        h2 = GameObject.Find("P2HealthBar");
+        //h2 = GameObject.Find("P2HealthBar");
 
-        h2.transform.GetChild(0).gameObject.SetActive(true);
-        h2.transform.GetChild(1).gameObject.SetActive(true);
+        /*h2.transform.GetChild(0).gameObject.SetActive(true);
+        h2.transform.GetChild(1).gameObject.SetActive(true);*/
 
 
 
