@@ -62,13 +62,15 @@ public class Player2 : MonoBehaviour
             
 
         }
-        if(collision.gameObject.name == "MeleeAttack"){
-            takeDamage(10);
-            Healthbar.SetHealth(health);
-            Debug.Log("p1 took damage");
-        }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision){
+            if(collision.gameObject.name == "AttackArea"){
+            takeDamage(10);
+            Healthbar.SetHealth(health);
+            Debug.Log("p2 took damage");
+        }
+    }
     //While the object is colliding
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -118,7 +120,7 @@ public class Player2 : MonoBehaviour
             else {
                 p2.velocity = new Vector3(moveSpeed, p2.velocity.y, 0);
             }
-            p2.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
+            p2.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);	
 	    }
 
         //Player 2 Move Left
@@ -129,7 +131,7 @@ public class Player2 : MonoBehaviour
             else {
                 p2.velocity = new Vector3(-moveSpeed, p2.velocity.y, 0);
             }
-            p2.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);	
+            p2.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
 	    }
 
         //Player 2 Move Down
