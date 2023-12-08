@@ -1142,18 +1142,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5790393817086087250, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
   m_PrefabInstance: {fileID: 723322158}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &416056366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 416056353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7f335033501984439ea232b913fb978, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &416056371
 Animator:
   serializedVersion: 4
@@ -1862,7 +1850,6 @@ GameObject:
   m_Component:
   - component: {fileID: 564958526}
   - component: {fileID: 564958527}
-  - component: {fileID: 564958529}
   - component: {fileID: 564958528}
   m_Layer: 0
   m_Name: AttackArea
@@ -1870,7 +1857,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &564958526
 Transform:
   m_ObjectHideFlags: 0
@@ -1879,7 +1866,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 564958525}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.39, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1953,7 +1940,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cf1a61e7124f59d43bc70bc60d50ed32, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1961,21 +1948,9 @@ SpriteRenderer:
   m_Size: {x: 4.75, y: 4.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &564958529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 564958525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1f3b17f0b2625146b91a3247280ed71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &576016559
 GameObject:
   m_ObjectHideFlags: 0
@@ -2354,6 +2329,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 416056353}
+    - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: Player1
       value: 
       objectReference: {fileID: 416056353}
@@ -2381,6 +2360,10 @@ PrefabInstance:
       propertyPath: Healthbar
       value: 
       objectReference: {fileID: 490284277}
+    - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
+      propertyPath: p1Animator
+      value: 
+      objectReference: {fileID: 416056371}
     - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: attackSprite
       value: 
@@ -2640,8 +2623,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 830350028}
-        m_TargetAssemblyTypeName: SpriteChange, Assembly-CSharp
-        m_MethodName: changeSprite
+        m_TargetAssemblyTypeName: AnimationChange, Assembly-CSharp
+        m_MethodName: changeAnimation
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2698,10 +2681,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 830350023}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c1d96c99b39e06478f2ad86209dad5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d718b53ecede354fbaaf46506e29adf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 1f034ec6e951ef7488b36a68ef6bef26, type: 3}
+  controller: {fileID: 416056371}
   player: {fileID: 416056353}
 --- !u!1 &840931133
 GameObject:
@@ -4897,7 +4880,8 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.7
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7351916701510639539, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3422754919191616424, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
       insertIndex: -1
@@ -4940,6 +4924,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1946572264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118428695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 524f69ea5ce473d43b161e170473a124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpHeight: 15
+  moveSpeed: 10
+  Player: {fileID: 1118428695}
+  attackSprite: {fileID: 21300000, guid: 8fc9270e27f600c4b9065c05bacadfec, type: 3}
+  MaxHealth: 100
+  health: 0
+  Healthbar: {fileID: 21983570}
+  p1Animator: {fileID: 0}
+  p2Animator: {fileID: 1946572263}
 --- !u!1 &2103783383
 GameObject:
   m_ObjectHideFlags: 0
