@@ -148,6 +148,7 @@ public class Player2 : MonoBehaviour
             Destroy(Player);
             p2Alive = false;
             Debug.Log("player 2 Skull Emoji");
+            Player2.GetComponent<ChangeScene>().LoadScene("Victory Screen");
         }
     }
 
