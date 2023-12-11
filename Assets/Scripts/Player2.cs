@@ -46,14 +46,15 @@ public class Player2 : MonoBehaviour
     //When the object starts colliding
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("p2: method runs");
         // makes the player take damage ob collsion
-        if(collision.gameObject.name == "BottomPlatform")
+        if(collision.gameObject.tag == "Platform")
         {
-            //when player 1 touches the ground, sets isJumping to false
-            
+            Debug.Log("p2: first if runs");
             //when player 2 touches the ground, sets isJumping to false
             if(collision.gameObject.tag == "PlayerTwo")
             {
+                Debug.Log("p2: second if runs");
                 p2Animator.SetBool("isJumping", false);
             }
 
@@ -120,7 +121,7 @@ public class Player2 : MonoBehaviour
             else {
                 p2.velocity = new Vector3(moveSpeed, p2.velocity.y, 0);
             }
-            p2.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);	
+            p2.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
 	    }
 
         //Player 2 Move Left
@@ -131,7 +132,7 @@ public class Player2 : MonoBehaviour
             else {
                 p2.velocity = new Vector3(-moveSpeed, p2.velocity.y, 0);
             }
-            p2.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
+            p2.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);	
 	    }
 
         //Player 2 Move Down
