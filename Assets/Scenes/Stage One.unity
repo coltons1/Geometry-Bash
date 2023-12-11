@@ -435,6 +435,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falling Bridge
       objectReference: {fileID: 0}
+    - target: {fileID: 3138493499316623464, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 3138493499316623465, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -493,7 +497,7 @@ GameObject:
   - component: {fileID: 1220937241}
   m_Layer: 0
   m_Name: Platforms
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -588,6 +592,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falling Bridge (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3138493499316623464, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 3138493499316623465, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -656,7 +664,7 @@ GameObject:
   - component: {fileID: 1835947828}
   m_Layer: 0
   m_Name: BottomPlatform
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -859,6 +867,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftPlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 1921415073013243192, guid: 6363fddff7579e4469582ffe68ded685, type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 1921415073013243193, guid: 6363fddff7579e4469582ffe68ded685, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -925,6 +937,10 @@ PrefabInstance:
     - target: {fileID: 7461517219933937898, guid: f97517c187eac0b4697b28233d8696f0, type: 3}
       propertyPath: m_Name
       value: RightPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 7461517219933937898, guid: f97517c187eac0b4697b28233d8696f0, type: 3}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     - target: {fileID: 7461517219933937901, guid: f97517c187eac0b4697b28233d8696f0, type: 3}
       propertyPath: m_RootOrder

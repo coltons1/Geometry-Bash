@@ -49,15 +49,17 @@ public class Player1 : MonoBehaviour
     //When the object starts colliding
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("p1: method runs");
         // makes the player take damage ob collsion
         if(collision.gameObject.name == "BottomPlatform")
         {
+            Debug.Log("p1: first if runs");
             //when player 1 touches the ground, sets isJumping to false
 
             if(collision.gameObject.tag == "PlayerOne")
             {
+                Debug.Log("p1: second if runs");
                 p1Animator.SetBool("isJumping", false);
-                Debug.Log("it worked");
             }
             
 
