@@ -51,15 +51,8 @@ public class Player2 : MonoBehaviour
         if(collision.gameObject.tag == "Platform")
         {
             Debug.Log("p2: first if runs");
-            //when player 2 touches the ground, sets isJumping to false
-            if(collision.gameObject.tag == "PlayerTwo")
-            {
-                Debug.Log("p2: second if runs");
-                p2Animator.SetBool("isJumping", false);
-            }
-
-            //takeDamage(10);
-            //Healthbar.SetHealth(health);
+            //when player 1 touches the ground, sets isJumping to false
+            p2Animator.SetBool("isJumping", false);
             
 
         }
@@ -149,7 +142,7 @@ public class Player2 : MonoBehaviour
             Destroy(Player);
             p2Alive = false;
             Debug.Log("player 2 Skull Emoji");
-            Player2.GetComponent<ChangeScene>().LoadScene("Victory Screen");
+            //Player2.GetComponent<ChangeScene>().LoadScene("Victory Screen");
         }
     }
 
