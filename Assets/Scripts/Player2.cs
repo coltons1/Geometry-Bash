@@ -166,7 +166,7 @@ public class Player2 : MonoBehaviour
 
         foreach(Collider2D enemy in hitEnemys){
             Debug.Log("hit");
-            enemy.GetComponent<Player2>().takeDamage(10);
+            enemy.GetComponent<Player1>().takeDamage(10);
         }
     }
 
