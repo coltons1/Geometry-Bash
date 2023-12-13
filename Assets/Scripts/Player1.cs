@@ -15,7 +15,7 @@ public class Player1 : MonoBehaviour
     [SerializeField] GameObject Player;
     [SerializeField] Sprite attackSprite;
     private Rigidbody2D p1;
-    private GameObject Melee;
+    private GameObject MeleeAttack;
     public int MaxHealth = 100;
     public int health;
     public HealthBar Healthbar;
@@ -25,9 +25,6 @@ public class Player1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        //intializes melee
-        Melee = GameObject.Find("AttackArea");
 
         //movement 
         p1 = Player.GetComponent<Rigidbody2D>();
@@ -49,20 +46,24 @@ public class Player1 : MonoBehaviour
     //When the object starts colliding
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("p1: method runs");
         // makes the player take damage ob collsion
-        if(collision.gameObject.tag == "Platform")
+        if(collision.gameObject.name == "BottomPlatform")
         {
-            Debug.Log("p1: first if runs");
             //when player 1 touches the ground, sets isJumping to false
-            p1Animator.SetBool("isJumping", false);
+
+            if(collision.gameObject.tag == "PlayerOne")
+            {
+                p1Animator.SetBool("isJumping", false);
+                Debug.Log("it worked");
+            }
+            
 
             //takeDamage(10);
             //Healthbar.SetHealth(health);
             
 
         }
-        if(collision.gameObject.name == "Melee"){
+        if(collision.gameObject.name == "MeleeAttack"){
             takeDamage(10);
             Healthbar.SetHealth(health);
             Debug.Log("p1 took damage");
@@ -93,8 +94,6 @@ public class Player1 : MonoBehaviour
         if(p1Alive){
             outOfBounds();
         }
-       
-
 
         //assigns speed and airspeed variables to velocitys
         p1Animator.SetFloat("Speed", Mathf.Abs(p1.velocity.x));
@@ -143,7 +142,7 @@ public class Player1 : MonoBehaviour
         }
 
     }
-    //finds the player position on the camera and if it has fallen out of bounds
+    //finds the player position on the camera and if it has fallen out of bounds and changes to victory screen
     private void outOfBounds(){
         if(p1.transform.position.x < -20 ||
         p1.transform.position.x > 20 ||
@@ -152,6 +151,8 @@ public class Player1 : MonoBehaviour
             Destroy(Player);
             p1Alive = false;
             Debug.Log("Skull Emoji");
+            SceneManager.LoadScene("Victory Screen");
+            Debug.Log("p1 more like pwon");
         }
     }
 
@@ -163,15 +164,16 @@ public class Player1 : MonoBehaviour
 
     //does a basic melee attack
     private void meleeAttack(){
+        GameObject Melee = GameObject.Find("AttackArea");
+        Melee.gameObject.AddComponent<SpriteRenderer>();
         Melee.gameObject.GetComponent<SpriteRenderer>().sprite = attackSprite;
-        Invoke("destroyMelee",5);
 
 
     }
 
     //Destroys Melee
     private void destroyMelee(){
-        Melee.gameObject.GetComponent<SpriteRenderer>().sprite = null;
+        Destroy(MeleeAttack);
     }
 
     
