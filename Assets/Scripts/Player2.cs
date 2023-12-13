@@ -50,14 +50,15 @@ public class Player2 : MonoBehaviour
     //When the object starts colliding
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("p2: method runs");
         // makes the player take damage ob collsion
-        if(collision.gameObject.name == "BottomPlatform")
+        if(collision.gameObject.tag == "Platform")
         {
-            //when player 1 touches the ground, sets isJumping to false
-            
+            Debug.Log("p2: first if runs");
             //when player 2 touches the ground, sets isJumping to false
             if(collision.gameObject.tag == "PlayerTwo")
             {
+                Debug.Log("p2: second if runs");
                 p2Animator.SetBool("isJumping", false);
             }
             //takeDamage(10);
@@ -86,8 +87,8 @@ public class Player2 : MonoBehaviour
     void Update()
     {
         //if players are alive check if they are inbounds
-        if(p2 != null){
-            outOfBounds(Player);
+        if(p2Alive){
+            outOfBounds();
         }
        
 
@@ -140,13 +141,15 @@ public class Player2 : MonoBehaviour
     }
 
     //finds the player position on the camera and if it has fallen out of bounds
-    private void outOfBounds(GameObject theGuy){
-        if(theGuy.GetComponent<Rigidbody2D>().transform.position.x < -20 ||
-        theGuy.GetComponent<Rigidbody2D>().transform.position.x > 20 ||
-        theGuy.GetComponent<Rigidbody2D>().transform.position.y < -12 ||
-        theGuy.GetComponent<Rigidbody2D>().transform.position.y > 12){
-            Destroy(theGuy);
-            Debug.Log("Skull Emoji");
+    private void outOfBounds(){
+        if(p2.transform.position.x < -20 ||
+        p2.transform.position.x > 20 ||
+        p2.transform.position.y < -12 ||
+        p2.transform.position.y > 12){
+            Destroy(Player);
+            p2Alive = false;
+            Debug.Log("player 2 Skull Emoji");
+            SceneManager.LoadScene("Victory Screen");
         }
     }
 

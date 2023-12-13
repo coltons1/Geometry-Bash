@@ -16,7 +16,7 @@ public class Player1 : MonoBehaviour
     public float attackRange = 0.5f;
     public LayerMask enemyLayer;
     private Rigidbody2D p1;
-    private GameObject Melee;
+    private GameObject MeleeAttack;
     public int MaxHealth = 100;
     public int health;
     public HealthBar Healthbar;
@@ -26,9 +26,6 @@ public class Player1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        //intializes melee
-        Melee = GameObject.Find("AttackArea");
 
         //movement 
         p1 = Player.GetComponent<Rigidbody2D>();
@@ -62,6 +59,14 @@ public class Player1 : MonoBehaviour
             }
             //takeDamage(10);
             //Healthbar.SetHealth(health); 
+            //Healthbar.SetHealth(health);
+            
+
+        }
+        if(collision.gameObject.name == "MeleeAttack"){
+            takeDamage(10);
+            Healthbar.SetHealth(health);
+            Debug.Log("p1 took damage");
         }
     }
 
@@ -86,11 +91,9 @@ public class Player1 : MonoBehaviour
     void Update()
     {
         //if players are alive check if they are inbounds
-        if(p1 != null){
-            outOfBounds(Player);
+        if(p1Alive){
+            outOfBounds();
         }
-       
-
 
         //assigns speed and airspeed variables to velocitys
         p1Animator.SetFloat("Speed", Mathf.Abs(p1.velocity.x));
@@ -139,14 +142,17 @@ public class Player1 : MonoBehaviour
         }
 
     }
-    //finds the player position on the camera and if it has fallen out of bounds
-    private void outOfBounds(GameObject theGuy){
-        if(theGuy.GetComponent<Rigidbody2D>().transform.position.x < -20 ||
-        theGuy.GetComponent<Rigidbody2D>().transform.position.x > 20 ||
-        theGuy.GetComponent<Rigidbody2D>().transform.position.y < -12 ||
-        theGuy.GetComponent<Rigidbody2D>().transform.position.y > 12){
-            Destroy(theGuy);
+    //finds the player position on the camera and if it has fallen out of bounds and changes to victory screen
+    private void outOfBounds(){
+        if(p1.transform.position.x < -20 ||
+        p1.transform.position.x > 20 ||
+        p1.transform.position.y < -12 ||
+        p1.transform.position.y > 12){
+            Destroy(Player);
+            p1Alive = false;
             Debug.Log("Skull Emoji");
+            SceneManager.LoadScene("Victory Screen");
+            Debug.Log("p1 more like pwon");
         }
     }
 
@@ -170,7 +176,7 @@ public class Player1 : MonoBehaviour
     }
     //Destroys Melee
     private void destroyMelee(){
-        Melee.gameObject.GetComponent<SpriteRenderer>().sprite = null;
+        Destroy(MeleeAttack);
     }
 
     
