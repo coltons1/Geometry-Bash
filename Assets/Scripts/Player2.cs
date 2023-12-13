@@ -146,10 +146,7 @@ public class Player2 : MonoBehaviour
         p2.transform.position.x > 20 ||
         p2.transform.position.y < -12 ||
         p2.transform.position.y > 12){
-            Destroy(Player);
-            p2Alive = false;
-            Debug.Log("player 2 Skull Emoji");
-            SceneManager.LoadScene("Victory Screen");
+            youLose();
         }
     }
 
@@ -176,6 +173,13 @@ public class Player2 : MonoBehaviour
     
     public void OnLanding(Animator animator){
         animator.SetBool("isJumping", false);
+    }
+
+    public void youLose(){
+        Destroy(Player);
+        p2Alive = false;
+        SceneManager.LoadScene("Victory Screen");
+        Debug.Log("You Lose! Good day Sir!");
     }
 }
 
