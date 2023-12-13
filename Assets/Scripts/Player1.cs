@@ -8,12 +8,13 @@ public class Player1 : MonoBehaviour
 {
     //creation of jumpheight and movespeed
     bool p1Alive;
-    bool p2Alive;
     public float jumpHeight;
     public float moveSpeed;
-
     [SerializeField] GameObject Player;
     [SerializeField] Sprite attackSprite;
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+    public LayerMask enemyLayer;
     private Rigidbody2D p1;
     private GameObject Melee;
     public int MaxHealth = 100;
@@ -59,17 +60,8 @@ public class Player1 : MonoBehaviour
                 p1Animator.SetBool("isJumping", false);
                 Debug.Log("it worked");
             }
-            
-
             //takeDamage(10);
-            //Healthbar.SetHealth(health);
-            
-
-        }
-        if(collision.gameObject.name == "Melee"){
-            takeDamage(10);
-            Healthbar.SetHealth(health);
-            Debug.Log("p1 took damage");
+            //Healthbar.SetHealth(health); 
         }
     }
 
@@ -146,10 +138,6 @@ public class Player1 : MonoBehaviour
             meleeAttack();
         }
 
-
-
-
-
     }
     //finds the player position on the camera and if it has fallen out of bounds
     private void outOfBounds(GameObject theGuy){
@@ -163,19 +151,23 @@ public class Player1 : MonoBehaviour
     }
 
     //makes the player take damage
-    private void takeDamage(int damage){
+    public void takeDamage(int damage){
         health = health - damage;
+        Healthbar.SetHealth(health);
+
         Debug.Log("*Ooh Ouch Yikes Yowch Oof Skeeouch Yeeowch*");
     }
 
     //does a basic melee attack
     private void meleeAttack(){
-        Melee.gameObject.GetComponent<SpriteRenderer>().sprite = attackSprite;
-        Invoke("destroyMelee",5);
+        Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
+        foreach(Collider2D enemy in hitEnemys){
+            Debug.Log("hit");
+            enemy.GetComponent<Player2>().takeDamage(10);
+        }
 
     }
-
     //Destroys Melee
     private void destroyMelee(){
         Melee.gameObject.GetComponent<SpriteRenderer>().sprite = null;
@@ -184,5 +176,14 @@ public class Player1 : MonoBehaviour
     
     public void OnLanding(Animator animator){
         animator.SetBool("isJumping", false);
+    }
+
+    private void OnDrawGizmosSelected(){
+        if(attackPoint == null){
+            return;
+        }
+
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+
     }
 }
