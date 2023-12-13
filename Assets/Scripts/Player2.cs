@@ -28,7 +28,6 @@ public class Player2 : MonoBehaviour
     {
 
         //intializes melee
-        Melee = GameObject.Find("AttackArea");
 
         //movement 
         p2 = Player.GetComponent<Rigidbody2D>();

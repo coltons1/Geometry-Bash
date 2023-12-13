@@ -16,7 +16,6 @@ public class Player1 : MonoBehaviour
     public float attackRange = 0.5f;
     public LayerMask enemyLayer;
     private Rigidbody2D p1;
-    private GameObject MeleeAttack;
     public int MaxHealth = 100;
     public int health;
     public HealthBar Healthbar;
@@ -62,11 +61,6 @@ public class Player1 : MonoBehaviour
             //Healthbar.SetHealth(health);
             
 
-        }
-        if(collision.gameObject.name == "MeleeAttack"){
-            takeDamage(10);
-            Healthbar.SetHealth(health);
-            Debug.Log("p1 took damage");
         }
     }
 
@@ -175,9 +169,6 @@ public class Player1 : MonoBehaviour
 
     }
     //Destroys Melee
-    private void destroyMelee(){
-        Destroy(MeleeAttack);
-    }
 
     
     public void OnLanding(Animator animator){
