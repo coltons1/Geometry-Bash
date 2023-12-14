@@ -46,21 +46,19 @@ public class Player1 : MonoBehaviour
     //When the object starts colliding
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("p1: method runs");
         // makes the player take damage ob collsion
-        if(collision.gameObject.name == "BottomPlatform")
+        if(collision.gameObject.tag == "Platform")
         {
-            //when player 1 touches the ground, sets isJumping to false
-
+            Debug.Log("p1: first if runs");
+            //when player 2 touches the ground, sets isJumping to false
             if(collision.gameObject.tag == "PlayerOne")
             {
+                Debug.Log("p1: second if runs");
                 p1Animator.SetBool("isJumping", false);
-                Debug.Log("it worked");
             }
             //takeDamage(10);
-            //Healthbar.SetHealth(health); 
             //Healthbar.SetHealth(health);
-            
-
         }
     }
 
@@ -169,11 +167,6 @@ public class Player1 : MonoBehaviour
 
     }
     //Destroys Melee
-
-    
-    public void OnLanding(Animator animator){
-        animator.SetBool("isJumping", false);
-    }
 
     private void OnDrawGizmosSelected(){
         if(attackPoint == null){
