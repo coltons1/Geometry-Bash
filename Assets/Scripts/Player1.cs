@@ -14,6 +14,7 @@ public class Player1 : MonoBehaviour
     [SerializeField] Sprite attackSprite;
     public Transform attackPoint;
     public float attackRange = 0.5f;
+    public GameObject rangedAttack;
     public LayerMask enemyLayer;
     private Rigidbody2D p1;
     public int MaxHealth = 100;
@@ -134,6 +135,10 @@ public class Player1 : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.E)){
             meleeAttack();
         }
+        //Player 1 attack
+        if(Input.GetKeyUp(KeyCode.Q)){
+            attackRanged();
+        }
 
     }
     //finds the player position on the camera and if it has fallen out of bounds and changes to victory screen
@@ -170,7 +175,18 @@ public class Player1 : MonoBehaviour
     }
     //Destroys Melee
 
-    
+    //does a basic melee attack
+    private void attackRanged(){
+        Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(rangedAttack.transform.position, attackRange, enemyLayer);
+        Instantiate(rangedAttack,attackPoint.position, Quaternion.Euler(0f,0f,0f));
+        rangedAttack.GetComponent<Rigidbody2D>().velocity = new Vector3 (2f,0f,0f);
+        foreach(Collider2D enemy in hitEnemys){
+            Debug.Log("hit");
+            enemy.GetComponent<Player2>().takeDamage(10);
+        }
+
+    }
+
     public void OnLanding(Animator animator){
         animator.SetBool("isJumping", false);
     }
