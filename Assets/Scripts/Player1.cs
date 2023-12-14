@@ -52,10 +52,10 @@ public class Player1 : MonoBehaviour
         {
             Debug.Log("p1: first if runs");
             //when player 2 touches the ground, sets isJumping to false
-            if(collision.gameObject.tag == "PlayerOne")
+            if(collision.gameObject.tag == "Platform")
             {
-                Debug.Log("p1: second if runs");
                 p1Animator.SetBool("isJumping", false);
+                Debug.Log("p1: second if runs");
             }
             //takeDamage(10);
             //Healthbar.SetHealth(health);
