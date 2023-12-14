@@ -8,14 +8,14 @@ public class Player1 : MonoBehaviour
 {
     //creation of jumpheight and movespeed
     bool p1Alive;
-    bool p2Alive;
     public float jumpHeight;
     public float moveSpeed;
-
     [SerializeField] GameObject Player;
     [SerializeField] Sprite attackSprite;
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+    public LayerMask enemyLayer;
     private Rigidbody2D p1;
-    private GameObject MeleeAttack;
     public int MaxHealth = 100;
     public int health;
     public HealthBar Healthbar;
@@ -36,7 +36,6 @@ public class Player1 : MonoBehaviour
         health = MaxHealth;
         Healthbar.SetMaxHealth(MaxHealth);
 
-
         p1Alive = true;
         
         p1Animator = Player.GetComponent<Animator>();
@@ -56,17 +55,11 @@ public class Player1 : MonoBehaviour
                 p1Animator.SetBool("isJumping", false);
                 Debug.Log("it worked");
             }
-            
-
             //takeDamage(10);
+            //Healthbar.SetHealth(health); 
             //Healthbar.SetHealth(health);
             
 
-        }
-        if(collision.gameObject.name == "MeleeAttack"){
-            takeDamage(10);
-            Healthbar.SetHealth(health);
-            Debug.Log("p1 took damage");
         }
     }
 
@@ -154,34 +147,46 @@ public class Player1 : MonoBehaviour
     }
 
     //makes the player take damage
-    private void takeDamage(int damage){
+    public void takeDamage(int damage){
         health = health - damage;
+        Healthbar.SetHealth(health);
+        if(health <= 0){
+            youLose();
+        }
         Debug.Log("*Ooh Ouch Yikes Yowch Oof Skeeouch Yeeowch*");
     }
 
     //does a basic melee attack
     private void meleeAttack(){
-        GameObject Melee = GameObject.Find("AttackArea");
-        Melee.gameObject.AddComponent<SpriteRenderer>();
-        Melee.gameObject.GetComponent<SpriteRenderer>().sprite = attackSprite;
+        Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
+        foreach(Collider2D enemy in hitEnemys){
+            Debug.Log("hit");
+            enemy.GetComponent<Player2>().takeDamage(10);
+        }
 
     }
-
     //Destroys Melee
-    private void destroyMelee(){
-        Destroy(MeleeAttack);
-    }
 
     
     public void OnLanding(Animator animator){
         animator.SetBool("isJumping", false);
     }
+
     public void youLose(){
         Destroy(Player);
         p1Alive = false;
         SceneManager.LoadScene("Victory Screen");
-        //gameObject.Find("DontDestroyOnLoad");
+        //Destroy("DontDestroyOnLoad");
         Debug.Log("You Lose! Good day Sir!");
     }
+    private void OnDrawGizmosSelected(){
+        if(attackPoint == null){
+            return;
+        }
+
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+
+    }
+
 }
