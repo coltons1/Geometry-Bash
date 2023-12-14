@@ -56,7 +56,7 @@ public class Player2 : MonoBehaviour
         {
             Debug.Log("p2: first if runs");
             //when player 2 touches the ground, sets isJumping to false
-            if(collision.gameObject.tag == "PlayerTwo")
+            if(collision.gameObject.tag == "Platform")
             {
                 Debug.Log("p2: second if runs");
                 p2Animator.SetBool("isJumping", false);
@@ -186,7 +186,6 @@ public class Player2 : MonoBehaviour
 
     }
     //Destroys Melee
-
     
     public void OnLanding(Animator animator){
         animator.SetBool("isJumping", false);
