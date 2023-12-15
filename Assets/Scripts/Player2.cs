@@ -65,6 +65,14 @@ public class Player2 : MonoBehaviour
         }
     }
 
+    private void OnColliisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.name == "BottomPlatform")
+        {
+            takeDamage(5);
+        }
+    }
+
     //While the object is colliding
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -180,9 +188,5 @@ public class Player2 : MonoBehaviour
     }
     //Destroys Melee
 
-    
-    public void OnLanding(Animator animator){
-        animator.SetBool("isJumping", false);
-    }
 }
 

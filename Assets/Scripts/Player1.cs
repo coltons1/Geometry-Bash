@@ -61,6 +61,13 @@ public class Player1 : MonoBehaviour
             //Healthbar.SetHealth(health);
         }
     }
+    private void OnColliisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.name == "BottomPlatform")
+        {
+            takeDamage(5);
+        }
+    }
 
     //While the object is colliding
     private void OnTriggerStay2D(Collider2D collision)
