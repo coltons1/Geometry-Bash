@@ -18,6 +18,7 @@ public class Player2 : MonoBehaviour
     private Rigidbody2D p2;
     public int MaxHealth = 100;
     public int health;
+    public float bounceForce;
     public HealthBar Healthbar;
     public Animator p1Animator;
     public Animator p2Animator;
@@ -71,6 +72,10 @@ public class Player2 : MonoBehaviour
         {
             takeDamage(5);
         }
+        
+        if(collision.gameObject.CompareTag("Trampoline")){
+            p2.velocity = Vector2.up * bounceForce;
+        }
     }
 
     //While the object is colliding
@@ -98,7 +103,6 @@ public class Player2 : MonoBehaviour
             outOfBounds();
         }
        
-
 
         //assigns speed and airspeed variables to velocitys
         p2Animator.SetFloat("Speed", Mathf.Abs(p2.velocity.x));
@@ -153,10 +157,7 @@ public class Player2 : MonoBehaviour
         p2.transform.position.x > 20 ||
         p2.transform.position.y < -12 ||
         p2.transform.position.y > 12){
-            Destroy(Player);
-            p2Alive = false;
-            Debug.Log("player 2 Skull Emoji");
-            SceneManager.LoadScene("Victory Screen");
+            youLose();
         }
     }
 
@@ -164,6 +165,9 @@ public class Player2 : MonoBehaviour
     public void takeDamage(int damage){
         health = health - damage;
         Healthbar.SetHealth(health);
+        if(health <= 0){
+            youLose();
+        }
 
         Debug.Log("*Ooh Ouch Yikes Yowch Oof Skeeouch Yeeowch*");
     }
@@ -188,5 +192,16 @@ public class Player2 : MonoBehaviour
     }
     //Destroys Melee
 
+    
+    public void OnLanding(Animator animator){
+        animator.SetBool("isJumping", false);
+    }
+
+    public void youLose(){
+        Destroy(Player);
+        p2Alive = false;
+        SceneManager.LoadScene("Victory Screen");
+        Debug.Log("You Lose! Good day Sir!");
+    }
 }
 

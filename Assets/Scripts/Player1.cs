@@ -36,7 +36,6 @@ public class Player1 : MonoBehaviour
         health = MaxHealth;
         Healthbar.SetMaxHealth(MaxHealth);
 
-
         p1Alive = true;
         
         p1Animator = Player.GetComponent<Animator>();
@@ -58,7 +57,10 @@ public class Player1 : MonoBehaviour
                 Debug.Log("p1: second if runs");
             }
             //takeDamage(10);
+            //Healthbar.SetHealth(health); 
             //Healthbar.SetHealth(health);
+            
+
         }
     }
     private void OnColliisionEnter2D(Collision2D collision)
@@ -147,11 +149,8 @@ public class Player1 : MonoBehaviour
         p1.transform.position.x > 20 ||
         p1.transform.position.y < -12 ||
         p1.transform.position.y > 12){
-            Destroy(Player);
-            p1Alive = false;
+            youLose();
             Debug.Log("Skull Emoji");
-            SceneManager.LoadScene("Victory Screen");
-            Debug.Log("p1 more like pwon");
         }
     }
 
@@ -159,6 +158,9 @@ public class Player1 : MonoBehaviour
     public void takeDamage(int damage){
         health = health - damage;
         Healthbar.SetHealth(health);
+        if(health <= 0){
+            youLose();
+        }
 
         Debug.Log("*Ooh Ouch Yikes Yowch Oof Skeeouch Yeeowch*");
     }
@@ -175,6 +177,14 @@ public class Player1 : MonoBehaviour
     }
     //Destroys Melee
 
+    public void youLose(){
+        Destroy(Player);
+        p1Alive = false;
+        SceneManager.LoadScene("Victory Screen");
+        //Destroy("DontDestroyOnLoad");
+        Debug.Log("You Lose! Good day Sir!");
+    }
+    
     private void OnDrawGizmosSelected(){
         if(attackPoint == null){
             return;
@@ -183,4 +193,5 @@ public class Player1 : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
 
     }
+
 }
