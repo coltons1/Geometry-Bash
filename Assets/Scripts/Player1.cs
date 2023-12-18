@@ -203,7 +203,10 @@ public class Player1 : MonoBehaviour
         p1Alive = false;
         SceneManager.LoadScene("Victory Screen");
         //Destroy("DontDestroyOnLoad");
-        Debug.Log("You Lose! Good day Sir!");
+        Debug.Log("Player 2 wins");
+        GameObject.Find("Healthbars").SetActive(false);
+        GameObject.Find("Player 2").SetActive(false);
+
     }
     
     private void OnDrawGizmosSelected(){
