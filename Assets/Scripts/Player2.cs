@@ -66,9 +66,14 @@ public class Player2 : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnColliisionEnter2D(Collision2D collision)
     {
-        if(other.gameObject.CompareTag("Trampoline")){
+        if(collision.gameObject.name == "BottomPlatform")
+        {
+            takeDamage(5);
+        }
+        
+        if(collision.gameObject.CompareTag("Trampoline")){
             p2.velocity = Vector2.up * bounceForce;
         }
     }
@@ -186,6 +191,7 @@ public class Player2 : MonoBehaviour
 
     }
     //Destroys Melee
+
     
     public void OnLanding(Animator animator){
         animator.SetBool("isJumping", false);
@@ -193,6 +199,8 @@ public class Player2 : MonoBehaviour
 
     public void youLose(){
         Destroy(Player);
+        Destroy(Healthbar);
+    
         p2Alive = false;
         SceneManager.LoadScene("Victory Screen");
         Debug.Log("You Lose! Good day Sir!");
