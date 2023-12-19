@@ -100,6 +100,7 @@ public class Player1 : MonoBehaviour
         //assigns speed and airspeed variables to velocitys
         p1Animator.SetFloat("Speed", Mathf.Abs(p1.velocity.x));
         p1Animator.SetFloat("AirSpeed", Mathf.Abs(p1.velocity.y));
+        p1Animator.SetBool("attack", false);
         
         //Player 1 Movement
 
@@ -107,7 +108,7 @@ public class Player1 : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.W) && p1.velocity.y == 0){
 		    p1.velocity = new Vector3(p1.velocity.x, jumpHeight, 0);
             p1Animator.SetBool("isJumping", true);
-		
+            
 	    }
 
         //Player 1 Move Right
@@ -141,6 +142,7 @@ public class Player1 : MonoBehaviour
         //Player 1 attack
         if(Input.GetKeyUp(KeyCode.E)){
             meleeAttack();
+            p1Animator.SetBool("attack", false);
         }
         //Player 1 attack
         if(Input.GetKeyUp(KeyCode.Q)){
@@ -178,6 +180,9 @@ public class Player1 : MonoBehaviour
             Debug.Log("hit");
             enemy.GetComponent<Player2>().takeDamage(10);
         }
+
+        p1Animator.SetBool("attack", true);
+        Debug.Log("attacked");
 
     }
     //Destroys Melee
