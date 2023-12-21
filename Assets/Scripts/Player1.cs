@@ -168,9 +168,7 @@ public class Player1 : MonoBehaviour
         }
 
     }
-    //Destroys Melee
 
-    
     public void OnLanding(Animator animator){
         animator.SetBool("isJumping", false);
     }
