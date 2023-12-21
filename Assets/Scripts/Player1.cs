@@ -14,6 +14,7 @@ public class Player1 : MonoBehaviour
     [SerializeField] Sprite attackSprite;
     public Transform attackPoint;
     public float attackRange = 0.5f;
+    public GameObject rangedAttack;
     public LayerMask enemyLayer;
     private Rigidbody2D p1;
     public int MaxHealth = 100;
@@ -36,7 +37,6 @@ public class Player1 : MonoBehaviour
         health = MaxHealth;
         Healthbar.SetMaxHealth(MaxHealth);
 
-
         p1Alive = true;
         
         p1Animator = Player.GetComponent<Animator>();
@@ -46,21 +46,29 @@ public class Player1 : MonoBehaviour
     //When the object starts colliding
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("p1: method runs");
         // makes the player take damage ob collsion
-        if(collision.gameObject.name == "BottomPlatform")
+        if(collision.gameObject.tag == "Platform")
         {
-            //when player 1 touches the ground, sets isJumping to false
-
-            if(collision.gameObject.tag == "PlayerOne")
+            Debug.Log("p1: first if runs");
+            //when player 2 touches the ground, sets isJumping to false
+            if(collision.gameObject.tag == "Platform")
             {
                 p1Animator.SetBool("isJumping", false);
-                Debug.Log("it worked");
+                Debug.Log("p1: second if runs");
             }
             //takeDamage(10);
             //Healthbar.SetHealth(health); 
             //Healthbar.SetHealth(health);
             
 
+        }
+    }
+    private void OnColliisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.name == "BottomPlatform")
+        {
+            takeDamage(5);
         }
     }
 
@@ -134,6 +142,10 @@ public class Player1 : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.E)){
             meleeAttack();
         }
+        //Player 1 attack
+        if(Input.GetKeyUp(KeyCode.Q)){
+            attackRanged();
+        }
 
     }
     //finds the player position on the camera and if it has fallen out of bounds and changes to victory screen
@@ -142,11 +154,8 @@ public class Player1 : MonoBehaviour
         p1.transform.position.x > 20 ||
         p1.transform.position.y < -12 ||
         p1.transform.position.y > 12){
-            Destroy(Player);
-            p1Alive = false;
+            youLose();
             Debug.Log("Skull Emoji");
-            SceneManager.LoadScene("Victory Screen");
-            Debug.Log("p1 more like pwon");
         }
     }
 
@@ -154,6 +163,9 @@ public class Player1 : MonoBehaviour
     public void takeDamage(int damage){
         health = health - damage;
         Healthbar.SetHealth(health);
+        if(health <= 0){
+            youLose();
+        }
 
         Debug.Log("*Ooh Ouch Yikes Yowch Oof Skeeouch Yeeowch*");
     }
@@ -169,10 +181,33 @@ public class Player1 : MonoBehaviour
 
     }
 
+    //does a basic melee attack
+    private void attackRanged(){
+        Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(rangedAttack.transform.position, attackRange, enemyLayer);
+        Instantiate(rangedAttack,attackPoint.position, Quaternion.Euler(0f,0f,0f));
+        rangedAttack.GetComponent<Rigidbody2D>().velocity = new Vector3 (2f,0f,0f);
+        foreach(Collider2D enemy in hitEnemys){
+            Debug.Log("hit");
+            enemy.GetComponent<Player2>().takeDamage(10);
+        }
+
+    }
+
     public void OnLanding(Animator animator){
         animator.SetBool("isJumping", false);
     }
 
+    public void youLose(){
+        Destroy(Player);
+        p1Alive = false;
+        SceneManager.LoadScene("Victory Screen");
+        //Destroy("DontDestroyOnLoad");
+        Debug.Log("Player 2 wins");
+        GameObject.Find("Healthbars").SetActive(false);
+        GameObject.Find("Player 2").SetActive(false);
+
+    }
+    
     private void OnDrawGizmosSelected(){
         if(attackPoint == null){
             return;
@@ -181,4 +216,5 @@ public class Player1 : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
 
     }
+
 }
