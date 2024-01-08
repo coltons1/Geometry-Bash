@@ -205,9 +205,14 @@ public class Player2 : MonoBehaviour
 
     public void youLose(){
         Destroy(Player);
+        Destroy(Healthbar);
+    
         p2Alive = false;
         SceneManager.LoadScene("Victory Screen");
-        Debug.Log("You Lose! Good day Sir!");
+        Debug.Log("Player 1 wins");
+        GameObject.Find("Healthbars").SetActive(false);
+        GameObject.Find("Player 1").SetActive(false);
+
     }
 }
 
