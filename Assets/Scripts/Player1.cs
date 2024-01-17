@@ -19,6 +19,7 @@ public class Player1 : MonoBehaviour
     private Rigidbody2D p1;
     public int MaxHealth = 100;
     public int health;
+    public float bounceForce;
     public HealthBar Healthbar;
     public Animator p1Animator;
 
@@ -60,8 +61,12 @@ public class Player1 : MonoBehaviour
             //takeDamage(10);
             //Healthbar.SetHealth(health); 
             //Healthbar.SetHealth(health);
-            
-
+        }
+        if(collision.gameObject.tag == "Trampoline"){
+            Debug.Log("trampoline touched");
+            Debug.Log(bounceForce);
+            p1.velocity = Vector2.up * bounceForce;
+            // Debug.Log(p1.velocity);
         }
     }
     private void OnColliisionEnter2D(Collision2D collision)
