@@ -2395,6 +2395,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1399132405}
     - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
+      propertyPath: bounceForce
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: attackSprite
       value: 
       objectReference: {fileID: 21300000, guid: 8fc9270e27f600c4b9065c05bacadfec, type: 3}
@@ -3248,7 +3252,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 975063159}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0038, y: 1.8909, z: 0}
+  m_LocalPosition: {x: 0, y: 1.4, z: 0}
   m_LocalScale: {x: 0.9691564, y: 1.263305, z: 0.90229625}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3332,7 +3336,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 983684819}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 1.406, z: 0}
+  m_LocalPosition: {x: 0, y: 1.4, z: 0}
   m_LocalScale: {x: 1, y: 1.2633054, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -5035,6 +5039,7 @@ MonoBehaviour:
   MaxHealth: 100
   health: 0
   bounceForce: 32
+  bounceForce: 25
   Healthbar: {fileID: 21983570}
   p1Animator: {fileID: 0}
   p2Animator: {fileID: 1946572263}
