@@ -8,6 +8,7 @@ public class Player1 : MonoBehaviour
 {
     //creation of jumpheight and movespeed
     bool p1Alive;
+    private int num = 0;
     public float jumpHeight;
     public float moveSpeed;
     [SerializeField] GameObject Player;
@@ -42,21 +43,20 @@ public class Player1 : MonoBehaviour
         
         p1Animator = Player.GetComponent<Animator>();
         
+        rangedAttack = GameObject.Find("Projectile");
+        rangedAttack.SetActive(false);
     }
 
     //When the object starts colliding
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("p1: method runs");
         // makes the player take damage ob collsion
         if(collision.gameObject.tag == "Platform")
         {
-            Debug.Log("p1: first if runs");
             //when player 2 touches the ground, sets isJumping to false
             if(collision.gameObject.tag == "Platform")
             {
                 p1Animator.SetBool("isJumping", false);
-                Debug.Log("p1: second if runs");
             }
             //takeDamage(10);
             //Healthbar.SetHealth(health); 
@@ -164,7 +164,6 @@ public class Player1 : MonoBehaviour
         p1.transform.position.y < -12 ||
         p1.transform.position.y > 12){
             youLose();
-            Debug.Log("Skull Emoji");
         }
     }
 
@@ -185,24 +184,28 @@ public class Player1 : MonoBehaviour
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
         foreach(Collider2D enemy in hitEnemys){
-            Debug.Log("hit");
             enemy.GetComponent<Player2>().takeDamage(10);
         }
+<<<<<<< HEAD
         Debug.Log("attacked");
+=======
+
+        p1Animator.SetBool("attack", true);
+>>>>>>> 44b32f37b40924126a2194350789ac7e34044ba8
 
     }
     //Destroys Melee
 
     //does a basic melee attack
     private void attackRanged(){
+        rangedAttack.SetActive(true);
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(rangedAttack.transform.position, attackRange, enemyLayer);
-        Instantiate(rangedAttack,attackPoint.position, Quaternion.Euler(0f,0f,0f));
-        rangedAttack.GetComponent<Rigidbody2D>().velocity = new Vector3 (2f,0f,0f);
+        Invoke("removeRangedAttack",5);
         foreach(Collider2D enemy in hitEnemys){
             Debug.Log("hit");
             enemy.GetComponent<Player2>().takeDamage(10);
+            num++;
         }
-
     }
 
     public void youLose(){
@@ -217,12 +220,16 @@ public class Player1 : MonoBehaviour
     }
     
     private void OnDrawGizmosSelected(){
-        if(attackPoint == null){
+        if(attackPoint == null || rangedAttack == null){
             return;
         }
 
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        Gizmos.DrawWireSphere(rangedAttack.transform.position, attackRange);
 
     }
 
+    private void removeRangedAttack(){
+        rangedAttack.SetActive(false);
+    }
 }
