@@ -43,8 +43,6 @@ public class Player1 : MonoBehaviour
         
         p1Animator = Player.GetComponent<Animator>();
         
-        rangedAttack = GameObject.Find("Projectile");
-        rangedAttack.SetActive(false);
     }
 
     //When the object starts colliding
@@ -186,26 +184,22 @@ public class Player1 : MonoBehaviour
         foreach(Collider2D enemy in hitEnemys){
             enemy.GetComponent<Player2>().takeDamage(10);
         }
-<<<<<<< HEAD
         Debug.Log("attacked");
-=======
 
         p1Animator.SetBool("attack", true);
->>>>>>> 44b32f37b40924126a2194350789ac7e34044ba8
 
     }
     //Destroys Melee
 
     //does a basic melee attack
     private void attackRanged(){
-        rangedAttack.SetActive(true);
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(rangedAttack.transform.position, attackRange, enemyLayer);
-        Invoke("removeRangedAttack",5);
+        Instantiate(rangedAttack,attackPoint.position, Quaternion.Euler(0f,0f,0f));
         foreach(Collider2D enemy in hitEnemys){
             Debug.Log("hit");
             enemy.GetComponent<Player2>().takeDamage(10);
-            num++;
         }
+        Invoke("removeRanged", 5);
     }
 
     public void youLose(){
@@ -230,6 +224,6 @@ public class Player1 : MonoBehaviour
     }
 
     private void removeRangedAttack(){
-        rangedAttack.SetActive(false);
+        Destroy(GameObject.Find("Projectile(Clone)"));
     }
 }
