@@ -186,12 +186,9 @@ public class Player1 : MonoBehaviour
         foreach(Collider2D enemy in hitEnemys){
             enemy.GetComponent<Player2>().takeDamage(10);
         }
-<<<<<<< HEAD
         Debug.Log("attacked");
-=======
 
         p1Animator.SetBool("attack", true);
->>>>>>> 44b32f37b40924126a2194350789ac7e34044ba8
 
     }
     //Destroys Melee
