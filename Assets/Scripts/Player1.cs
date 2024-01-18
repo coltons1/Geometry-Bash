@@ -102,10 +102,12 @@ public class Player1 : MonoBehaviour
             outOfBounds();
         }
 
-        //assigns speed and airspeed variables to velocitys
+        //assigns speed and airspeed variables to velocity
         p1Animator.SetFloat("Speed", Mathf.Abs(p1.velocity.x));
         p1Animator.SetFloat("AirSpeed", Mathf.Abs(p1.velocity.y));
-        p1Animator.SetBool("attack", false);
+
+        //assings isAttacking variable initially to false
+        p1Animator.SetBool("isMelee", false);
         
         //Player 1 Movement
 
@@ -146,8 +148,8 @@ public class Player1 : MonoBehaviour
 
         //Player 1 attack
         if(Input.GetKeyUp(KeyCode.E)){
+            p1Animator.SetBool("isMelee", true);
             meleeAttack();
-            p1Animator.SetBool("attack", false);
         }
         //Player 1 attack
         if(Input.GetKeyUp(KeyCode.Q)){
@@ -178,13 +180,18 @@ public class Player1 : MonoBehaviour
 
     //does a basic melee attack
     private void meleeAttack(){
+        
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
         foreach(Collider2D enemy in hitEnemys){
             enemy.GetComponent<Player2>().takeDamage(10);
         }
+<<<<<<< HEAD
+        Debug.Log("attacked");
+=======
 
         p1Animator.SetBool("attack", true);
+>>>>>>> 44b32f37b40924126a2194350789ac7e34044ba8
 
     }
     //Destroys Melee
@@ -199,10 +206,6 @@ public class Player1 : MonoBehaviour
             enemy.GetComponent<Player2>().takeDamage(10);
             num++;
         }
-    }
-
-    public void OnLanding(Animator animator){
-        animator.SetBool("isJumping", false);
     }
 
     public void youLose(){

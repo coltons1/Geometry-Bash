@@ -111,7 +111,7 @@ public class Player2 : MonoBehaviour
         //assigns speed and airspeed variables to velocitys
         p2Animator.SetFloat("Speed", Mathf.Abs(p2.velocity.x));
         p2Animator.SetFloat("AirSpeed", Mathf.Abs(p2.velocity.y));
-        p2Animator.SetBool("attack", false);
+        p2Animator.SetBool("isMelee", false);
         
 
 
@@ -152,8 +152,9 @@ public class Player2 : MonoBehaviour
 
         //Player 2 attack
         if(Input.GetKeyUp(KeyCode.U)){
+            p2Animator.SetBool("isMelee", true);
             meleeAttack();
-            p2Animator.SetBool("attack", false);
+            
         }
     }
 
@@ -180,6 +181,8 @@ public class Player2 : MonoBehaviour
 
     //does a basic melee attack
     private void meleeAttack(){
+        
+
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
         foreach(Collider2D enemy in hitEnemys){
@@ -187,7 +190,6 @@ public class Player2 : MonoBehaviour
             enemy.GetComponent<Player1>().takeDamage(10);
         }
         
-        p2Animator.SetBool("attack", true);
         Debug.Log("attacked");
     }
 
