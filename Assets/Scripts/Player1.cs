@@ -189,6 +189,10 @@ public class Player1 : MonoBehaviour
         Debug.Log("attacked");
 
         p1Animator.SetBool("attack", true);
+        /*if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("YourAnimationName"))
+        {
+            
+        }*/
 
     }
     //Destroys Melee
