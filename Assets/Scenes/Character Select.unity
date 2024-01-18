@@ -5038,7 +5038,6 @@ MonoBehaviour:
     m_Bits: 192
   MaxHealth: 100
   health: 0
-  bounceForce: 32
   bounceForce: 25
   Healthbar: {fileID: 21983570}
   p1Animator: {fileID: 0}
