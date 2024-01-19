@@ -8,6 +8,7 @@ public class Player1 : MonoBehaviour
 {
     //creation of jumpheight and movespeed
     bool p1Alive;
+    private int num = 0;
     public float jumpHeight;
     public float moveSpeed;
     [SerializeField] GameObject Player;
@@ -19,6 +20,7 @@ public class Player1 : MonoBehaviour
     private Rigidbody2D p1;
     public int MaxHealth = 100;
     public int health;
+    public float bounceForce;
     public HealthBar Healthbar;
     public Animator p1Animator;
 
@@ -49,22 +51,23 @@ public class Player1 : MonoBehaviour
     //When the object starts colliding
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("p1: method runs");
         // makes the player take damage ob collsion
         if(collision.gameObject.tag == "Platform")
         {
-            Debug.Log("p1: first if runs");
             //when player 2 touches the ground, sets isJumping to false
             if(collision.gameObject.tag == "Platform")
             {
                 p1Animator.SetBool("isJumping", false);
-                Debug.Log("p1: second if runs");
             }
             //takeDamage(10);
             //Healthbar.SetHealth(health); 
             //Healthbar.SetHealth(health);
-            
-
+        }
+        if(collision.gameObject.tag == "Trampoline"){
+            Debug.Log("trampoline touched");
+            Debug.Log(bounceForce);
+            p1.velocity = Vector2.up * bounceForce;
+            // Debug.Log(p1.velocity);
         }
     }
     private void OnColliisionEnter2D(Collision2D collision)
@@ -100,9 +103,12 @@ public class Player1 : MonoBehaviour
             outOfBounds();
         }
 
-        //assigns speed and airspeed variables to velocitys
+        //assigns speed and airspeed variables to velocity
         p1Animator.SetFloat("Speed", Mathf.Abs(p1.velocity.x));
         p1Animator.SetFloat("AirSpeed", Mathf.Abs(p1.velocity.y));
+
+        //assings isAttacking variable initially to false
+        p1Animator.SetBool("isMelee", false);
         
         //Player 1 Movement
 
@@ -110,7 +116,7 @@ public class Player1 : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.W) && p1.velocity.y == 0){
 		    p1.velocity = new Vector3(p1.velocity.x, jumpHeight, 0);
             p1Animator.SetBool("isJumping", true);
-		
+            
 	    }
 
         //Player 1 Move Right
@@ -143,6 +149,7 @@ public class Player1 : MonoBehaviour
 
         //Player 1 attack
         if(Input.GetKeyUp(KeyCode.E)){
+            p1Animator.SetBool("isMelee", true);
             meleeAttack();
         }
         //Player 1 attack
@@ -158,7 +165,6 @@ public class Player1 : MonoBehaviour
         p1.transform.position.y < -12 ||
         p1.transform.position.y > 12){
             youLose();
-            Debug.Log("Skull Emoji");
         }
     }
 
@@ -175,12 +181,15 @@ public class Player1 : MonoBehaviour
 
     //does a basic melee attack
     private void meleeAttack(){
+        
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
         foreach(Collider2D enemy in hitEnemys){
-            Debug.Log("hit");
             enemy.GetComponent<Player2>().takeDamage(10);
         }
+        Debug.Log("attacked");
+
+        p1Animator.SetBool("attack", true);
 
     }
 
@@ -188,17 +197,16 @@ public class Player1 : MonoBehaviour
     private void attackRanged(){
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(rangedAttack.transform.position, attackRange, enemyLayer);
         Instantiate(rangedAttack,attackPoint.position, Quaternion.Euler(0f,0f,0f));
+<<<<<<< HEAD
         rangedAttack.GetComponent<Rigidbody2D>().velocity = new Vector3(10f,0f,0f);
         rangedAttack.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
+=======
+>>>>>>> f823c6e8b3c55ef30aa2533914ea06c140b7ac4e
         foreach(Collider2D enemy in hitEnemys){
             Debug.Log("hit");
             enemy.GetComponent<Player2>().takeDamage(10);
         }
-
-    }
-
-    public void OnLanding(Animator animator){
-        animator.SetBool("isJumping", false);
+        Invoke("removeRanged", 5);
     }
 
     public void youLose(){
@@ -213,7 +221,7 @@ public class Player1 : MonoBehaviour
     }
     
     private void OnDrawGizmosSelected(){
-        if(attackPoint == null){
+        if(attackPoint == null || rangedAttack == null){
             return;
         }
 
@@ -222,4 +230,7 @@ public class Player1 : MonoBehaviour
 
     }
 
+    private void removeRangedAttack(){
+        Destroy(GameObject.Find("Projectile(Clone)"));
+    }
 }

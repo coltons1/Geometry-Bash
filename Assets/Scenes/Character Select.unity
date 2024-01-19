@@ -659,7 +659,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -734, y: -258}
+  m_AnchoredPosition: {x: -770, y: -258}
   m_SizeDelta: {x: 94.6036, y: 146.4024}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &167869597
@@ -2225,7 +2225,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -745, y: 77}
+  m_AnchoredPosition: {x: -781.00006, y: 77}
   m_SizeDelta: {x: 100, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &687012553
@@ -2314,6 +2314,13 @@ PrefabInstance:
       propertyPath: attackPoint
       value: 
       objectReference: {fileID: 1399132405}
+<<<<<<< HEAD
+=======
+    - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
+      propertyPath: bounceForce
+      value: 25
+      objectReference: {fileID: 0}
+>>>>>>> f823c6e8b3c55ef30aa2533914ea06c140b7ac4e
     - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: attackSprite
       value: 
@@ -2803,7 +2810,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 37, y: -427}
+  m_AnchoredPosition: {x: 0, y: -427}
   m_SizeDelta: {x: 734.053, y: 79.5579}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &886988775
@@ -3165,7 +3172,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 975063159}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0038, y: 1.8909, z: 0}
+  m_LocalPosition: {x: 0, y: 1.4, z: 0}
   m_LocalScale: {x: 0.9691564, y: 1.263305, z: 0.90229625}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3249,7 +3256,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 983684819}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 1.406, z: 0}
+  m_LocalPosition: {x: 0, y: 1.4, z: 0}
   m_LocalScale: {x: 1, y: 1.2633054, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3732,7 +3739,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -455, y: 70.00008}
+  m_AnchoredPosition: {x: -491.00006, y: 70.00008}
   m_SizeDelta: {x: 100, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1428370943
@@ -4286,7 +4293,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -453, y: -260}
+  m_AnchoredPosition: {x: -489.00006, y: -260}
   m_SizeDelta: {x: 100, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1716938299
@@ -4951,7 +4958,7 @@ MonoBehaviour:
     m_Bits: 192
   MaxHealth: 100
   health: 0
-  bounceForce: 20
+  bounceForce: 25
   Healthbar: {fileID: 21983570}
   p1Animator: {fileID: 0}
   p2Animator: {fileID: 1946572263}
@@ -5002,7 +5009,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -704.5, y: 149}
+  m_AnchoredPosition: {x: -740.50006, y: 149}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2103783385

@@ -64,6 +64,13 @@ public class Player2 : MonoBehaviour
             //takeDamage(10);
             //Healthbar.SetHealth(health);
         }
+        
+        if(collision.gameObject.tag == "Trampoline"){
+            Debug.Log("trampoline touched");
+            p2.velocity = Vector2.up * bounceForce;
+            // Debug.Log(p2.velocity);
+            Debug.Log(bounceForce);
+        }
     }
 
     private void OnColliisionEnter2D(Collision2D collision)
@@ -73,9 +80,6 @@ public class Player2 : MonoBehaviour
             takeDamage(5);
         }
         
-        if(collision.gameObject.CompareTag("Trampoline")){
-            p2.velocity = Vector2.up * bounceForce;
-        }
     }
 
     //While the object is colliding
@@ -107,6 +111,7 @@ public class Player2 : MonoBehaviour
         //assigns speed and airspeed variables to velocitys
         p2Animator.SetFloat("Speed", Mathf.Abs(p2.velocity.x));
         p2Animator.SetFloat("AirSpeed", Mathf.Abs(p2.velocity.y));
+        p2Animator.SetBool("isMelee", false);
         
 
 
@@ -147,7 +152,9 @@ public class Player2 : MonoBehaviour
 
         //Player 2 attack
         if(Input.GetKeyUp(KeyCode.U)){
+            p2Animator.SetBool("isMelee", true);
             meleeAttack();
+            
         }
     }
 
@@ -174,12 +181,16 @@ public class Player2 : MonoBehaviour
 
     //does a basic melee attack
     private void meleeAttack(){
+        
+
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
         foreach(Collider2D enemy in hitEnemys){
             Debug.Log("hit");
             enemy.GetComponent<Player1>().takeDamage(10);
         }
+        
+        Debug.Log("attacked");
     }
 
     private void OnDrawGizmosSelected(){
