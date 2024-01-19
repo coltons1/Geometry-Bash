@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 21983571}
   - component: {fileID: 21983570}
   m_Layer: 5
-  m_Name: 'P2HealthBar '
+  m_Name: P2HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2054,7 +2054,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &577613300
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2130,7 +2130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &647303364
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2314,11 +2314,14 @@ PrefabInstance:
       propertyPath: attackPoint
       value: 
       objectReference: {fileID: 1399132405}
-      objectReference: {fileID: 0}
     - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: attackSprite
       value: 
       objectReference: {fileID: 21300000, guid: 8fc9270e27f600c4b9065c05bacadfec, type: 3}
+    - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
+      propertyPath: rangedAttack
+      value: 
+      objectReference: {fileID: 2267151997967836831, guid: bffdd946f2a3f5748b214568ae34175f, type: 3}
     - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: enemyLayer.m_Bits
       value: 128
@@ -4946,11 +4949,6 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 192
-  attackPoint: {fileID: 0}
-  attackRange: 0.5
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
   MaxHealth: 100
   health: 0
   bounceForce: 20

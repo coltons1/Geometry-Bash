@@ -40,6 +40,9 @@ public class Player1 : MonoBehaviour
         p1Alive = true;
         
         p1Animator = Player.GetComponent<Animator>();
+
+        rangedAttack.transform.position = attackPoint.position;
+
         
     }
 
@@ -185,7 +188,8 @@ public class Player1 : MonoBehaviour
     private void attackRanged(){
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(rangedAttack.transform.position, attackRange, enemyLayer);
         Instantiate(rangedAttack,attackPoint.position, Quaternion.Euler(0f,0f,0f));
-        rangedAttack.GetComponent<Rigidbody2D>().velocity = new Vector3 (2f,0f,0f);
+        rangedAttack.GetComponent<Rigidbody2D>().velocity = new Vector3(10f,0f,0f);
+        rangedAttack.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
         foreach(Collider2D enemy in hitEnemys){
             Debug.Log("hit");
             enemy.GetComponent<Player2>().takeDamage(10);
@@ -214,6 +218,7 @@ public class Player1 : MonoBehaviour
         }
 
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        Gizmos.DrawWireSphere(rangedAttack.transform.position, attackRange);
 
     }
 
