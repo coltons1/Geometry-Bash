@@ -2314,13 +2314,10 @@ PrefabInstance:
       propertyPath: attackPoint
       value: 
       objectReference: {fileID: 1399132405}
-<<<<<<< HEAD
-=======
     - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: bounceForce
       value: 25
       objectReference: {fileID: 0}
->>>>>>> f823c6e8b3c55ef30aa2533914ea06c140b7ac4e
     - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: attackSprite
       value: 

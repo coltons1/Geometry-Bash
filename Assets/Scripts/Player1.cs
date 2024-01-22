@@ -189,7 +189,7 @@ public class Player1 : MonoBehaviour
         }
         Debug.Log("attacked");
 
-        p1Animator.SetBool("attack", true);
+        //p1Animator.SetBool("attack", true);
 
     }
 
@@ -197,11 +197,6 @@ public class Player1 : MonoBehaviour
     private void attackRanged(){
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(rangedAttack.transform.position, attackRange, enemyLayer);
         Instantiate(rangedAttack,attackPoint.position, Quaternion.Euler(0f,0f,0f));
-<<<<<<< HEAD
-        rangedAttack.GetComponent<Rigidbody2D>().velocity = new Vector3(10f,0f,0f);
-        rangedAttack.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
-=======
->>>>>>> f823c6e8b3c55ef30aa2533914ea06c140b7ac4e
         foreach(Collider2D enemy in hitEnemys){
             Debug.Log("hit");
             enemy.GetComponent<Player2>().takeDamage(10);
