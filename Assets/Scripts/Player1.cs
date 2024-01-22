@@ -209,11 +209,10 @@ public class Player1 : MonoBehaviour
     public void youLose(){
         Destroy(Player);
         p1Alive = false;
-        SceneManager.LoadScene("Victory Screen");
-        //Destroy("DontDestroyOnLoad");
+        SceneManager.LoadScene("Win Scene");
         Debug.Log("Player 2 wins");
         GameObject.Find("Healthbars").SetActive(false);
-        GameObject.Find("Player 2").SetActive(false);
+        //GameObject.Find("Player 2").SetActive(false);
 
     }
     
