@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1169536923569787723}
   - component: {fileID: -4937281765390978482}
   m_Layer: 0
-  m_Name: Projectile 2
+  m_Name: ProjectileOne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,4 +123,4 @@ MonoBehaviour:
   bulletBody: {fileID: 0}
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 128
