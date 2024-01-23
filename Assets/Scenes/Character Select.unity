@@ -2346,6 +2346,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1898059790027640384, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4453898936373084913, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: m_Name
       value: Player 1
@@ -4805,6 +4809,10 @@ PrefabInstance:
       propertyPath: Healthbar
       value: 
       objectReference: {fileID: 21983570}
+    - target: {fileID: -1267500504304760335, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 195221770572169006, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
       propertyPath: m_Name
       value: Player 2
