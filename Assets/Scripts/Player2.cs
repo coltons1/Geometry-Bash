@@ -14,6 +14,8 @@ public class Player2 : MonoBehaviour
     [SerializeField] Sprite attackSprite;
     public Transform attackPoint;
     public float attackRange = 0.5f;
+    public GameObject rangedAttack;
+
     public LayerMask enemyLayer;
     private Rigidbody2D p2;
     public int MaxHealth = 100;
@@ -156,6 +158,14 @@ public class Player2 : MonoBehaviour
             meleeAttack();
             
         }
+                //Player 2 attack
+        if(Input.GetKeyUp(KeyCode.O)){
+            p2Animator.SetBool("isMelee", true);
+
+            attackRanged();
+
+            
+        }
     }
 
     //finds the player position on the camera and if it has fallen out of bounds
@@ -208,6 +218,10 @@ public class Player2 : MonoBehaviour
         animator.SetBool("isJumping", false);
     }
 
+    //creats ranged attack
+    private void attackRanged(){
+        Instantiate(rangedAttack,attackPoint.position, Quaternion.Euler(0f,0f,0f));
+    }
     public void youLose(){
         Destroy(Player);
         Destroy(Healthbar);
