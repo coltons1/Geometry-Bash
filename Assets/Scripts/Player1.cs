@@ -8,7 +8,7 @@ public class Player1 : MonoBehaviour
 {
     //creation of jumpheight and movespeed
     bool p1Alive;
-    private int num = 0;
+    //private int num = 0;
     public float jumpHeight;
     public float moveSpeed;
     [SerializeField] GameObject Player;
@@ -189,7 +189,11 @@ public class Player1 : MonoBehaviour
         }
         Debug.Log("attacked");
 
-        //p1Animator.SetBool("attack", true);
+        p1Animator.SetBool("isMelee", true);
+        /*if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("YourAnimationName"))
+        {
+            
+        }*/
 
     }
 
@@ -207,11 +211,10 @@ public class Player1 : MonoBehaviour
     public void youLose(){
         Destroy(Player);
         p1Alive = false;
-        SceneManager.LoadScene("Victory Screen");
-        //Destroy("DontDestroyOnLoad");
+        SceneManager.LoadScene("Win Scene");
         Debug.Log("Player 2 wins");
         GameObject.Find("Healthbars").SetActive(false);
-        GameObject.Find("Player 2").SetActive(false);
+        //GameObject.Find("Player 2").SetActive(false);
 
     }
     
