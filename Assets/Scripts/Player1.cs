@@ -151,6 +151,7 @@ public class Player1 : MonoBehaviour
         }
         //Player 1 attack
         if(Input.GetKeyUp(KeyCode.Q)){
+            p1Animator.SetBool("isMelee", true);
             attackRanged();
         }
 
@@ -197,13 +198,7 @@ public class Player1 : MonoBehaviour
 
     //does a basic melee attack
     private void attackRanged(){
-        Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(rangedAttack.transform.position, attackRange, enemyLayer);
         Instantiate(rangedAttack,attackPoint.position, Quaternion.Euler(0f,0f,0f));
-        foreach(Collider2D enemy in hitEnemys){
-            Debug.Log("hit");
-            enemy.GetComponent<Player2>().takeDamage(10);
-        }
-        Invoke("removeRanged", 5);
     }
 
     public void youLose(){
@@ -227,7 +222,5 @@ public class Player1 : MonoBehaviour
 
     }
 
-    private void removeRangedAttack(){
-        Destroy(GameObject.Find("Projectile(Clone)"));
-    }
+
 }

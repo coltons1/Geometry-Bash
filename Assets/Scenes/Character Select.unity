@@ -2325,7 +2325,7 @@ PrefabInstance:
     - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: rangedAttack
       value: 
-      objectReference: {fileID: 2267151997967836831, guid: bffdd946f2a3f5748b214568ae34175f, type: 3}
+      objectReference: {fileID: 2267151997967836831, guid: 5ad94f80950a4654bae3e9b64aeae0d9, type: 3}
     - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: enemyLayer.m_Bits
       value: 128
@@ -4950,6 +4950,7 @@ MonoBehaviour:
   attackSprite: {fileID: 21300000, guid: 8fc9270e27f600c4b9065c05bacadfec, type: 3}
   attackPoint: {fileID: 46734375}
   attackRange: 0.5
+  rangedAttack: {fileID: 2267151997967836831, guid: bffdd946f2a3f5748b214568ae34175f, type: 3}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 192
