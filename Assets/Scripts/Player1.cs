@@ -23,6 +23,7 @@ public class Player1 : MonoBehaviour
     public float bounceForce;
     public HealthBar Healthbar;
     public Animator p1Animator;
+    public string direction;
 
 
     // Start is called before the first frame update
@@ -44,6 +45,8 @@ public class Player1 : MonoBehaviour
         p1Animator = Player.GetComponent<Animator>();
 
         rangedAttack.transform.position = attackPoint.position;
+
+        direction = "right";
 
         
     }
@@ -128,6 +131,7 @@ public class Player1 : MonoBehaviour
                 p1.velocity = new Vector3(moveSpeed, p1.velocity.y, 0);
             }
             p1.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);
+            direction = "right";
 	
 	    }
 
@@ -140,6 +144,8 @@ public class Player1 : MonoBehaviour
                 p1.velocity = new Vector3(-moveSpeed, p1.velocity.y, 0);
             }	
             p1.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
+            direction = "left";
+
 	    }
 
         //Player 1 Move Down
@@ -223,5 +229,8 @@ public class Player1 : MonoBehaviour
 
     }
 
+    public string getDirection(){
+        return direction;
+    }
 
 }
