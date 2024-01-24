@@ -27,6 +27,8 @@ public class Player2 : MonoBehaviour
 
     public string direction;
 
+    Scene currentScene;
+
 
     // Start is called before the first frame update
     void Start()
@@ -234,15 +236,28 @@ public class Player2 : MonoBehaviour
         Destroy(Player);
         Destroy(Healthbar);
         p2Alive = false;
+        GameObject.Find("Healthbars").SetActive(false);
 
         SceneManager.LoadScene("Win Scene");
+        setWinText();
+
         Debug.Log("Player 1 wins");
-        GameObject.Find("Healthbars").SetActive(false);
+        
         //GameObject.Find("Player 1").SetActive(false);
 
     }
     public string getDirection(){
         return direction;
+    }
+
+    public void setWinText(){
+        currentScene = SceneManager.GetActiveScene();
+
+        if(currentScene.name == "Win Scene")
+        {
+            GameObject.Find("player1WinText").SetActive(true);
+
+        }
     }
 }
 
