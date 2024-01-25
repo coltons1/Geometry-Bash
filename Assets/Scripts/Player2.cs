@@ -24,9 +24,8 @@ public class Player2 : MonoBehaviour
     public HealthBar Healthbar;
     public Animator p1Animator;
     public Animator p2Animator;
-
     public string direction;
-
+    
 
     // Start is called before the first frame update
     void Start()
@@ -163,8 +162,7 @@ public class Player2 : MonoBehaviour
         //Player 2 attack
         if(Input.GetKeyUp(KeyCode.U)){
             p2Animator.SetBool("isMelee", true);
-            meleeAttack();
-            
+            meleeAttack();        
         }
                 //Player 2 attack
         if(Input.GetKeyUp(KeyCode.O)){
@@ -200,6 +198,7 @@ public class Player2 : MonoBehaviour
     //does a basic melee attack
     private void meleeAttack(){
         
+        Debug.Log("attacked");
 
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
@@ -208,7 +207,6 @@ public class Player2 : MonoBehaviour
             enemy.GetComponent<Player1>().takeDamage(10);
         }
         
-        Debug.Log("attacked");
     }
 
     private void OnDrawGizmosSelected(){
