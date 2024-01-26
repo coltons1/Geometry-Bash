@@ -24,6 +24,8 @@ public class Player1 : MonoBehaviour
     public HealthBar Healthbar;
     public Animator p1Animator;
     public string direction;
+    
+    Scene currentScene;
 
 
     // Start is called before the first frame update
@@ -212,11 +214,14 @@ public class Player1 : MonoBehaviour
     public void youLose(){
         Destroy(Player);
         p1Alive = false;
-        SceneManager.LoadScene("Win Scene");
-        Debug.Log("Player 2 wins");
         GameObject.Find("Healthbars").SetActive(false);
-        //GameObject.Find("Player 2").SetActive(false);
+        
+        SceneManager.LoadScene("Win Scene");
+        setWinText();
 
+        //GameObject.Find("player2WinText").SetActive(true);
+
+        Debug.Log("Player 2 wins");
     }
     
     private void OnDrawGizmosSelected(){
@@ -231,6 +236,16 @@ public class Player1 : MonoBehaviour
 
     public string getDirection(){
         return direction;
+    }
+
+    public void setWinText(){
+        currentScene = SceneManager.GetActiveScene();
+
+        if(currentScene.name == "Win Scene")
+        {
+            GameObject.Find("player2WinText").SetActive(true);
+
+        }
     }
 
 }
