@@ -70,7 +70,6 @@ public class Player1 : MonoBehaviour
         }
         if(collision.gameObject.tag == "Trampoline"){
             Debug.Log("trampoline touched");
-            Debug.Log(bounceForce);
             p1.velocity = Vector2.up * bounceForce;
             // Debug.Log(p1.velocity);
         }
