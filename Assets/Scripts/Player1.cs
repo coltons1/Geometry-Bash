@@ -214,7 +214,8 @@ public class Player1 : MonoBehaviour
     }
 
     public void youLose(){
-        Destroy(Player);
+        Player.SetActive(false);
+        GameObject.Find("P1HealthBar").SetActive(false);
         p1Alive = false;
         GameObject.Find("Healthbars").SetActive(false);
         

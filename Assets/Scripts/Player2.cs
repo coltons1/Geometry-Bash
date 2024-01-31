@@ -236,13 +236,13 @@ public class Player2 : MonoBehaviour
         Instantiate(rangedAttack,attackPoint.position, Quaternion.Euler(0f,0f,0f));
     }
     public void youLose(){
-        Destroy(Player);
-        Destroy(Healthbar);
+        Player.SetActive(false);
+        GameObject.Find("P2HealthBar").SetActive(false);
         p2Alive = false;
         GameObject.Find("Healthbars").SetActive(false);
 
         SceneManager.LoadScene("Win Scene");
-        setWinText();
+        //setWinText();
 
         Debug.Log("Player 1 wins");
         
@@ -251,16 +251,6 @@ public class Player2 : MonoBehaviour
     }
     public string getDirection(){
         return direction;
-    }
-
-    public void setWinText(){
-        currentScene = SceneManager.GetActiveScene();
-
-        if(currentScene.name == "Win Scene")
-        {
-            GameObject.Find("player1WinText").SetActive(true);
-
-        }
     }
 }
 
