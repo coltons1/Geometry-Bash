@@ -138,10 +138,13 @@ public class Player2 : MonoBehaviour
             else {
                 p2.velocity = new Vector3(moveSpeed, p2.velocity.y, 0);
             }
-            p2.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
             direction = "right";
 
 	    }
+        if(direction == "right"){
+            p2.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
+
+        }
 
         //Player 2 Move Left
 	    if(Input.GetKey(KeyCode.J)){
@@ -151,10 +154,12 @@ public class Player2 : MonoBehaviour
             else {
                 p2.velocity = new Vector3(-moveSpeed, p2.velocity.y, 0);
             }
-            p2.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);	
             direction = "left";
-
 	    }
+        if(direction == "left"){
+            p2.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);	
+
+        }
 
         //Player 2 Move Down
         if(Input.GetKey(KeyCode.K)){

@@ -4968,6 +4968,7 @@ MonoBehaviour:
   Healthbar: {fileID: 21983570}
   p1Animator: {fileID: 0}
   p2Animator: {fileID: 1946572263}
+  direction: 
 --- !u!114 &1946572265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4980,6 +4981,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24aca3bce78c54247b536f2d1f49a6b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1946572269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118428695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 224842967e5c05e41b823c28263819e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTime: 5
 --- !u!1 &2103783383
 GameObject:
   m_ObjectHideFlags: 0

@@ -132,10 +132,12 @@ public class Player1 : MonoBehaviour
             else {
                 p1.velocity = new Vector3(moveSpeed, p1.velocity.y, 0);
             }
-            p1.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);
             direction = "right";
 	
 	    }
+        if(direction == "right"){
+            p1.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);
+        }
 
         //Player 1 Move Left
 	    if(Input.GetKey(KeyCode.A)){
@@ -145,10 +147,11 @@ public class Player1 : MonoBehaviour
             else {
                 p1.velocity = new Vector3(-moveSpeed, p1.velocity.y, 0);
             }	
-            p1.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
             direction = "left";
-
 	    }
+        if(direction == "left"){
+            p1.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
+        }
 
         //Player 1 Move Down
         if(Input.GetKey(KeyCode.S)){
@@ -158,7 +161,7 @@ public class Player1 : MonoBehaviour
         //Player 1 attack
         if(Input.GetKeyUp(KeyCode.E)){
             p1Animator.SetBool("isMelee", true);
-            meleeAttack();
+            Player.AddComponent<Timer>();
         }
         //Player 1 attack
         if(Input.GetKeyUp(KeyCode.Q)){
@@ -189,7 +192,7 @@ public class Player1 : MonoBehaviour
     }
 
     //does a basic melee attack
-    private void meleeAttack(){
+    public void meleeAttack(){
         
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
@@ -198,7 +201,6 @@ public class Player1 : MonoBehaviour
         }
         Debug.Log("attacked");
 
-        p1Animator.SetBool("isMelee", true);
         /*if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("YourAnimationName"))
         {
             
