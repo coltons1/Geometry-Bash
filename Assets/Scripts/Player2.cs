@@ -25,6 +25,7 @@ public class Player2 : MonoBehaviour
     public Animator p1Animator;
     public Animator p2Animator;
     public string direction;
+    public bool isMeleeAttacking;
 
     Scene currentScene;
 
@@ -51,6 +52,8 @@ public class Player2 : MonoBehaviour
         p2Animator = Player.GetComponent<Animator>();
 
         direction = "left";
+
+        isMeleeAttacking = false;
         
     }
 
@@ -168,8 +171,11 @@ public class Player2 : MonoBehaviour
 
         //Player 2 attack
         if(Input.GetKeyUp(KeyCode.U)){
-            p2Animator.SetBool("isMelee", true);
-            meleeAttack();        
+            if(isMeleeAttacking == false){
+                Player.AddComponent<DelayTimer>();
+                Player.GetComponent<DelayTimer>().setTimer(0.25f);
+            }
+            
         }
                 //Player 2 attack
         if(Input.GetKeyUp(KeyCode.O)){
@@ -203,8 +209,11 @@ public class Player2 : MonoBehaviour
     }
 
     //does a basic melee attack
-    private void meleeAttack(){
-        
+    public void meleeAttack(){
+        p2Animator.SetBool("isMelee", true);
+        isMeleeAttacking = true;
+        Player.AddComponent<AttackTimer>();
+        Player.GetComponent<AttackTimer>().setTimer(1f);
         Debug.Log("attacked");
 
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);

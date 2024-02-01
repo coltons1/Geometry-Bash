@@ -24,6 +24,7 @@ public class Player1 : MonoBehaviour
     public HealthBar Healthbar;
     public Animator p1Animator;
     public string direction;
+    public bool isMeleeAttacking;
     
     Scene currentScene;
 
@@ -49,6 +50,8 @@ public class Player1 : MonoBehaviour
         rangedAttack.transform.position = attackPoint.position;
 
         direction = "right";
+
+        isMeleeAttacking = false;
 
         
     }
@@ -160,8 +163,13 @@ public class Player1 : MonoBehaviour
 
         //Player 1 attack
         if(Input.GetKeyUp(KeyCode.E)){
-            p1Animator.SetBool("isMelee", true);
-            Player.AddComponent<Timer>();
+            if(isMeleeAttacking == false){
+                p1Animator.SetBool("isMelee", true);
+                Player.AddComponent<DelayTimer>();
+                Player.GetComponent<DelayTimer>().setTimer(0.5f);
+            }
+
+
         }
         //Player 1 attack
         if(Input.GetKeyUp(KeyCode.Q)){
@@ -193,7 +201,9 @@ public class Player1 : MonoBehaviour
 
     //does a basic melee attack
     public void meleeAttack(){
-        
+        isMeleeAttacking = true;
+        Player.AddComponent<AttackTimer>();
+        Player.GetComponent<AttackTimer>().setTimer(1f);
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
         foreach(Collider2D enemy in hitEnemys){
