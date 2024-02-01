@@ -27,11 +27,11 @@ public GameObject player;
     // Update is called once per frame
     void Update()
     {
-        Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(GameObject.Find("ProjectileTwo(Clone)").transform.position, 0.5f, enemyLayer);
+        Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(this.gameObject.transform.position, 0.5f, enemyLayer);
         foreach(Collider2D enemy in hitEnemys){
             Debug.Log("hit");
             enemy.GetComponent<Player1>().takeDamage(10);
-            Destroy(GameObject.Find("ProjectileTwo(Clone)"));
+            Destroy(this.gameObject);
         }
     }
     private void removeRangedAttack(){

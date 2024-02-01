@@ -28,11 +28,11 @@ private GameObject player;
     void Update()
     {
 
-        Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(GameObject.Find("ProjectileOne(Clone)").transform.position, 0.5f, enemyLayer);
+        Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(this.gameObject.transform.position, 0.5f, enemyLayer);
         foreach(Collider2D enemy in hitEnemys){
             Debug.Log("hit");
             enemy.GetComponent<Player2>().takeDamage(10);
-            Destroy(GameObject.Find("ProjectileOne(Clone)"));
+            Destroy(this.gameObject);
         }
     }
     private void removeRangedAttack(){

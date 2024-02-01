@@ -24,8 +24,8 @@ public class Player2 : MonoBehaviour
     public HealthBar Healthbar;
     public Animator p1Animator;
     public Animator p2Animator;
-
     public string direction;
+    public bool isMeleeAttacking;
 
     Scene currentScene;
 
@@ -52,6 +52,8 @@ public class Player2 : MonoBehaviour
         p2Animator = Player.GetComponent<Animator>();
 
         direction = "left";
+
+        isMeleeAttacking = false;
         
     }
 
@@ -139,10 +141,13 @@ public class Player2 : MonoBehaviour
             else {
                 p2.velocity = new Vector3(moveSpeed, p2.velocity.y, 0);
             }
-            p2.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
             direction = "right";
 
 	    }
+        if(direction == "right"){
+            p2.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
+
+        }
 
         //Player 2 Move Left
 	    if(Input.GetKey(KeyCode.J)){
@@ -152,10 +157,12 @@ public class Player2 : MonoBehaviour
             else {
                 p2.velocity = new Vector3(-moveSpeed, p2.velocity.y, 0);
             }
-            p2.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);	
             direction = "left";
-
 	    }
+        if(direction == "left"){
+            p2.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);	
+
+        }
 
         //Player 2 Move Down
         if(Input.GetKey(KeyCode.K)){
@@ -164,8 +171,10 @@ public class Player2 : MonoBehaviour
 
         //Player 2 attack
         if(Input.GetKeyUp(KeyCode.U)){
-            p2Animator.SetBool("isMelee", true);
-            meleeAttack();
+            if(isMeleeAttacking == false){
+                Player.AddComponent<DelayTimer>();
+                Player.GetComponent<DelayTimer>().setTimer(0.25f);
+            }
             
         }
                 //Player 2 attack
@@ -200,8 +209,12 @@ public class Player2 : MonoBehaviour
     }
 
     //does a basic melee attack
-    private void meleeAttack(){
-        
+    public void meleeAttack(){
+        p2Animator.SetBool("isMelee", true);
+        isMeleeAttacking = true;
+        Player.AddComponent<AttackTimer>();
+        Player.GetComponent<AttackTimer>().setTimer(1f);
+        Debug.Log("attacked");
 
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
@@ -210,7 +223,6 @@ public class Player2 : MonoBehaviour
             enemy.GetComponent<Player1>().takeDamage(10);
         }
         
-        Debug.Log("attacked");
     }
 
     private void OnDrawGizmosSelected(){
