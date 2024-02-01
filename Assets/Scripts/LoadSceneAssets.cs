@@ -13,18 +13,6 @@ public class LoadSceneAssets : MonoBehaviour
     Scene currentScene;
     //HealthController healthController;
 
-    void Awake()
-    {
-        currentScene = SceneManager.GetActiveScene();
-
-        if(currentScene.name == "Stage1")
-        {
-            p1 = GameObject.Find("Player 1");
-            p2 = GameObject.Find("Player 2");
-
-        }
-    }
-
     //sets p1 position to (p1x,p1y) and p2 position to (p2x,p2y)
     public void setPositions()
     {
@@ -68,5 +56,8 @@ public class LoadSceneAssets : MonoBehaviour
 
     }
 
+    void Update(){
+        currentScene = SceneManager.GetActiveScene();
+    }
 
 }
