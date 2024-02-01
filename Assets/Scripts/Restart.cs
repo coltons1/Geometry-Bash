@@ -14,8 +14,11 @@ public class Restart : MonoBehaviour
         p1 = GameObject.Find("Player 1");
         p2 = GameObject.Find("Player 2");
 
-        p1.SetActive(true);
-        p2.SetActive(true);
+        if(p1.activeSelf == true){
+            p2.SetActive(true);
+        } else if(p2.activeSelf == true){
+            p1.SetActive(true);
+        }
 
         h1 = GameObject.Find("P1HealthBar");
         h2 = GameObject.Find("P2HealthBar");
