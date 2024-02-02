@@ -173,7 +173,7 @@ public class Player2 : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.U)){
             if(isMeleeAttacking == false){
                 Player.AddComponent<DelayTimer>();
-                Player.GetComponent<DelayTimer>().setTimer(0.25f);
+                Player.GetComponent<DelayTimer>().setTimer(0.4f);
             }
             
         }
@@ -213,8 +213,7 @@ public class Player2 : MonoBehaviour
         p2Animator.SetBool("isMelee", true);
         isMeleeAttacking = true;
         Player.AddComponent<AttackTimer>();
-        Player.GetComponent<AttackTimer>().setTimer(1f);
-        Debug.Log("attacked");
+
 
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
@@ -222,6 +221,8 @@ public class Player2 : MonoBehaviour
             Debug.Log("hit");
             enemy.GetComponent<Player1>().takeDamage(10);
         }
+        Player.GetComponent<AttackTimer>().setTimer(1f);
+        Debug.Log("attacked");
         
     }
 

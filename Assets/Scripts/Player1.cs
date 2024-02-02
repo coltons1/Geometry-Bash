@@ -201,15 +201,15 @@ public class Player1 : MonoBehaviour
     //does a basic melee attack
     public void meleeAttack(){
         isMeleeAttacking = true;
-        Player.AddComponent<AttackTimer>();
-        Player.GetComponent<AttackTimer>().setTimer(1f);
+
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
         foreach(Collider2D enemy in hitEnemys){
             enemy.GetComponent<Player2>().takeDamage(10);
         }
         Debug.Log("attacked");
-
+        Player.AddComponent<AttackTimer>();
+        Player.GetComponent<AttackTimer>().setTimer(1f);
         /*if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("YourAnimationName"))
         {
             
