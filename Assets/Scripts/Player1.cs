@@ -110,6 +110,10 @@ public class Player1 : MonoBehaviour
             outOfBounds();
         }
 
+        if(currentScene.name == "Win Scene"){
+            GameObject.Find("player1WinText").SetActive(true);
+        }
+
         //assigns speed and airspeed variables to velocity
         p1Animator.SetFloat("Speed", Mathf.Abs(p1.velocity.x));
         p1Animator.SetFloat("AirSpeed", Mathf.Abs(p1.velocity.y));
@@ -229,9 +233,9 @@ public class Player1 : MonoBehaviour
         GameObject.Find("Healthbars").SetActive(false);
         
         SceneManager.LoadScene("Win Scene");
-        setWinText();
+        
 
-        //GameObject.Find("player2WinText").SetActive(true);
+        GameObject.Find("player2WinText").SetActive(true);
 
         Debug.Log("Player 2 wins");
     }
