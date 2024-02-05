@@ -22,12 +22,13 @@ public class Player2 : MonoBehaviour
     public int health;
     public float bounceForce;
     public HealthBar Healthbar;
-    public Animator p1Animator;
     public Animator p2Animator;
+
     public string direction;
-    public bool isMeleeAttacking;
 
     Scene currentScene;
+
+    public bool isMeleeAttacking;
 
 
     // Start is called before the first frame update
@@ -51,8 +52,9 @@ public class Player2 : MonoBehaviour
         
         p2Animator = Player.GetComponent<Animator>();
 
+        //starts off the player's direction to face left
         direction = "left";
-
+        //starts of with melee attack check to be false
         isMeleeAttacking = false;
         
     }
@@ -116,6 +118,11 @@ public class Player2 : MonoBehaviour
         if(p2Alive){
             outOfBounds();
         }
+
+        if(currentScene.name == "Win Scene"){
+            GameObject.Find("player2WinText").SetActive(true);
+            Debug.Log("did it :)");
+        }
        
 
         //assigns speed and airspeed variables to velocitys
@@ -141,13 +148,11 @@ public class Player2 : MonoBehaviour
             else {
                 p2.velocity = new Vector3(moveSpeed, p2.velocity.y, 0);
             }
+            p2.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
+            //sts player direction to be right	
             direction = "right";
 
 	    }
-        if(direction == "right"){
-            p2.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
-
-        }
 
         //Player 2 Move Left
 	    if(Input.GetKey(KeyCode.J)){
@@ -157,12 +162,11 @@ public class Player2 : MonoBehaviour
             else {
                 p2.velocity = new Vector3(-moveSpeed, p2.velocity.y, 0);
             }
-            direction = "left";
-	    }
-        if(direction == "left"){
             p2.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);	
+            //sets the player direction to be left
+            direction = "left";
 
-        }
+	    }
 
         //Player 2 Move Down
         if(Input.GetKey(KeyCode.K)){
@@ -172,10 +176,14 @@ public class Player2 : MonoBehaviour
         //Player 2 attack
         if(Input.GetKeyUp(KeyCode.U)){
             if(isMeleeAttacking == false){
+                p2Animator.SetBool("isMelee", true);
+                //adds a timer to sync attack animation and hitbox apperance
                 Player.AddComponent<DelayTimer>();
+                //sets timer to 0.4 seconds and calls the melee attack function when done
                 Player.GetComponent<DelayTimer>().setTimer(0.4f);
             }
-            
+
+
         }
                 //Player 2 attack
         if(Input.GetKeyUp(KeyCode.O)){
@@ -210,10 +218,7 @@ public class Player2 : MonoBehaviour
 
     //does a basic melee attack
     public void meleeAttack(){
-        p2Animator.SetBool("isMelee", true);
-        isMeleeAttacking = true;
-        Player.AddComponent<AttackTimer>();
-
+        //adds timer that makes it to you can only attack once per second
 
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
@@ -221,9 +226,10 @@ public class Player2 : MonoBehaviour
             Debug.Log("hit");
             enemy.GetComponent<Player1>().takeDamage(10);
         }
+        Player.AddComponent<AttackTimer>();
         Player.GetComponent<AttackTimer>().setTimer(1f);
-        Debug.Log("attacked");
         
+        Debug.Log("attacked");
     }
 
     private void OnDrawGizmosSelected(){
@@ -252,13 +258,13 @@ public class Player2 : MonoBehaviour
         GameObject.Find("Healthbars").SetActive(false);
 
         SceneManager.LoadScene("Win Scene");
-        //setWinText();
 
         Debug.Log("Player 1 wins");
         
         //GameObject.Find("Player 1").SetActive(false);
 
     }
+    // returns the players direction
     public string getDirection(){
         return direction;
     }
