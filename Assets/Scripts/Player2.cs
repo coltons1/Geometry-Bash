@@ -116,11 +116,6 @@ public class Player2 : MonoBehaviour
         if(p2Alive){
             outOfBounds();
         }
-
-        if(currentScene.name == "Win Scene"){
-            GameObject.Find("player2WinText").SetActive(true);
-            Debug.Log("did it :)");
-        }
        
 
         //assigns speed and airspeed variables to velocitys
@@ -245,11 +240,11 @@ public class Player2 : MonoBehaviour
     }
     public void youLose(){
         Player.SetActive(false);
-        GameObject.Find("P2HealthBar").SetActive(false);
+        //GameObject.Find("P2HealthBar").SetActive(false);
         p2Alive = false;
         GameObject.Find("Healthbars").SetActive(false);
 
-        SceneManager.LoadScene("Win Scene");
+        SceneManager.LoadScene("WinSceneP1");
 
         Debug.Log("Player 1 wins");
         
