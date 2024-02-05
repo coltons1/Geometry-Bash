@@ -16,10 +16,10 @@ public GameObject player;
         Invoke("removeRangedAttack", 2);
         string direction = player.GetComponent<Player2>().getDirection();
         if(direction == "right"){
-            bulletBody.velocity = new Vector3(10f, 0f, 0f);
+            bulletBody.velocity = new Vector3(15f, 0f, 0f);
         }
         else{
-            bulletBody.velocity = new Vector3(-10f, 0f, 0f);
+            bulletBody.velocity = new Vector3(-15f, 0f, 0f);
         }
 
     }
