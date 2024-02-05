@@ -52,7 +52,9 @@ public class Player2 : MonoBehaviour
         
         p2Animator = Player.GetComponent<Animator>();
 
+        //starts off the player's direction to face left
         direction = "left";
+        //starts of with melee attack check to be false
         isMeleeAttacking = false;
         
     }
@@ -141,7 +143,8 @@ public class Player2 : MonoBehaviour
             else {
                 p2.velocity = new Vector3(moveSpeed, p2.velocity.y, 0);
             }
-            p2.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
+            p2.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
+            //sts player direction to be right	
             direction = "right";
 
 	    }
@@ -155,6 +158,7 @@ public class Player2 : MonoBehaviour
                 p2.velocity = new Vector3(-moveSpeed, p2.velocity.y, 0);
             }
             p2.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);	
+            //sets the player direction to be left
             direction = "left";
 
 	    }
@@ -168,8 +172,10 @@ public class Player2 : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.U)){
             if(isMeleeAttacking == false){
                 p2Animator.SetBool("isMelee", true);
+                //adds a timer to sync attack animation and hitbox apperance
                 Player.AddComponent<DelayTimer>();
-                Player.GetComponent<DelayTimer>().setTimer(0.5f);
+                //sets timer to 0.4 seconds and calls the melee attack function when done
+                Player.GetComponent<DelayTimer>().setTimer(0.4f);
             }
 
 
@@ -207,14 +213,16 @@ public class Player2 : MonoBehaviour
 
     //does a basic melee attack
     public void meleeAttack(){
-        Player.AddComponent<AttackTimer>();
-        Player.GetComponent<AttackTimer>().setTimer(1f);
+        //adds timer that makes it to you can only attack once per second
+
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
         foreach(Collider2D enemy in hitEnemys){
             Debug.Log("hit");
             enemy.GetComponent<Player1>().takeDamage(10);
         }
+        Player.AddComponent<AttackTimer>();
+        Player.GetComponent<AttackTimer>().setTimer(1f);
         
         Debug.Log("attacked");
     }
@@ -251,6 +259,7 @@ public class Player2 : MonoBehaviour
         //GameObject.Find("Player 1").SetActive(false);
 
     }
+    // returns the players direction
     public string getDirection(){
         return direction;
     }
