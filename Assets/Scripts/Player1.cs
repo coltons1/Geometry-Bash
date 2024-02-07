@@ -196,6 +196,12 @@ public class Player1 : MonoBehaviour
         if(health <= 0){
             youLose();
         }
+        if(GameObject.Find("Player 2").GetComponent<Player2>().getDirection() == "right"){
+            p1.velocity = new Vector3(p1.velocity.x + 8, p1.velocity.y + 5,0f);
+        }
+        else{
+            p1.velocity = new Vector3(p1.velocity.x - 8, p1.velocity.y + 5, 0f);
+        }
 
         Debug.Log("*Ooh Ouch Yikes Yowch Oof Skeeouch Yeeowch*");
     }
