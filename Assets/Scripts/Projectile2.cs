@@ -20,6 +20,7 @@ public GameObject player;
         }
         else{
             bulletBody.velocity = new Vector3(-15f, 0f, 0f);
+            bullet.transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
         }
 
     }
