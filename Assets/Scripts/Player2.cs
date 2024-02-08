@@ -13,7 +13,7 @@ public class Player2 : MonoBehaviour
     [SerializeField] GameObject Player;
     [SerializeField] Sprite attackSprite;
     public Transform attackPoint;
-    public float attackRange = 0.5f;
+    public float attackRange = 01f;
     public GameObject rangedAttack;
 
     public LayerMask enemyLayer;
@@ -208,6 +208,12 @@ public class Player2 : MonoBehaviour
             youLose();
         }
 
+        if(GameObject.Find("Player 1").GetComponent<Player1>().getDirection() == "right"){
+            p2.velocity = new Vector3(p2.velocity.x + 8, p2.velocity.y + 5,0f);
+        }
+        else{
+            p2.velocity = new Vector3(p2.velocity.x - 8, p2.velocity.y + 5, 0f);
+        }
         Debug.Log("*Ooh Ouch Yikes Yowch Oof Skeeouch Yeeowch*");
     }
 
@@ -222,7 +228,7 @@ public class Player2 : MonoBehaviour
             enemy.GetComponent<Player1>().takeDamage(10);
         }
         Player.AddComponent<AttackTimer>();
-        Player.GetComponent<AttackTimer>().setTimer(1f);
+        Player.GetComponent<AttackTimer>().setTimer(0.5f);
         
         Debug.Log("attacked");
     }

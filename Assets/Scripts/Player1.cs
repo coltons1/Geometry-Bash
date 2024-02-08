@@ -14,7 +14,7 @@ public class Player1 : MonoBehaviour
     [SerializeField] GameObject Player;
     [SerializeField] Sprite attackSprite;
     public Transform attackPoint;
-    public float attackRange = 0.5f;
+    public float attackRange = 1.25f;
     public GameObject rangedAttack;
     public LayerMask enemyLayer;
     private Rigidbody2D p1;
@@ -217,7 +217,7 @@ public class Player1 : MonoBehaviour
         }
         Debug.Log("attacked");
         Player.AddComponent<AttackTimer>();
-        Player.GetComponent<AttackTimer>().setTimer(1f);
+        Player.GetComponent<AttackTimer>().setTimer(0.5f);
         /*if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("YourAnimationName"))
         {
             
