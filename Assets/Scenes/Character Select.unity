@@ -375,6 +375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 9100000, guid: ccee253ff083e9e45ac8d4d553de6318, type: 2}
   player: {fileID: 416056353}
+  character: Bringer
 --- !u!1 &46734374
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,6 +622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 9100000, guid: ccee253ff083e9e45ac8d4d553de6318, type: 2}
   player: {fileID: 1118428695}
+  character: Bringer
 --- !u!1 &167869595
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,6 +817,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 9100000, guid: b95265f99b6d90e438df1308a89c8bab, type: 2}
   player: {fileID: 1118428695}
+  character: Bandit
 --- !u!1 &384187853
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,6 +979,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 9100000, guid: 3c2a5b7097b0fe44394328c0bdb9252e, type: 2}
   player: {fileID: 1118428695}
+  character: Hero
 --- !u!1 &416056353 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4453898936373084913, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
@@ -1546,7 +1550,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 38319137734660700, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: m_Offset.y
-      value: 0.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 38319137734660700, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: m_IsTrigger
@@ -1865,6 +1869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 9100000, guid: b95265f99b6d90e438df1308a89c8bab, type: 2}
   player: {fileID: 416056353}
+  character: Bandit
 --- !u!1 &840931133
 GameObject:
   m_ObjectHideFlags: 0
@@ -2761,6 +2766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 9100000, guid: 312496b25d842af4a938e96c7d5aaee0, type: 2}
   player: {fileID: 1118428695}
+  character: Warrior
 --- !u!1 &1510873420
 GameObject:
   m_ObjectHideFlags: 0
@@ -3130,6 +3136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 9100000, guid: 3c2a5b7097b0fe44394328c0bdb9252e, type: 2}
   player: {fileID: 416056353}
+  character: Hero
 --- !u!1001 &1946572252
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3248,7 +3255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7897464307084743531, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
       propertyPath: m_Offset.y
-      value: 0.7
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -7351916701510639539, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
@@ -3325,6 +3332,7 @@ MonoBehaviour:
   Healthbar: {fileID: 21983570}
   p2Animator: {fileID: 1946572263}
   direction: 
+  character: 
   isMeleeAttacking: 0
 --- !u!114 &1946572265
 MonoBehaviour:
@@ -3499,6 +3507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 9100000, guid: 312496b25d842af4a938e96c7d5aaee0, type: 2}
   player: {fileID: 416056353}
+  character: Warrior
 --- !u!1 &2128536969
 GameObject:
   m_ObjectHideFlags: 0
