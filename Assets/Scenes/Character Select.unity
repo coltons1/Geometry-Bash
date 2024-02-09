@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d718b53ecede354fbaaf46506e29adf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 9100000, guid: 4f230fa6acf87ff4aa55a06a9691101d, type: 2}
+  controller: {fileID: 9100000, guid: ccee253ff083e9e45ac8d4d553de6318, type: 2}
   player: {fileID: 416056353}
 --- !u!1 &46734374
 GameObject:
