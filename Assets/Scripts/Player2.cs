@@ -25,7 +25,7 @@ public class Player2 : MonoBehaviour
     public Animator p2Animator;
 
     public string direction;
-
+    public string character;
     Scene currentScene;
 
     public bool isMeleeAttacking;
@@ -207,13 +207,6 @@ public class Player2 : MonoBehaviour
         if(health <= 0){
             youLose();
         }
-
-        if(GameObject.Find("Player 1").GetComponent<Player1>().getDirection() == "right"){
-            p2.velocity = new Vector3(p2.velocity.x + 8, p2.velocity.y + 5,0f);
-        }
-        else{
-            p2.velocity = new Vector3(p2.velocity.x - 8, p2.velocity.y + 5, 0f);
-        }
         Debug.Log("*Ooh Ouch Yikes Yowch Oof Skeeouch Yeeowch*");
     }
 
@@ -226,6 +219,13 @@ public class Player2 : MonoBehaviour
         foreach(Collider2D enemy in hitEnemys){
             Debug.Log("hit");
             enemy.GetComponent<Player1>().takeDamage(10);
+            Rigidbody2D p1 = GameObject.Find("Player 1").GetComponent<Rigidbody2D>();
+            if(enemy.GetComponent<Player1>().getDirection() == "right"){
+            p1.velocity = new Vector3(p1.velocity.x - 8, p1.velocity.y + 5,0f);
+            }
+            else{
+            p1.velocity = new Vector3(p1.velocity.x + 8, p1.velocity.y + 5, 0f);
+            }
         }
         Player.AddComponent<AttackTimer>();
         Player.GetComponent<AttackTimer>().setTimer(0.5f);
@@ -268,6 +268,10 @@ public class Player2 : MonoBehaviour
     // returns the players direction
     public string getDirection(){
         return direction;
+    }
+
+    public void setCharacter(string name){
+        character= name; 
     }
 }
 

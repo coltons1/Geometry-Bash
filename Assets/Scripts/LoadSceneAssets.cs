@@ -28,6 +28,12 @@ public class LoadSceneAssets : MonoBehaviour
         //sets p1 position and velocity
         p1.transform.position = new Vector2(p1x, p1y);
         p1.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f,0.0f);
+        if(p1.GetComponent<Player1>().getCharacter() == "Hero" || p1.GetComponent<Player1>().getCharacter() == "Bandit"){
+            p1.GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0.7f);
+        }
+        else if(p1.GetComponent<Player1>().getCharacter() == "Warrior"){
+            p1.GetComponent<BoxCollider2D>().offset = new Vector2(-0.3f, -0.2f);
+        }
         
         //sets p2 position and velocity
         p2.transform.position = new Vector2(p2x, p2y);
