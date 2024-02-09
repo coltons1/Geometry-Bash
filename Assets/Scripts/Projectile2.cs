@@ -17,10 +17,10 @@ public GameObject player;
         string direction = player.GetComponent<Player2>().getDirection();
         if(direction == "right"){
             bulletBody.velocity = new Vector3(15f, 0f, 0f);
+            bullet.transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
         }
         else{
             bulletBody.velocity = new Vector3(-15f, 0f, 0f);
-            bullet.transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
         }
 
     }
