@@ -1522,7 +1522,7 @@ PrefabInstance:
       objectReference: {fileID: 1399132405}
     - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: attackRange
-      value: 0.5
+      value: 1.24
       objectReference: {fileID: 0}
     - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: bounceForce
@@ -1632,10 +1632,10 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5790393817086087250, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 983684820}
+      addedObject: {fileID: 1399132405}
     - targetCorrespondingSourceObject: {fileID: 5790393817086087250, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1399132405}
+      addedObject: {fileID: 983684820}
   m_SourcePrefab: {fileID: 100100000, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
 --- !u!1 &746285086
 GameObject:

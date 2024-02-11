@@ -141,12 +141,18 @@ public class Player1 : MonoBehaviour
 	
 	    }
         if(direction == "right"){
-            p1.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);
+            if(p1.GetComponent<Player1>().getCharacter() == "Hero" || p1.GetComponent<Player1>().getCharacter() == "Warrior"){
+                p1.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
+            }
+            else if(p1.GetComponent<Player1>().getCharacter() == "Bandit" || p1.GetComponent<Player1>().getCharacter() == "Bringer"){
+                p1.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);	
+            }
         }
 
         //Player 1 Move Left
 	    if(Input.GetKey(KeyCode.A)){
             if(p1.velocity.y != 0){
+
                 p1.velocity = new Vector3(-moveSpeed / 1.5f, p1.velocity.y, 0);
             } 
             else {
@@ -155,7 +161,13 @@ public class Player1 : MonoBehaviour
             direction = "left";
 	    }
         if(direction == "left"){
-            p1.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
+            if(p1.GetComponent<Player1>().getCharacter() == "Hero" || p1.GetComponent<Player1>().getCharacter() == "Warrior"){
+                p1.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);	
+            }
+            else if(p1.GetComponent<Player1>().getCharacter() == "Bandit" || p1.GetComponent<Player1>().getCharacter() == "Bringer"){
+                p1.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
+            }
+
         }
 
         //Player 1 Move Down
