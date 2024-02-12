@@ -155,7 +155,7 @@ public class Player1 : MonoBehaviour
             if(p1.GetComponent<Player1>().getCharacter() == "Hero" || p1.GetComponent<Player1>().getCharacter() == "Warrior"){
                 p1.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
             }
-            else if(p1.GetComponent<Player1>().getCharacter() == "Bandit" || p1.GetComponent<Player1>().getCharacter() == "Bringer"){
+            else if(p1.GetComponent<Player1>().getCharacter() == "Bandit" || p1.GetComponent<Player1>().getCharacter() == "Knight"){
                 p1.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);	
             }
         }
@@ -175,7 +175,7 @@ public class Player1 : MonoBehaviour
             if(p1.GetComponent<Player1>().getCharacter() == "Hero" || p1.GetComponent<Player1>().getCharacter() == "Warrior"){
                 p1.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);	
             }
-            else if(p1.GetComponent<Player1>().getCharacter() == "Bandit" || p1.GetComponent<Player1>().getCharacter() == "Bringer"){
+            else if(p1.GetComponent<Player1>().getCharacter() == "Bandit" || p1.GetComponent<Player1>().getCharacter() == "Knight"){
                 p1.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
             }
 
