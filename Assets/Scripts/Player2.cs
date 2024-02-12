@@ -13,7 +13,7 @@ public class Player2 : MonoBehaviour
     [SerializeField] GameObject Player;
     [SerializeField] Sprite attackSprite;
     public Transform attackPoint;
-    public float attackRange = 0.5f;
+    public float attackRange = 01f;
     public GameObject rangedAttack;
 
     public LayerMask enemyLayer;
@@ -25,7 +25,7 @@ public class Player2 : MonoBehaviour
     public Animator p2Animator;
 
     public string direction;
-
+    public string character;
     Scene currentScene;
 
     public bool isMeleeAttacking;
@@ -143,7 +143,12 @@ public class Player2 : MonoBehaviour
             else {
                 p2.velocity = new Vector3(moveSpeed, p2.velocity.y, 0);
             }
-            p2.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
+            if(p2.GetComponent<Player2>().getCharacter() == "Hero" || p2.GetComponent<Player2>().getCharacter() == "Warrior"){
+                p2.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
+            }
+            else if(p2.GetComponent<Player2>().getCharacter() == "Bandit" || p2.GetComponent<Player2>().getCharacter() == "Bringer"){
+                p2.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);	
+            }            
             //sts player direction to be right	
             direction = "right";
 
@@ -157,7 +162,12 @@ public class Player2 : MonoBehaviour
             else {
                 p2.velocity = new Vector3(-moveSpeed, p2.velocity.y, 0);
             }
-            p2.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);	
+            if(p2.GetComponent<Player2>().getCharacter() == "Hero" || p2.GetComponent<Player2>().getCharacter() == "Warrior"){
+                p2.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);	
+            }
+            else if(p2.GetComponent<Player2>().getCharacter() == "Bandit" || p2.GetComponent<Player2>().getCharacter() == "Bringer"){
+                p2.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
+            }         
             //sets the player direction to be left
             direction = "left";
 
@@ -207,7 +217,6 @@ public class Player2 : MonoBehaviour
         if(health <= 0){
             youLose();
         }
-
         Debug.Log("*Ooh Ouch Yikes Yowch Oof Skeeouch Yeeowch*");
     }
 
@@ -220,9 +229,16 @@ public class Player2 : MonoBehaviour
         foreach(Collider2D enemy in hitEnemys){
             Debug.Log("hit");
             enemy.GetComponent<Player1>().takeDamage(10);
+            Rigidbody2D p1 = GameObject.Find("Player 1").GetComponent<Rigidbody2D>();
+            if(enemy.GetComponent<Player1>().getDirection() == "right"){
+            p1.velocity = new Vector3(p1.velocity.x - 8, p1.velocity.y + 5,0f);
+            }
+            else{
+            p1.velocity = new Vector3(p1.velocity.x + 8, p1.velocity.y + 5, 0f);
+            }
         }
         Player.AddComponent<AttackTimer>();
-        Player.GetComponent<AttackTimer>().setTimer(1f);
+        Player.GetComponent<AttackTimer>().setTimer(0.5f);
         
         Debug.Log("attacked");
     }
@@ -262,6 +278,14 @@ public class Player2 : MonoBehaviour
     // returns the players direction
     public string getDirection(){
         return direction;
+    }
+
+    public void setCharacter(string name){
+        character= name; 
+    }
+
+    public string getCharacter(){
+        return character;
     }
 }
 

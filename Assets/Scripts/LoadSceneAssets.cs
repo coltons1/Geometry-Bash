@@ -28,11 +28,43 @@ public class LoadSceneAssets : MonoBehaviour
         //sets p1 position and velocity
         p1.transform.position = new Vector2(p1x, p1y);
         p1.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f,0.0f);
+        if(p1.GetComponent<Player1>().getCharacter() == "Hero"){
+            p1.GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0.7f);
+        }
+        else if(p1.GetComponent<Player1>().getCharacter() == "Bandit"){
+            p1.GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0.7f);
+        }
+        else if(p1.GetComponent<Player1>().getCharacter() == "Warrior"){
+            p1.GetComponent<BoxCollider2D>().offset = new Vector2(-0.3f, -0.2f);
+            p1.transform.GetChild(0).gameObject.transform.position = new Vector2(p1.transform.position.x + 0.6f, p1.transform.position.y - 0.2f);
+
+        }
+        else if(p1.GetComponent<Player1>().getCharacter() == "Bringer"){
+            p1.GetComponent<BoxCollider2D>().offset = new Vector2(-0.0f, 0.1f);
+            p1.transform.GetChild(0).gameObject.transform.position = new Vector2(p1.transform.position.x - 0.6f, p1.transform.position.y - 0.1f);
+
+        }
         
         //sets p2 position and velocity
         p2.transform.position = new Vector2(p2x, p2y);
         p2.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f,0.0f);
+        if(p2.GetComponent<Player2>().getCharacter() == "Hero" || p2.GetComponent<Player2>().getCharacter() == "Bandit"){
+            p2.GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0.7f);
+        }
+        else if(p2.GetComponent<Player2>().getCharacter() == "Bandit"){
+            p2.GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0.7f);
+            p2.transform.GetChild(0).gameObject.transform.position = new Vector2(p2.transform.position.x - 0.3f, p2.transform.position.y);
 
+        }
+        else if(p2.GetComponent<Player2>().getCharacter() == "Warrior"){
+            p2.GetComponent<BoxCollider2D>().offset = new Vector2(-0.3f, -0.2f);
+            p2.transform.GetChild(0).gameObject.transform.position = new Vector2(p2.transform.position.x + 0.3f, p2.transform.position.y - 0.2f);
+        }
+        else if(p2.GetComponent<Player2>().getCharacter() == "Bringer"){
+            p2.GetComponent<BoxCollider2D>().offset = new Vector2(-0.0f, 0.1f);
+            p2.transform.GetChild(0).gameObject.transform.position = new Vector2(p2.transform.position.x - 0.6f, p2.transform.position.y - 0.1f);
+
+        }
 
 
 

@@ -14,7 +14,7 @@ public class Player1 : MonoBehaviour
     [SerializeField] GameObject Player;
     [SerializeField] Sprite attackSprite;
     public Transform attackPoint;
-    public float attackRange = 0.5f;
+    public float attackRange = 1.25f;
     public GameObject rangedAttack;
     public LayerMask enemyLayer;
     private Rigidbody2D p1;
@@ -26,6 +26,7 @@ public class Player1 : MonoBehaviour
     public string direction;
     public bool isMeleeAttacking;
     public LayerMask groundLayer;
+    public string character;
     
     Scene currentScene;
 
@@ -50,7 +51,7 @@ public class Player1 : MonoBehaviour
 
         rangedAttack.transform.position = attackPoint.position;
 
-        direction = "right";
+        //direction = "right";
 
         isMeleeAttacking = false;
 
@@ -151,12 +152,18 @@ public class Player1 : MonoBehaviour
 	
 	    }
         if(direction == "right"){
-            p1.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);
+            if(p1.GetComponent<Player1>().getCharacter() == "Hero" || p1.GetComponent<Player1>().getCharacter() == "Warrior"){
+                p1.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
+            }
+            else if(p1.GetComponent<Player1>().getCharacter() == "Bandit" || p1.GetComponent<Player1>().getCharacter() == "Bringer"){
+                p1.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);	
+            }
         }
 
         //Player 1 Move Left
 	    if(Input.GetKey(KeyCode.A)){
             if(p1.velocity.y != 0){
+
                 p1.velocity = new Vector3(-moveSpeed / 1.5f, p1.velocity.y, 0);
             } 
             else {
@@ -165,7 +172,13 @@ public class Player1 : MonoBehaviour
             direction = "left";
 	    }
         if(direction == "left"){
-            p1.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
+            if(p1.GetComponent<Player1>().getCharacter() == "Hero" || p1.GetComponent<Player1>().getCharacter() == "Warrior"){
+                p1.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);	
+            }
+            else if(p1.GetComponent<Player1>().getCharacter() == "Bandit" || p1.GetComponent<Player1>().getCharacter() == "Bringer"){
+                p1.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
+            }
+
         }
 
         //Player 1 Move Down
@@ -207,12 +220,7 @@ public class Player1 : MonoBehaviour
         if(health <= 0){
             youLose();
         }
-        if(GameObject.Find("Player 2").GetComponent<Player2>().getDirection() == "right"){
-            p1.velocity = new Vector3(p1.velocity.x + 8, p1.velocity.y + 5,0f);
-        }
-        else{
-            p1.velocity = new Vector3(p1.velocity.x - 8, p1.velocity.y + 5, 0f);
-        }
+
 
         Debug.Log("*Ooh Ouch Yikes Yowch Oof Skeeouch Yeeowch*");
     }
@@ -225,10 +233,17 @@ public class Player1 : MonoBehaviour
 
         foreach(Collider2D enemy in hitEnemys){
             enemy.GetComponent<Player2>().takeDamage(10);
+            Rigidbody2D p2 = GameObject.Find("Player 2").GetComponent<Rigidbody2D>();
+            if(enemy.GetComponent<Player2>().getDirection() == "right"){
+            p2.velocity = new Vector3(p2.velocity.x - 8, p2.velocity.y + 5,0f);
+            }
+            else{
+            p2.velocity = new Vector3(p2.velocity.x + 8, p2.velocity.y + 5, 0f);
+            }
         }
         Debug.Log("attacked");
         Player.AddComponent<AttackTimer>();
-        Player.GetComponent<AttackTimer>().setTimer(1f);
+        Player.GetComponent<AttackTimer>().setTimer(0.5f);
         /*if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("YourAnimationName"))
         {
             
@@ -276,4 +291,11 @@ public class Player1 : MonoBehaviour
         }
     }
 
+    public void setCharacter(string name){
+        character= name; 
+    }
+
+    public string getCharacter(){
+        return character;
+    }
 }

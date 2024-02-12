@@ -375,6 +375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 9100000, guid: ccee253ff083e9e45ac8d4d553de6318, type: 2}
   player: {fileID: 416056353}
+  character: Bringer
 --- !u!1 &46734374
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,7 +400,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 46734374}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 1, z: 0}
+  m_LocalPosition: {x: 0.9, y: 0.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -621,6 +622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 9100000, guid: ccee253ff083e9e45ac8d4d553de6318, type: 2}
   player: {fileID: 1118428695}
+  character: Bringer
 --- !u!1 &167869595
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,6 +817,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 9100000, guid: b95265f99b6d90e438df1308a89c8bab, type: 2}
   player: {fileID: 1118428695}
+  character: Bandit
 --- !u!1 &384187853
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,6 +979,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 9100000, guid: 3c2a5b7097b0fe44394328c0bdb9252e, type: 2}
   player: {fileID: 1118428695}
+  character: Hero
 --- !u!1 &416056353 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4453898936373084913, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
@@ -1517,6 +1521,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1399132405}
     - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
+      propertyPath: attackRange
+      value: 1.24
+      objectReference: {fileID: 0}
+    - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: bounceForce
       value: 25
       objectReference: {fileID: 0}
@@ -1527,7 +1535,7 @@ PrefabInstance:
     - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: rangedAttack
       value: 
-      objectReference: {fileID: 2267151997967836831, guid: 5ad94f80950a4654bae3e9b64aeae0d9, type: 3}
+      objectReference: {fileID: 2267151997967836831, guid: c789bfc1ebf0fc04f8cffc189e8d80bf, type: 3}
     - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: enemyLayer.m_Bits
       value: 128
@@ -1538,11 +1546,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 38319137734660700, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: m_Size.y
-      value: 1.4096475
+      value: 1.2907232
       objectReference: {fileID: 0}
     - target: {fileID: 38319137734660700, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: m_Offset.y
-      value: 0.70000017
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 38319137734660700, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: m_IsTrigger
@@ -1582,11 +1590,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5790393817086087250, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12
+      value: -11.994258
       objectReference: {fileID: 0}
     - target: {fileID: 5790393817086087250, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -0.83
       objectReference: {fileID: 0}
     - target: {fileID: 5790393817086087250, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1624,10 +1632,10 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5790393817086087250, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 983684820}
+      addedObject: {fileID: 1399132405}
     - targetCorrespondingSourceObject: {fileID: 5790393817086087250, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1399132405}
+      addedObject: {fileID: 983684820}
   m_SourcePrefab: {fileID: 100100000, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
 --- !u!1 &746285086
 GameObject:
@@ -1861,6 +1869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 9100000, guid: b95265f99b6d90e438df1308a89c8bab, type: 2}
   player: {fileID: 416056353}
+  character: Bandit
 --- !u!1 &840931133
 GameObject:
   m_ObjectHideFlags: 0
@@ -2556,7 +2565,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1399132404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 1, z: 0}
+  m_LocalPosition: {x: -0.6, y: 0.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2757,6 +2766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 9100000, guid: 312496b25d842af4a938e96c7d5aaee0, type: 2}
   player: {fileID: 1118428695}
+  character: Warrior
 --- !u!1 &1510873420
 GameObject:
   m_ObjectHideFlags: 0
@@ -3126,6 +3136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 9100000, guid: 3c2a5b7097b0fe44394328c0bdb9252e, type: 2}
   player: {fileID: 416056353}
+  character: Hero
 --- !u!1001 &1946572252
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3204,7 +3215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3422754919191616424, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -0.83
       objectReference: {fileID: 0}
     - target: {fileID: 3422754919191616424, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3240,11 +3251,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7897464307084743531, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
       propertyPath: m_Size.y
-      value: 1.4245126
+      value: 1.290723
       objectReference: {fileID: 0}
     - target: {fileID: 7897464307084743531, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
       propertyPath: m_Offset.y
-      value: 0.69256735
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -7351916701510639539, guid: 90dc39dfb0f58e6408ea87f276013cea, type: 3}
@@ -3310,17 +3321,18 @@ MonoBehaviour:
   Player: {fileID: 1118428695}
   attackSprite: {fileID: 21300000, guid: 8fc9270e27f600c4b9065c05bacadfec, type: 3}
   attackPoint: {fileID: 46734375}
-  attackRange: 0.5
+  attackRange: 1.25
   rangedAttack: {fileID: 2267151997967836831, guid: bffdd946f2a3f5748b214568ae34175f, type: 3}
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 64
   MaxHealth: 100
   health: 0
   bounceForce: 25
   Healthbar: {fileID: 21983570}
   p2Animator: {fileID: 1946572263}
   direction: 
+  character: 
   isMeleeAttacking: 0
 --- !u!114 &1946572265
 MonoBehaviour:
@@ -3495,6 +3507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 9100000, guid: 312496b25d842af4a938e96c7d5aaee0, type: 2}
   player: {fileID: 416056353}
+  character: Warrior
 --- !u!1 &2128536969
 GameObject:
   m_ObjectHideFlags: 0
