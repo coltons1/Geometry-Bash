@@ -373,9 +373,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d718b53ecede354fbaaf46506e29adf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 9100000, guid: ccee253ff083e9e45ac8d4d553de6318, type: 2}
+  controller: {fileID: 9100000, guid: 4e6b71cdaefdd944593df0615e644af7, type: 2}
   player: {fileID: 416056353}
-  character: Bringer
+  character: Knight
 --- !u!1 &46734374
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,9 +620,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d718b53ecede354fbaaf46506e29adf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 9100000, guid: ccee253ff083e9e45ac8d4d553de6318, type: 2}
+  controller: {fileID: 9100000, guid: 4e6b71cdaefdd944593df0615e644af7, type: 2}
   player: {fileID: 1118428695}
-  character: Bringer
+  character: Knight
 --- !u!1 &167869595
 GameObject:
   m_ObjectHideFlags: 0
