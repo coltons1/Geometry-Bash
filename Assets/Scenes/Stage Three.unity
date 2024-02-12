@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Long
       objectReference: {fileID: 0}
+    - target: {fileID: 7461517219933937898, guid: f97517c187eac0b4697b28233d8696f0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7461517219933937901, guid: f97517c187eac0b4697b28233d8696f0, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -294,6 +298,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: High
       objectReference: {fileID: 0}
+    - target: {fileID: 1921415073013243192, guid: 6363fddff7579e4469582ffe68ded685, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1921415073013243193, guid: 6363fddff7579e4469582ffe68ded685, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -427,6 +435,10 @@ PrefabInstance:
     - target: {fileID: 7461517219933937898, guid: f97517c187eac0b4697b28233d8696f0, type: 3}
       propertyPath: m_Name
       value: Leaning
+      objectReference: {fileID: 0}
+    - target: {fileID: 7461517219933937898, guid: f97517c187eac0b4697b28233d8696f0, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7461517219933937901, guid: f97517c187eac0b4697b28233d8696f0, type: 3}
       propertyPath: m_RootOrder

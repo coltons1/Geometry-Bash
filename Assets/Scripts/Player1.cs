@@ -25,6 +25,7 @@ public class Player1 : MonoBehaviour
     public Animator p1Animator;
     public string direction;
     public bool isMeleeAttacking;
+    public LayerMask groundLayer;
     
     Scene currentScene;
 
@@ -102,6 +103,17 @@ public class Player1 : MonoBehaviour
         }
     }
 
+    private bool isGrounded(){
+        Vector2 position = transform.position;
+        Vector2 direction = Vector2.down;
+        float distance = 1.0f;
+        RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
+        if(hit.collider != null){
+            return true;
+        }
+        return false;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -109,8 +121,6 @@ public class Player1 : MonoBehaviour
         if(p1Alive){
             outOfBounds();
         }
-
-        
 
         //assigns speed and airspeed variables to velocity
         p1Animator.SetFloat("Speed", Mathf.Abs(p1.velocity.x));
@@ -122,11 +132,12 @@ public class Player1 : MonoBehaviour
         //Player 1 Movement
 
         //Player Jump
+        //do the isGrounded method ig
         if(Input.GetKeyDown(KeyCode.W) && p1.velocity.y == 0){
-		    p1.velocity = new Vector3(p1.velocity.x, jumpHeight, 0);
-            p1Animator.SetBool("isJumping", true);
-            
+	        p1.velocity = new Vector3(p1.velocity.x, jumpHeight, 0);
+            p1Animator.SetBool("isJumping", true);            
 	    }
+        
 
         //Player 1 Move Right
 	    if(Input.GetKey(KeyCode.D)){
