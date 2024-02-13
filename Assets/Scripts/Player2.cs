@@ -143,10 +143,10 @@ public class Player2 : MonoBehaviour
             else {
                 p2.velocity = new Vector3(moveSpeed, p2.velocity.y, 0);
             }
-            if(p2.GetComponent<Player2>().getCharacter() == "Hero" || p2.GetComponent<Player2>().getCharacter() == "Warrior"){
+            if(p2.GetComponent<Player2>().getCharacter() == "Hero" || p2.GetComponent<Player2>().getCharacter() == "Warrior" || p2.GetComponent<Player2>().getCharacter() == "Knight"){
                 p2.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
             }
-            else if(p2.GetComponent<Player2>().getCharacter() == "Bandit" || p2.GetComponent<Player2>().getCharacter() == "Knight"){
+            else if(p2.GetComponent<Player2>().getCharacter() == "Bandit" ){
                 p2.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);	
             }            
             //sts player direction to be right	
@@ -162,10 +162,10 @@ public class Player2 : MonoBehaviour
             else {
                 p2.velocity = new Vector3(-moveSpeed, p2.velocity.y, 0);
             }
-            if(p2.GetComponent<Player2>().getCharacter() == "Hero" || p2.GetComponent<Player2>().getCharacter() == "Warrior"){
+            if(p2.GetComponent<Player2>().getCharacter() == "Hero" || p2.GetComponent<Player2>().getCharacter() == "Warrior" || p2.GetComponent<Player2>().getCharacter() == "Knight"){
                 p2.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);	
             }
-            else if(p2.GetComponent<Player2>().getCharacter() == "Bandit" || p2.GetComponent<Player2>().getCharacter() == "Knight"){
+            else if(p2.GetComponent<Player2>().getCharacter() == "Bandit"){
                 p2.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
             }         
             //sets the player direction to be left
