@@ -30,6 +30,8 @@ public class LoadSceneAssets : MonoBehaviour
         p1.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f,0.0f);
         if(p1.GetComponent<Player1>().getCharacter() == "Hero"){
             p1.GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0.7f);
+            p1.transform.GetChild(0).gameObject.transform.position = new Vector2(p1.transform.position.x + 1.5f, p1.transform.position.y + 2.5f);
+
         }
         else if(p1.GetComponent<Player1>().getCharacter() == "Bandit"){
             p1.GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0.7f);
@@ -41,7 +43,7 @@ public class LoadSceneAssets : MonoBehaviour
         }
         else if(p1.GetComponent<Player1>().getCharacter() == "Knight"){
             p1.GetComponent<BoxCollider2D>().offset = new Vector2(-0.0f, 0.1f);
-            p1.transform.GetChild(0).gameObject.transform.position = new Vector2(p1.transform.position.x - 0.6f, p1.transform.position.y - 0.1f);
+            p1.transform.GetChild(0).gameObject.transform.position = new Vector2(p1.transform.position.x + 2.0f, p1.transform.position.y - 0.1f);
 
         }
         
@@ -53,7 +55,7 @@ public class LoadSceneAssets : MonoBehaviour
         }
         else if(p2.GetComponent<Player2>().getCharacter() == "Bandit"){
             p2.GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0.7f);
-            p2.transform.GetChild(0).gameObject.transform.position = new Vector2(p2.transform.position.x - 0.3f, p2.transform.position.y);
+            p2.transform.GetChild(0).gameObject.transform.position = new Vector2(p2.transform.position.x - 1.2f, p2.transform.position.y + 2.0f);
 
         }
         else if(p2.GetComponent<Player2>().getCharacter() == "Warrior"){
@@ -62,7 +64,7 @@ public class LoadSceneAssets : MonoBehaviour
         }
         else if(p2.GetComponent<Player2>().getCharacter() == "Knight"){
             p2.GetComponent<BoxCollider2D>().offset = new Vector2(-0.0f, 0.1f);
-            p2.transform.GetChild(0).gameObject.transform.position = new Vector2(p2.transform.position.x - 0.6f, p2.transform.position.y - 0.1f);
+            p2.transform.GetChild(0).gameObject.transform.position = new Vector2(p2.transform.position.x + 1.65f, p2.transform.position.y + 0.1f);
 
         }
 
