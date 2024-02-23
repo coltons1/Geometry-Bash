@@ -25,7 +25,7 @@ public class LoadSceneAssets : MonoBehaviour
         p1.GetComponent<Rigidbody2D>().isKinematic = false;
         p2.GetComponent<Rigidbody2D>().isKinematic = false;
 
-        //sets p1 position and velocity
+        //sets p1 position, velocity, attack range, and knockback
         p1.transform.position = new Vector2(p1x, p1y);
         p1.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f,0.0f);
         if(p1.GetComponent<Player1>().getCharacter() == "Hero"){
@@ -35,6 +35,7 @@ public class LoadSceneAssets : MonoBehaviour
         }
         else if(p1.GetComponent<Player1>().getCharacter() == "Bandit"){
             p1.GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0.7f);
+            p1.transform.GetChild(0).gameObject.transform.position = new Vector2(p1.transform.position.x -0.6f, p1.transform.position.y + 2.0f);
         }
         else if(p1.GetComponent<Player1>().getCharacter() == "Warrior"){
             p1.GetComponent<BoxCollider2D>().offset = new Vector2(-0.3f, -0.2f);
@@ -44,6 +45,7 @@ public class LoadSceneAssets : MonoBehaviour
         else if(p1.GetComponent<Player1>().getCharacter() == "Knight"){
             p1.GetComponent<BoxCollider2D>().offset = new Vector2(-0.0f, 0.1f);
             p1.transform.GetChild(0).gameObject.transform.position = new Vector2(p1.transform.position.x + 2.0f, p1.transform.position.y - 0.1f);
+            p1.GetComponent<Player1>().setAttackRange(3.0f);
 
         }
         
@@ -52,19 +54,26 @@ public class LoadSceneAssets : MonoBehaviour
         p2.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f,0.0f);
         if(p2.GetComponent<Player2>().getCharacter() == "Hero"){
             p2.GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0.7f);
+            p2.GetComponent<Player2>().setKnockBack(8);
+
         }
         else if(p2.GetComponent<Player2>().getCharacter() == "Bandit"){
             p2.GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0.7f);
-            p2.transform.GetChild(0).gameObject.transform.position = new Vector2(p2.transform.position.x - 1.2f, p2.transform.position.y + 2.0f);
-
+            p2.transform.GetChild(0).gameObject.transform.position = new Vector2(p2.transform.position.x - 1.0f, p2.transform.position.y + 2.0f);
+            p2.GetComponent<Player2>().setKnockBack(10);
         }
         else if(p2.GetComponent<Player2>().getCharacter() == "Warrior"){
             p2.GetComponent<BoxCollider2D>().offset = new Vector2(-0.3f, -0.2f);
             p2.transform.GetChild(0).gameObject.transform.position = new Vector2(p2.transform.position.x + 0.3f, p2.transform.position.y - 0.2f);
+            p2.GetComponent<Player2>().setKnockBack(10);
+
         }
         else if(p2.GetComponent<Player2>().getCharacter() == "Knight"){
             p2.GetComponent<BoxCollider2D>().offset = new Vector2(-0.0f, 0.1f);
             p2.transform.GetChild(0).gameObject.transform.position = new Vector2(p2.transform.position.x + 1.65f, p2.transform.position.y + 0.1f);
+            p2.GetComponent<Player2>().setAttackRange(3.0f);
+            p2.GetComponent<Player2>().setKnockBack(12);
+
 
         }
 

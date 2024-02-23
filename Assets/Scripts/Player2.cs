@@ -29,6 +29,7 @@ public class Player2 : MonoBehaviour
     Scene currentScene;
 
     public bool isMeleeAttacking;
+    public float knockBack = 8f;
 
 
     // Start is called before the first frame update
@@ -228,14 +229,16 @@ public class Player2 : MonoBehaviour
 
         foreach(Collider2D enemy in hitEnemys){
             Debug.Log("hit");
-            enemy.GetComponent<Player1>().takeDamage(10);
-            Rigidbody2D p1 = GameObject.Find("Player 1").GetComponent<Rigidbody2D>();
-            if(enemy.GetComponent<Player1>().getDirection() == "right"){
-            p1.velocity = new Vector3(p1.velocity.x - 8, p1.velocity.y + 5,0f);
-            }
-            else{
-            p1.velocity = new Vector3(p1.velocity.x + 8, p1.velocity.y + 5, 0f);
-            }
+            if(GameObject.Find("Player 1").GetComponent<Rigidbody2D>() != null){
+                enemy.GetComponent<Player1>().takeDamage(10);
+                Rigidbody2D p1 = GameObject.Find("Player 1").GetComponent<Rigidbody2D>();
+                if(enemy.GetComponent<Player1>().getDirection() == "right"){
+                p1.velocity = new Vector3(p1.velocity.x - knockBack, p1.velocity.y + 5,0f);
+                }
+                else{
+                p1.velocity = new Vector3(p1.velocity.x + knockBack, p1.velocity.y + 5, 0f);
+                }
+            }            
         }
         Player.AddComponent<AttackTimer>();
         Player.GetComponent<AttackTimer>().setTimer(0.5f);
@@ -286,6 +289,12 @@ public class Player2 : MonoBehaviour
 
     public string getCharacter(){
         return character;
+    }
+    public void setAttackRange(float range){
+        attackRange = range;
+    }
+    public void setKnockBack(float power){
+        knockBack = power;
     }
 }
 
