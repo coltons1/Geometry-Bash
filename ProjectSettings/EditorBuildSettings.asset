@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WinSceneP2.unity
     guid: d892179df72d7f0409c584fae28e2dbb
+  - enabled: 1
+    path: Assets/Scenes/Stage Four.unity
+    guid: eff92fd1ca131b94bb5905e703cf41df
   m_configObjects: {}
