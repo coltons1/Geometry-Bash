@@ -497,10 +497,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f7bd678f1ea5bb42bf180709361ee3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p1x: -13
-  p1y: 3
-  p2x: 10
-  p2y: 0
+  p1x: 57
+  p1y: 80
+  p2x: 155
+  p2y: 65
 --- !u!114 &1097910701
 MonoBehaviour:
   m_ObjectHideFlags: 0
