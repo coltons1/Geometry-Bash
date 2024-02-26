@@ -239,10 +239,10 @@ public class Player1 : MonoBehaviour
                 enemy.GetComponent<Player2>().takeDamage(10);
                 Rigidbody2D p2 = GameObject.Find("Player 2").GetComponent<Rigidbody2D>();
                 if(Player.GetComponent<Player1>().getDirection() == "right"){
-                    p2.velocity = new Vector3(p2.velocity.x - knockback, p2.velocity.y + 5.0f);
+                    p2.velocity = new Vector3(p2.velocity.x + knockback, p2.velocity.y + 5.0f);
                 }
                 else{
-                    p2.velocity = new Vector3(p2.velocity.x +knockback, p2.velocity.y + 5, 0f);
+                    p2.velocity = new Vector3(p2.velocity.x - knockback, p2.velocity.y + 5, 0f);
                 }
             }
         }

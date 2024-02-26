@@ -232,11 +232,11 @@ public class Player2 : MonoBehaviour
             if(GameObject.Find("Player 1").GetComponent<Rigidbody2D>() != null){
                 enemy.GetComponent<Player1>().takeDamage(10);
                 Rigidbody2D p1 = GameObject.Find("Player 1").GetComponent<Rigidbody2D>();
-                if(enemy.GetComponent<Player1>().getDirection() == "right"){
-                p1.velocity = new Vector3(p1.velocity.x - knockBack, p1.velocity.y + 5,0f);
+                if(Player.GetComponent<Player2>().getDirection() == "right"){
+                p1.velocity = new Vector3(p1.velocity.x + knockBack, p1.velocity.y + 5,0f);
                 }
                 else{
-                p1.velocity = new Vector3(p1.velocity.x + knockBack, p1.velocity.y + 5, 0f);
+                p1.velocity = new Vector3(p1.velocity.x - knockBack, p1.velocity.y + 5, 0f);
                 }
             }            
         }
