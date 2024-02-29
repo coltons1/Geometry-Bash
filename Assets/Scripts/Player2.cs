@@ -196,7 +196,7 @@ public class Player2 : MonoBehaviour
                 //Player 2 attack
         if(Input.GetKeyUp(KeyCode.O)){
             p2Animator.SetBool("isMelee", true);
-
+            Invoke("setIsMeleeFalse", 0.05f);
             attackRanged();
 
             
