@@ -129,7 +129,6 @@ public class Player1 : MonoBehaviour
         p1Animator.SetFloat("AirSpeed", Mathf.Abs(p1.velocity.y));
 
         //assings isAttacking variable initially to false
-        p1Animator.SetBool("isMelee", false);
         
         //Player 1 Movement
 
@@ -189,15 +188,15 @@ public class Player1 : MonoBehaviour
 
         //Player 1 attack
         if(Input.GetKeyUp(KeyCode.E)){
-            if(isMeleeAttacking == false){
+            if(Player.GetComponent<AttackTimer>() == null && Player.GetComponent<DelayTimer>() == null){
                 p1Animator.SetBool("isMelee", true);
+                Invoke("setIsMeleeFalse", 0.05f);
                 if(Player.GetComponent<DelayTimer>() == null){
                     Player.AddComponent<DelayTimer>();
                     Player.GetComponent<DelayTimer>().setTimer(0.5f);
+
                 }
             }
-
-
         }
         //Player 1 attack
         if(Input.GetKeyUp(KeyCode.Q)){
@@ -235,8 +234,8 @@ public class Player1 : MonoBehaviour
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
         foreach(Collider2D enemy in hitEnemys){
+
             if(GameObject.Find("Player 2").GetComponent<Rigidbody2D>() != null){
-                enemy.GetComponent<Player2>().takeDamage(10);
                 Rigidbody2D p2 = GameObject.Find("Player 2").GetComponent<Rigidbody2D>();
                 if(Player.GetComponent<Player1>().getDirection() == "right"){
                     p2.velocity = new Vector3(p2.velocity.x + knockback, p2.velocity.y + 5.0f);
@@ -244,6 +243,7 @@ public class Player1 : MonoBehaviour
                 else{
                     p2.velocity = new Vector3(p2.velocity.x - knockback, p2.velocity.y + 5, 0f);
                 }
+                enemy.GetComponent<Player2>().takeDamage(10);
             }
         }
         Debug.Log("attacked");
@@ -309,5 +309,9 @@ public class Player1 : MonoBehaviour
 
     public void setAttackRange(float range){
         attackRange = range;
+    }
+
+    private void setIsMeleeFalse(){
+        p1Animator.SetBool("isMelee", false);
     }
 }
