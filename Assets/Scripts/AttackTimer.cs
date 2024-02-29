@@ -21,11 +21,13 @@ public class AttackTimer : MonoBehaviour
     {
         if(this.gameObject == GameObject.Find("Player 1")){
             this.gameObject.GetComponent<Player1>().isMeleeAttacking = false;
+
             Destroy(this.gameObject.GetComponent<AttackTimer>());
 
         }
         if(this.gameObject == GameObject.Find("Player 2")){
             this.gameObject.GetComponent<Player2>().isMeleeAttacking = false;
+
             Destroy(this.gameObject.GetComponent<AttackTimer>());
         }
     }

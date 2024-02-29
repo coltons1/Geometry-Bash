@@ -124,7 +124,7 @@ public class Player2 : MonoBehaviour
         //assigns speed and airspeed variables to velocitys
         p2Animator.SetFloat("Speed", Mathf.Abs(p2.velocity.x));
         p2Animator.SetFloat("AirSpeed", Mathf.Abs(p2.velocity.y));
-        p2Animator.SetBool("isMelee", false);
+        //p2Animator.SetBool("isMelee", false);
         
 
 
@@ -181,12 +181,14 @@ public class Player2 : MonoBehaviour
 
         //Player 2 attack
         if(Input.GetKeyUp(KeyCode.U)){
-            if(isMeleeAttacking == false){
+            if(Player.GetComponent<AttackTimer>() == null && Player.GetComponent<DelayTimer>() == null){
                 p2Animator.SetBool("isMelee", true);
-                //adds a timer to sync attack animation and hitbox apperance
-                Player.AddComponent<DelayTimer>();
-                //sets timer to 0.4 seconds and calls the melee attack function when done
-                Player.GetComponent<DelayTimer>().setTimer(0.4f);
+                Invoke("setIsMeleeFalse", 0.05f);
+                if(Player.GetComponent<DelayTimer>() == null){
+                    Player.AddComponent<DelayTimer>();
+                    Player.GetComponent<DelayTimer>().setTimer(0.5f);
+
+                }
             }
 
 
@@ -230,7 +232,6 @@ public class Player2 : MonoBehaviour
         foreach(Collider2D enemy in hitEnemys){
             Debug.Log("hit");
             if(GameObject.Find("Player 1").GetComponent<Rigidbody2D>() != null){
-                enemy.GetComponent<Player1>().takeDamage(10);
                 Rigidbody2D p1 = GameObject.Find("Player 1").GetComponent<Rigidbody2D>();
                 if(Player.GetComponent<Player2>().getDirection() == "right"){
                 p1.velocity = new Vector3(p1.velocity.x + knockBack, p1.velocity.y + 5,0f);
@@ -238,6 +239,7 @@ public class Player2 : MonoBehaviour
                 else{
                 p1.velocity = new Vector3(p1.velocity.x - knockBack, p1.velocity.y + 5, 0f);
                 }
+                enemy.GetComponent<Player1>().takeDamage(10);
             }            
         }
         Player.AddComponent<AttackTimer>();
@@ -295,6 +297,9 @@ public class Player2 : MonoBehaviour
     }
     public void setKnockBack(float power){
         knockBack = power;
+    }
+    private void setIsMeleeFalse(){
+        p2Animator.SetBool("isMelee", false);
     }
 }
 
