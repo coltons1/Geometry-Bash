@@ -3334,6 +3334,7 @@ MonoBehaviour:
   direction: 
   character: 
   isMeleeAttacking: 0
+  knockBack: 8
 --- !u!114 &1946572265
 MonoBehaviour:
   m_ObjectHideFlags: 0
