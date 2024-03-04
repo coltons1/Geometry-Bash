@@ -7,13 +7,13 @@ public class ihatecharacterselect : MonoBehaviour
 {
     [SerializeField] private Image image;
     [SerializeField] private Color color;
-    private GameObject border;
+    private GameObject charSelect;
     public bool isActive = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        border = GameObject.Find("greenborder");
+        charSelect = GameObject.Find("GreenCharSelect");
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class ihatecharacterselect : MonoBehaviour
     }
 
     public void OnClick(){
-        border.SetActive(true);
+        charSelect.transform.GetChild(0).gameObject.SetActive(true);
         isActive = true;
     }
 
