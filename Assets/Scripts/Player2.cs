@@ -195,11 +195,14 @@ public class Player2 : MonoBehaviour
         }
                 //Player 2 attack
         if(Input.GetKeyUp(KeyCode.O)){
-            p2Animator.SetBool("isMelee", true);
-            Invoke("setIsMeleeFalse", 0.05f);
-            attackRanged();
+            if(Player.GetComponent<AttackTimer>() == null){
+                p2Animator.SetBool("isMelee", true);
+                Invoke("setIsMeleeFalse", 0.05f);
+                Player.AddComponent<AttackTimer>();
+                Player.GetComponent<AttackTimer>().setTimer(0.5f);
+                attackRanged();
 
-            
+            }
         }
     }
 

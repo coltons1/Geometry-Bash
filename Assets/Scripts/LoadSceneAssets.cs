@@ -47,6 +47,7 @@ public class LoadSceneAssets : MonoBehaviour
             p1.GetComponent<BoxCollider2D>().offset = new Vector2(-0.0f, 0.1f);
             p1.transform.GetChild(0).gameObject.transform.position = new Vector2(p1.transform.position.x + 2.8f, p1.transform.position.y + 0.4f);
             p1.GetComponent<Player1>().setAttackRange(2.0f);
+            p1.GetComponent<Player1>().setAttackPower(20);
 
         }
         

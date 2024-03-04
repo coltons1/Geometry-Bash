@@ -27,7 +27,7 @@ public class Player1 : MonoBehaviour
     public bool isMeleeAttacking;
     public LayerMask groundLayer;
     public string character;
-    
+    public  int attackPower = 10;
     Scene currentScene;
     public float knockback = 8;
 
@@ -200,10 +200,13 @@ public class Player1 : MonoBehaviour
         }
         //Player 1 attack
         if(Input.GetKeyUp(KeyCode.Q)){
-            p1Animator.SetBool("isMelee", true);
-            Invoke("setIsMeleeFalse", 0.05f);
-
-            attackRanged();
+            if(Player.GetComponent<AttackTimer>() == null){
+                p1Animator.SetBool("isMelee", true);
+                Invoke("setIsMeleeFalse", 0.05f);
+                attackRanged();
+                Player.AddComponent<AttackTimer>();
+                Player.GetComponent<AttackTimer>().setTimer(0.5f);
+            }
         }
 
     }
@@ -245,7 +248,7 @@ public class Player1 : MonoBehaviour
                 else{
                     p2.velocity = new Vector3(p2.velocity.x - knockback, p2.velocity.y + 5, 0f);
                 }
-                enemy.GetComponent<Player2>().takeDamage(10);
+                enemy.GetComponent<Player2>().takeDamage(attackPower);
             }
         }
         Debug.Log("attacked");
@@ -315,5 +318,8 @@ public class Player1 : MonoBehaviour
 
     private void setIsMeleeFalse(){
         p1Animator.SetBool("isMelee", false);
+    }
+    public void setAttackPower(int power){
+        attackPower = power;
     }
 }
