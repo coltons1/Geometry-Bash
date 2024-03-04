@@ -317,4 +317,8 @@ public class Player1 : MonoBehaviour
     private void setIsMeleeFalse(){
         p1Animator.SetBool("isMelee", false);
     }
+
+    public void setMoveSpeed(float s){
+        moveSpeed = s;
+    }
 }
