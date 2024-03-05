@@ -154,7 +154,8 @@ public class Player1 : MonoBehaviour
 	    }
         if(direction == "right"){
             if(p1.GetComponent<Player1>().getCharacter() == "Hero" || p1.GetComponent<Player1>().getCharacter() == "Warrior" || p1.GetComponent<Player1>().getCharacter() == "Knight"){
-                p1.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);	
+                p1.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
+                //get out of my code	
             }
             else if(p1.GetComponent<Player1>().getCharacter() == "Bandit" ){
                 p1.transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);	
@@ -271,10 +272,11 @@ public class Player1 : MonoBehaviour
     }
 
     public void youLose(){
-        Player.SetActive(false);
+        Destroy(Player);
         //GameObject.Find("P1HealthBar").SetActive(false);
         p1Alive = false;
-        GameObject.Find("Healthbars").SetActive(false);
+        
+        Destroy(GameObject.Find("Healthbars"));
         
         SceneManager.LoadScene("WinSceneP2");
 
