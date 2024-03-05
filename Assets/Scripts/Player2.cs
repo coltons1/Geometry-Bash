@@ -304,5 +304,9 @@ public class Player2 : MonoBehaviour
     private void setIsMeleeFalse(){
         p2Animator.SetBool("isMelee", false);
     }
+
+    public void setMoveSpeed(float s){
+        moveSpeed = s;
+    }
 }
 

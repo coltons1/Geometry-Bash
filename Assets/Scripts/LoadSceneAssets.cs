@@ -31,24 +31,29 @@ public class LoadSceneAssets : MonoBehaviour
         if(p1.GetComponent<Player1>().getCharacter() == "Hero"){
             p1.GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0.7f);
             p1.transform.GetChild(0).gameObject.transform.position = new Vector2(p1.transform.position.x + 1.5f, p1.transform.position.y + 2.5f);
-
+            p1.GetComponent<Player1>().setMoveSpeed(10f);
+            p1.GetComponent<Player1>().setAttackSpeed(0.5f);
         }
         else if(p1.GetComponent<Player1>().getCharacter() == "Bandit"){
             p1.GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0.7f);
             p1.transform.GetChild(0).gameObject.transform.position = new Vector2(p1.transform.position.x -0.6f, p1.transform.position.y + 2.0f);
+            p1.GetComponent<Player1>().setMoveSpeed(12f);
+            p1.GetComponent<Player1>().setAttackSpeed(0.5f);
         }
         else if(p1.GetComponent<Player1>().getCharacter() == "Warrior"){
             p1.GetComponent<BoxCollider2D>().offset = new Vector2(-0.3f, -0.2f);
             p1.transform.GetChild(0).gameObject.transform.position = new Vector2(p1.transform.position.x + 0.9f, p1.transform.position.y - 0.2f);
             p1.GetComponent<Player1>().setAttackRange(2.0f);
-
+            p1.GetComponent<Player1>().setMoveSpeed(10f);
+            p1.GetComponent<Player1>().setAttackSpeed(0.9f);
         }
         else if(p1.GetComponent<Player1>().getCharacter() == "Knight"){
             p1.GetComponent<BoxCollider2D>().offset = new Vector2(-0.0f, 0.1f);
             p1.transform.GetChild(0).gameObject.transform.position = new Vector2(p1.transform.position.x + 2.8f, p1.transform.position.y + 0.4f);
             p1.GetComponent<Player1>().setAttackRange(2.0f);
             p1.GetComponent<Player1>().setAttackPower(20);
-
+            p1.GetComponent<Player1>().setMoveSpeed(8f);
+            p1.GetComponent<Player1>().setAttackSpeed(1.0f);
         }
         
         //sets p2 position and velocity
@@ -57,17 +62,20 @@ public class LoadSceneAssets : MonoBehaviour
         if(p2.GetComponent<Player2>().getCharacter() == "Hero"){
             p2.GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0.7f);
             p2.GetComponent<Player2>().setKnockBack(8);
+            p2.GetComponent<Player2>().setMoveSpeed(10f);
 
         }
         else if(p2.GetComponent<Player2>().getCharacter() == "Bandit"){
             p2.GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0.7f);
             p2.transform.GetChild(0).gameObject.transform.position = new Vector2(p2.transform.position.x - 1.0f, p2.transform.position.y + 2.0f);
             p2.GetComponent<Player2>().setKnockBack(10);
+            p2.GetComponent<Player2>().setMoveSpeed(12f);
         }
         else if(p2.GetComponent<Player2>().getCharacter() == "Warrior"){
             p2.GetComponent<BoxCollider2D>().offset = new Vector2(-0.3f, -0.2f);
             p2.transform.GetChild(0).gameObject.transform.position = new Vector2(p2.transform.position.x + 0.3f, p2.transform.position.y - 0.2f);
             p2.GetComponent<Player2>().setKnockBack(10);
+            p2.GetComponent<Player2>().setMoveSpeed(10f);
 
         }
         else if(p2.GetComponent<Player2>().getCharacter() == "Knight"){
@@ -75,6 +83,7 @@ public class LoadSceneAssets : MonoBehaviour
             p2.transform.GetChild(0).gameObject.transform.position = new Vector2(p2.transform.position.x + 1.65f, p2.transform.position.y + 0.1f);
             p2.GetComponent<Player2>().setAttackRange(2.0f);
             p2.GetComponent<Player2>().setKnockBack(12);
+            p2.GetComponent<Player2>().setMoveSpeed(8f);
 
 
         }

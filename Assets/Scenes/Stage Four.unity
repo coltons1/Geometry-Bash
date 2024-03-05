@@ -274,7 +274,8 @@ GameObject:
   - component: {fileID: 443559505}
   - component: {fileID: 443559504}
   - component: {fileID: 443559503}
-  - component: {fileID: 443559506}
+  - component: {fileID: 443559507}
+  - component: {fileID: 443559508}
   m_Layer: 0
   m_Name: LeftBottomPlat
   m_TagString: Platform
@@ -421,9 +422,9 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &443559506
+--- !u!68 &443559507
 EdgeCollider2D:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -459,6 +460,42 @@ EdgeCollider2D:
   - {x: 5.306834, y: -2.7027547}
   - {x: 5.457802, y: -2.7041714}
   - {x: 5.707813, y: -2.7065156}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
+--- !u!68 &443559508
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443559502}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 9affdcdbf04bc0d4c8a17574e406a602, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -1.6578622, y: 1.034685}
+  - {x: -2.5091963, y: 2.6833296}
+  - {x: -2.8296022, y: 5.337737}
+  - {x: -2.2588625, y: 5.2704997}
+  - {x: -2.233983, y: 3.6434283}
+  - {x: -1.7540693, y: 2.1707315}
+  - {x: -0.85380745, y: 0.7805848}
+  - {x: 0.5640993, y: -0.1349914}
+  - {x: 2.5874176, y: -1.522645}
+  - {x: 4.2438016, y: -2.1856635}
+  - {x: 5.6471076, y: -2.4590662}
+  - {x: 5.7017236, y: -2.9482915}
+  - {x: 4.751611, y: -2.8901365}
+  - {x: 3.0175376, y: -2.2936704}
+  - {x: 0.91473484, y: -1.1575043}
+  - {x: -1.6127372, y: 0.9591274}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -823,7 +860,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 1609028838}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9affdcdbf04bc0d4c8a17574e406a602, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
