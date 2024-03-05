@@ -268,10 +268,11 @@ public class Player2 : MonoBehaviour
         Instantiate(rangedAttack,attackPoint.position, Quaternion.Euler(0f,0f,0f));
     }
     public void youLose(){
-        Player.SetActive(false);
+        Destroy(Player);
         //GameObject.Find("P2HealthBar").SetActive(false);
         p2Alive = false;
-        GameObject.Find("Healthbars").SetActive(false);
+        //GameObject.Find("Healthbars").SetActive(false);
+        Destroy(GameObject.Find("Healthbars"));
 
         SceneManager.LoadScene("WinSceneP1");
 

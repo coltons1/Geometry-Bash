@@ -268,10 +268,11 @@ public class Player1 : MonoBehaviour
     }
 
     public void youLose(){
-        Player.SetActive(false);
+        Destroy(Player);
         //GameObject.Find("P1HealthBar").SetActive(false);
         p1Alive = false;
-        GameObject.Find("Healthbars").SetActive(false);
+        
+        Destroy(GameObject.Find("Healthbars"));
         
         SceneManager.LoadScene("WinSceneP2");
 
