@@ -198,8 +198,8 @@ public class Player2 : MonoBehaviour
             if(Player.GetComponent<AttackTimer>() == null){
                 p2Animator.SetBool("isMelee", true);
                 Invoke("setIsMeleeFalse", 0.05f);
-                Player.AddComponent<AttackTimer>();
-                Player.GetComponent<AttackTimer>().setTimer(0.5f);
+                //Player.AddComponent<AttackTimer>();
+                //Player.GetComponent<AttackTimer>().setTimer(0.5f);
                 attackRanged();
 
             }
