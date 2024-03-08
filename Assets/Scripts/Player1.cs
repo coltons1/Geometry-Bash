@@ -28,7 +28,6 @@ public class Player1 : MonoBehaviour
     public LayerMask groundLayer;
     public string character;
     public  int attackPower = 10;
-    Scene currentScene;
     public float knockback = 8;
     public float attackSpeed = 0;
 
@@ -295,16 +294,6 @@ public class Player1 : MonoBehaviour
 
     public string getDirection(){
         return direction;
-    }
-
-    public void setWinText(){
-        currentScene = SceneManager.GetActiveScene();
-
-        if(currentScene.name == "Win Scene")
-        {
-            GameObject.Find("player2WinText").SetActive(true);
-
-        }
     }
 
     public void setCharacter(string name){
