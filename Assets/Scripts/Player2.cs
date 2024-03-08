@@ -24,7 +24,8 @@ public class Player2 : MonoBehaviour
     public Animator p2Animator;
     public string direction;
     public string character;
-    Scene currentScene;
+
+
     public bool isMeleeAttacking;
     public float knockBack = 8f;
     public float attackSpeed = 0;
