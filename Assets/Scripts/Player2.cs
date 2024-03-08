@@ -15,7 +15,6 @@ public class Player2 : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 01f;
     public GameObject rangedAttack;
-
     public LayerMask enemyLayer;
     private Rigidbody2D p2;
     public int MaxHealth = 100;
@@ -23,13 +22,15 @@ public class Player2 : MonoBehaviour
     public float bounceForce;
     public HealthBar Healthbar;
     public Animator p2Animator;
-
     public string direction;
     public string character;
     Scene currentScene;
-
     public bool isMeleeAttacking;
     public float knockBack = 8f;
+    public float attackSpeed = 0;
+
+
+
 
 
     // Start is called before the first frame update
@@ -180,13 +181,13 @@ public class Player2 : MonoBehaviour
         }
 
         //Player 2 attack
-        if(Input.GetKeyUp(KeyCode.U)){
+        if(Input.GetKeyDown(KeyCode.U)){
             if(Player.GetComponent<AttackTimer>() == null && Player.GetComponent<DelayTimer>() == null){
                 p2Animator.SetBool("isMelee", true);
                 Invoke("setIsMeleeFalse", 0.05f);
                 if(Player.GetComponent<DelayTimer>() == null){
                     Player.AddComponent<DelayTimer>();
-                    Player.GetComponent<DelayTimer>().setTimer(0.5f);
+                    Player.GetComponent<DelayTimer>().setTimer(0.2f);
 
                 }
             }
@@ -198,9 +199,9 @@ public class Player2 : MonoBehaviour
             if(Player.GetComponent<AttackTimer>() == null){
                 p2Animator.SetBool("isMelee", true);
                 Invoke("setIsMeleeFalse", 0.05f);
-                //Player.AddComponent<AttackTimer>();
-                //Player.GetComponent<AttackTimer>().setTimer(0.5f);
                 attackRanged();
+                Player.AddComponent<AttackTimer>();
+                Player.GetComponent<AttackTimer>().setTimer(0.5f);
 
             }
         }
@@ -237,16 +238,18 @@ public class Player2 : MonoBehaviour
             if(GameObject.Find("Player 1").GetComponent<Rigidbody2D>() != null){
                 Rigidbody2D p1 = GameObject.Find("Player 1").GetComponent<Rigidbody2D>();
                 if(Player.GetComponent<Player2>().getDirection() == "right"){
-                p1.velocity = new Vector3(p1.velocity.x + knockBack, p1.velocity.y + 5,0f);
+                    p1.velocity = new Vector3(p1.velocity.x + knockBack, p1.velocity.y + 5,0f);
                 }
                 else{
-                p1.velocity = new Vector3(p1.velocity.x - knockBack, p1.velocity.y + 5, 0f);
+                    p1.velocity = new Vector3(p1.velocity.x - knockBack, p1.velocity.y + 5, 0f);
                 }
                 enemy.GetComponent<Player1>().takeDamage(10);
             }            
         }
-        Player.AddComponent<AttackTimer>();
-        Player.GetComponent<AttackTimer>().setTimer(0.5f);
+        if(Player.GetComponent<AttackTimer>() == null){
+            Player.AddComponent<AttackTimer>();
+            Player.GetComponent<AttackTimer>().setTimer(0.2f);
+        }
         
         Debug.Log("attacked");
     }

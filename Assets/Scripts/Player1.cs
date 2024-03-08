@@ -189,13 +189,13 @@ public class Player1 : MonoBehaviour
         }
 
         //Player 1 attack
-        if(Input.GetKeyUp(KeyCode.E)){
+        if(Input.GetKeyDown(KeyCode.E)){
             if(Player.GetComponent<AttackTimer>() == null && Player.GetComponent<DelayTimer>() == null){
                 p1Animator.SetBool("isMelee", true);
                 Invoke("setIsMeleeFalse", 0.1f);
                 if(Player.GetComponent<DelayTimer>() == null){
                     Player.AddComponent<DelayTimer>();
-                    Player.GetComponent<DelayTimer>().setTimer(0.5f);
+                    Player.GetComponent<DelayTimer>().setTimer(0.2f);
 
                 }
             }
@@ -206,8 +206,8 @@ public class Player1 : MonoBehaviour
                 p1Animator.SetBool("isMelee", true);
                 Invoke("setIsMeleeFalse", 0.05f);
                 attackRanged();
-                //Player.AddComponent<AttackTimer>();
-                //Player.GetComponent<AttackTimer>().setTimer(0.5f);
+                Player.AddComponent<AttackTimer>();
+                Player.GetComponent<AttackTimer>().setTimer(0.5f);
             }
         }
 
@@ -256,7 +256,7 @@ public class Player1 : MonoBehaviour
         Debug.Log("attacked");
         if(Player.GetComponent<AttackTimer>() == null){
             Player.AddComponent<AttackTimer>();
-            Player.GetComponent<AttackTimer>().setTimer(0.5f);
+            Player.GetComponent<AttackTimer>().setTimer(0.2f);
         }
 
         /*if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("YourAnimationName"))
