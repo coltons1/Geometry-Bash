@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ihatecharacterselect : MonoBehaviour
+public class blueScript : MonoBehaviour
 {
     private GameObject charSelect;
-    public bool greenActive = false;
-
+    public bool blueActive;
     // Start is called before the first frame update
     void Start()
     {
-        charSelect = GameObject.Find("GreenCharSelect");
+        charSelect = GameObject.Find("BlueCharSelect");
     }
 
     // Update is called once per frame
@@ -20,11 +19,8 @@ public class ihatecharacterselect : MonoBehaviour
         
     }
 
-    public void OnClick(){
-    
+    public void onClick(){
         charSelect.transform.GetChild(0).gameObject.SetActive(true);
-        greenActive = true;
-        
+        blueActive = true;
     }
-
 }
