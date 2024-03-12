@@ -23,4 +23,8 @@ public class blueScript : MonoBehaviour
         charSelect.transform.GetChild(0).gameObject.SetActive(true);
         blueActive = true;
     }
+
+    public bool getBlue(){
+        return blueActive;
+    }
 }
