@@ -7,6 +7,7 @@ public class Projectile2 : MonoBehaviour
 public GameObject bullet;
 public Rigidbody2D bulletBody;
 public LayerMask enemyLayer;
+public LayerMask nonEnemyLayer;
 public GameObject player;
 private string direction;
 
@@ -24,6 +25,7 @@ private string direction;
             bulletBody.velocity = new Vector3(-15f, 0f, 0f);
         }
 
+
     }
 
     // Update is called once per frame
@@ -40,6 +42,12 @@ private string direction;
             else{
                 p1.velocity = new Vector3(p1.velocity.x -5.0f, p1.velocity.y + 3.0f);
             }
+            Destroy(this.gameObject);
+        }
+        
+        Collider2D[] hitNonEnemys = Physics2D.OverlapCircleAll(this.gameObject.transform.position, 0.5f, nonEnemyLayer);
+        foreach(Collider2D nonEnemy in hitNonEnemys){
+            Debug.Log("hit");
             Destroy(this.gameObject);
         }
     }

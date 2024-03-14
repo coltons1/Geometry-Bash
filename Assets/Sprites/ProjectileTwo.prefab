@@ -125,6 +125,9 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
+  nonEnemyLayer:
+    serializedVersion: 2
+    m_Bits: 257
   player: {fileID: 0}
 --- !u!95 &8310628235370034912
 Animator:

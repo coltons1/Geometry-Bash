@@ -145,3 +145,6 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
+  nonEnemyLayer:
+    serializedVersion: 2
+    m_Bits: 257
