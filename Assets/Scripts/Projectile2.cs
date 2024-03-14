@@ -48,10 +48,10 @@ private string direction;
         Collider2D[] hitNonEnemys = Physics2D.OverlapCircleAll(this.gameObject.transform.position, 0.5f, nonEnemyLayer);
         foreach(Collider2D nonEnemy in hitNonEnemys){
             Debug.Log("hit");
-            Destroy(this.gameObject);
+            Invoke("removeRangedAttack", 0.001f);
         }
     }
     private void removeRangedAttack(){
-        Destroy(GameObject.Find("ProjectileTwo(Clone)"));
+        Destroy(this.gameObject);
     }
 }
