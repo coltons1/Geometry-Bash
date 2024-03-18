@@ -7,6 +7,7 @@ public class Projectile2 : MonoBehaviour
 public GameObject bullet;
 public Rigidbody2D bulletBody;
 public LayerMask enemyLayer;
+public LayerMask nonEnemyLayer;
 public GameObject player;
 private string direction;
 
@@ -23,6 +24,7 @@ private string direction;
         else{
             bulletBody.velocity = new Vector3(-15f, 0f, 0f);
         }
+
 
     }
 
@@ -42,8 +44,14 @@ private string direction;
             }
             Destroy(this.gameObject);
         }
+        
+        Collider2D[] hitNonEnemys = Physics2D.OverlapCircleAll(this.gameObject.transform.position, 0.5f, nonEnemyLayer);
+        foreach(Collider2D nonEnemy in hitNonEnemys){
+            Debug.Log("hit");
+            Invoke("removeRangedAttack", 0.001f);
+        }
     }
     private void removeRangedAttack(){
-        Destroy(GameObject.Find("ProjectileTwo(Clone)"));
+        Destroy(this.gameObject);
     }
 }

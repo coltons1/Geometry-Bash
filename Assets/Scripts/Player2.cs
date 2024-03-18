@@ -229,13 +229,17 @@ public class Player2 : MonoBehaviour
     //does a basic melee attack
     public void meleeAttack(){
         //adds timer that makes it to you can only attack once per second
+        if(Player.GetComponent<AttackTimer>() == null){
+            Player.AddComponent<AttackTimer>();
+            Player.GetComponent<AttackTimer>().setTimer(0.2f);
+        }
 
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
         foreach(Collider2D enemy in hitEnemys){
             Debug.Log("hit");
             if(GameObject.Find("Player 1").GetComponent<Rigidbody2D>() != null){
-                Rigidbody2D p1 = GameObject.Find("Player 1").GetComponent<Rigidbody2D>();
+               Rigidbody2D p1 = GameObject.Find("Player 1").GetComponent<Rigidbody2D>();
                 if(Player.GetComponent<Player2>().getDirection() == "right"){
                     p1.velocity = new Vector3(p1.velocity.x + knockBack, p1.velocity.y + 5,0f);
                 }
@@ -244,11 +248,7 @@ public class Player2 : MonoBehaviour
                 }
                 enemy.GetComponent<Player1>().takeDamage(10);
             }            
-        }
-        if(Player.GetComponent<AttackTimer>() == null){
-            Player.AddComponent<AttackTimer>();
-            Player.GetComponent<AttackTimer>().setTimer(0.2f);
-        }
+        }    
         
         Debug.Log("attacked");
     }
