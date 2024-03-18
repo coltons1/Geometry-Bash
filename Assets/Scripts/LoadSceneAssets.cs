@@ -9,6 +9,8 @@ public class LoadSceneAssets : MonoBehaviour
     private GameObject p1, p2;
     private GameObject h1, h2;
     [SerializeField] int p1x, p1y, p2x, p2y;
+
+    private GameObject pauseScreen;
     
     Scene currentScene;
     //HealthController healthController;
@@ -109,7 +111,7 @@ public class LoadSceneAssets : MonoBehaviour
         h2.transform.GetChild(0).gameObject.SetActive(true);
         h2.transform.GetChild(1).gameObject.SetActive(true);
 
-
+        pauseScreen = GameObject.Find("Pause");
 
 
 
