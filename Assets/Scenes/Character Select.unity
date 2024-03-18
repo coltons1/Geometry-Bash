@@ -1126,6 +1126,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.0001, y: 0.0001}
   m_EdgeRadius: 0
+--- !u!114 &416056381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416056353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9edbce0d89683f449a62b272cd822f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PauseCanvas: {fileID: 0}
+  ControlsImageObj: {fileID: 0}
+  ControlsImage: {fileID: 0}
+  ControlsBackObj: {fileID: 0}
+  ControlsBackImage: {fileID: 0}
+  BackButton: {fileID: 0}
 --- !u!1 &469923475
 GameObject:
   m_ObjectHideFlags: 0
@@ -4386,6 +4404,7 @@ MonoBehaviour:
   isMeleeAttacking: 0
   knockBack: 8
   attackSpeed: 0
+  pause: {fileID: 0}
 --- !u!114 &1946572265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4411,6 +4430,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTime: 5
+--- !u!114 &1946572273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118428695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9edbce0d89683f449a62b272cd822f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PauseCanvas: {fileID: 0}
+  ControlsImageObj: {fileID: 0}
+  ControlsImage: {fileID: 0}
+  ControlsBackObj: {fileID: 0}
+  ControlsBackImage: {fileID: 0}
+  BackButton: {fileID: 0}
 --- !u!1 &2123055907
 GameObject:
   m_ObjectHideFlags: 0

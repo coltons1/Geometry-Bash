@@ -30,9 +30,7 @@ public class Player2 : MonoBehaviour
     public float knockBack = 8f;
     public float attackSpeed = 0;
 
-
-
-
+    public Pause pause;
 
     // Start is called before the first frame update
     void Start()
