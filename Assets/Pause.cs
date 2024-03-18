@@ -62,10 +62,12 @@ public class Pause : MonoBehaviour
     public void Unpause(){
         PauseCanvas.GetComponent<Canvas>().enabled = false;
         isPaused = false;
+        Time.timeScale = 1;
     }
 
     public void PauseGame(){
         PauseCanvas.GetComponent<Canvas>().enabled = true;
         isPaused = true;
+        Time.timeScale = 0;
     }
 }
