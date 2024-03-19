@@ -12,8 +12,8 @@ public class Pause : MonoBehaviour
     public GameObject ControlsBackObj;
     public Image ControlsBackImage;
     public Button BackButton;
-    
-    private bool isPaused;
+    private GameObject p1;
+    private GameObject p2;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +37,9 @@ public class Pause : MonoBehaviour
         PauseCanvas = GameObject.Find("Pause");
 
         PauseCanvas.GetComponent<Canvas>().enabled = false;
+
+        p1 = GameObject.Find("Player 1");
+        p2 = GameObject.Find("Player 2");
     }
 
     // Update is called once per frame
@@ -50,24 +53,27 @@ public class Pause : MonoBehaviour
         ControlsImage.enabled = true;
         ControlsBackImage.enabled = true;
         BackButton.enabled = true;
+        p1.GetComponent<Animator>().enabled = false;
+        p2.GetComponent<Animator>().enabled = false;
+        
     }
 
     public void CloseControls(){
         ControlsImage.enabled = false;
         ControlsBackImage.enabled = false;
         BackButton.enabled = false;
+        p1.GetComponent<Animator>().enabled = true;
+        p2.GetComponent<Animator>().enabled = true;
 
     }
 
     public void Unpause(){
         PauseCanvas.GetComponent<Canvas>().enabled = false;
-        isPaused = false;
         Time.timeScale = 1;
     }
 
     public void PauseGame(){
         PauseCanvas.GetComponent<Canvas>().enabled = true;
-        isPaused = true;
         Time.timeScale = 0;
     }
 }

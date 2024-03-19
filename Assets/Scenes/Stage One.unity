@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 210012701}
   - component: {fileID: 210012700}
   - component: {fileID: 210012699}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: ControlsCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 503105824}
   - component: {fileID: 503105823}
   - component: {fileID: 503105826}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: ControlsBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -844,7 +844,7 @@ GameObject:
   - component: {fileID: 980416696}
   - component: {fileID: 980416698}
   - component: {fileID: 980416697}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: ControlsScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
