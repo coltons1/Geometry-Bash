@@ -74,7 +74,6 @@ public class Player1 : MonoBehaviour
             }
             //takeDamage(10);
             //Healthbar.SetHealth(health); 
-            //Healthbar.SetHealth(health);
         }
         if(collision.gameObject.tag == "Trampoline"){
             Debug.Log("trampoline touched");
@@ -86,7 +85,7 @@ public class Player1 : MonoBehaviour
     {
         if(collision.gameObject.name == "BottomPlatform")
         {
-            takeDamage(5);
+            //takeDamage(5);
         }
     }
 

@@ -276,7 +276,6 @@ public class Player2 : MonoBehaviour
         Destroy(Player);
         //GameObject.Find("P2HealthBar").SetActive(false);
         p2Alive = false;
-        //GameObject.Find("Healthbars").SetActive(false);
         Destroy(GameObject.Find("Healthbars"));
 
         SceneManager.LoadScene("WinSceneP1");
