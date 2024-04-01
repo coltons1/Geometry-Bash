@@ -12,8 +12,8 @@ public class Pause : MonoBehaviour
     public GameObject ControlsBackObj;
     public Image ControlsBackImage;
     public Button BackButton;
-    private GameObject p1;
-    private GameObject p2;
+    private GameObject p1, p2, h;
+
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +40,7 @@ public class Pause : MonoBehaviour
 
         p1 = GameObject.Find("Player 1");
         p2 = GameObject.Find("Player 2");
+        h = GameObject.Find("Healthbars");
     }
 
     // Update is called once per frame
@@ -53,17 +54,20 @@ public class Pause : MonoBehaviour
         ControlsImage.enabled = true;
         ControlsBackImage.enabled = true;
         BackButton.enabled = true;
-        p1.GetComponent<Animator>().enabled = false;
-        p2.GetComponent<Animator>().enabled = false;
-        
+        p1.GetComponent<SpriteRenderer>().enabled = false;
+        p2.GetComponent<SpriteRenderer>().enabled = false;
+        h.GetComponent<Canvas>().enabled = false;
+        Debug.Log("disappear");
+
     }
 
     public void CloseControls(){
         ControlsImage.enabled = false;
         ControlsBackImage.enabled = false;
         BackButton.enabled = false;
-        p1.GetComponent<Animator>().enabled = true;
-        p2.GetComponent<Animator>().enabled = true;
+        p1.GetComponent<SpriteRenderer>().enabled = true;
+        p2.GetComponent<SpriteRenderer>().enabled = true;
+        h.GetComponent<Canvas>().enabled = true;
 
     }
 
@@ -75,5 +79,9 @@ public class Pause : MonoBehaviour
     public void PauseGame(){
         PauseCanvas.GetComponent<Canvas>().enabled = true;
         Time.timeScale = 0;
+    }
+
+    public void HideCharacters(){
+        
     }
 }
