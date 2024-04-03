@@ -50,6 +50,7 @@ public class Pause : MonoBehaviour
         p1 = GameObject.Find("Player 1");
         p2 = GameObject.Find("Player 2");
         h = GameObject.Find("Healthbars");
+        
     }
 
     // Update is called once per frame
@@ -81,12 +82,22 @@ public class Pause : MonoBehaviour
     }
 
     public void Unpause(){
+        //Enables Player 1 and 2 player controllers.
+        p1.GetComponent<Player1>().enabled = true;
+        p2.GetComponent<Player2>().enabled = true;
+        //Disables Pause Canvas.
         PauseCanvas.GetComponent<Canvas>().enabled = false;
+        //Unfreezes all animations.
         Time.timeScale = 1;
     }
 
     public void PauseGame(){
+        //Disables Player 1 and 2 player controllers.
+        p1.GetComponent<Player1>().enabled = false;
+        p2.GetComponent<Player2>().enabled = false;
+        //Enables Pause Canvas.
         PauseCanvas.GetComponent<Canvas>().enabled = true;
+        //Freezes all animations.
         Time.timeScale = 0;
     }
 
