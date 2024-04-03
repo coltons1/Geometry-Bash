@@ -21,23 +21,32 @@ public class Pause : MonoBehaviour
         //try putting this into load scene assets
         //Tutorial Screen variables
         ControlsImageObj = GameObject.Find("ControlsScreen");
-        ControlsImage = ControlsImageObj.GetComponent<Image>();
+        if(ControlsImageObj != null){
+            ControlsImage = ControlsImageObj.GetComponent<Image>();
+        }
         
         //Back Button variables
         ControlsBackObj = GameObject.Find("ControlsBack");
-        ControlsBackImage = ControlsBackObj.GetComponent<Image>();
-        BackButton = ControlsBackObj.GetComponent<Button>();
+        if(ControlsBackObj != null){
+            ControlsBackImage = ControlsBackObj.GetComponent<Image>();
+            BackButton = ControlsBackObj.GetComponent<Button>();
+        }
+
 
         //Sets everything off on start
-        
-        ControlsBackImage.enabled = false;
-        BackButton.enabled = false;
-        ControlsImage.enabled = false;
+        if(ControlsBackObj != null){
+            ControlsBackImage.enabled = false;
+            BackButton.enabled = false;
+        }
 
+        if(ControlsImageObj != null){
+            ControlsImage.enabled = false;
+        }
         PauseCanvas = GameObject.Find("Pause");
-
-        PauseCanvas.GetComponent<Canvas>().enabled = false;
-
+        
+        if(PauseCanvas != null){
+            PauseCanvas.GetComponent<Canvas>().enabled = false;
+        }
         p1 = GameObject.Find("Player 1");
         p2 = GameObject.Find("Player 2");
         h = GameObject.Find("Healthbars");

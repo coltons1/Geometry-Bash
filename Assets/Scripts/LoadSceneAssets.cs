@@ -51,10 +51,9 @@ public class LoadSceneAssets : MonoBehaviour
             p1.transform.GetChild(0).gameObject.transform.position = new Vector2(p1.transform.position.x + 0.9f, p1.transform.position.y - 0.2f);
             p1.transform.GetChild(1).gameObject.transform.position = new Vector2(p1.transform.GetChild(1).gameObject.transform.position.x -0.75f, p1.transform.position.y + 1.4f);
             p1.GetComponent<Player1>().setAttackRange(2.0f);
+            p1.GetComponent<Player1>().setAttackPower(15);
             p1.GetComponent<Player1>().setMoveSpeed(10f);
             p1.GetComponent<Player1>().setAttackSpeed(0.9f);
-            p1.GetComponent<Player1>().setAttackPower(15);
-
         }
         else if(p1.GetComponent<Player1>().getCharacter() == "Knight"){
             p1.GetComponent<BoxCollider2D>().offset = new Vector2(-0.0f, 0.1f);
@@ -126,4 +125,11 @@ public class LoadSceneAssets : MonoBehaviour
         currentScene = SceneManager.GetActiveScene();
     }
 
+    private void setCharStats(GameObject player, float attackR, float moveS, float attackS, int attackP, int knock){
+        player.GetComponent<Player1>().setAttackRange(attackR);
+        player.GetComponent<Player1>().setAttackPower(attackP);
+        player.GetComponent<Player1>().setMoveSpeed(moveS);
+        player.GetComponent<Player1>().setAttackSpeed(attackS); 
+        player.GetComponent<Player2>().setKnockBack(knock);
+    }
 }

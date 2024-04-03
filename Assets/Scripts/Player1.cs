@@ -28,7 +28,7 @@ public class Player1 : MonoBehaviour
     public LayerMask groundLayer;
     public string character;
     public  int attackPower = 10;
-    public float knockback = 8;
+    public float knockback = 8f;
     public float attackSpeed = 0;
     
     public Pause pause;
@@ -321,5 +321,8 @@ public class Player1 : MonoBehaviour
     }
     public void setAttackSpeed(float aS){
         attackSpeed = aS;
+    }
+    public void setKnockBack(float power){
+        knockback = power;
     }
 }
