@@ -40,10 +40,11 @@ public class LoadSceneAssets : MonoBehaviour
         }
         else if(p1.GetComponent<Player1>().getCharacter() == "Bandit"){
             p1.GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0.7f);
-            p1.transform.GetChild(0).gameObject.transform.position = new Vector2(p1.transform.position.x -0.6f, p1.transform.position.y + 2.0f);
+            p1.transform.GetChild(0).gameObject.transform.position = new Vector2(p1.transform.position.x + 0.6f, p1.transform.position.y + 2.0f);
             p1.GetComponent<Player1>().setMoveSpeed(12f);
             p1.GetComponent<Player1>().setAttackSpeed(0.5f);
             p1.GetComponent<Player1>().setAttackPower(10);
+            p1.GetComponent<Player1>().setDirection("left");
 
         }
         else if(p1.GetComponent<Player1>().getCharacter() == "Warrior"){
@@ -79,6 +80,7 @@ public class LoadSceneAssets : MonoBehaviour
             p2.transform.GetChild(0).gameObject.transform.position = new Vector2(p2.transform.position.x - 1.0f, p2.transform.position.y + 2.0f);
             p2.GetComponent<Player2>().setKnockBack(10);
             p2.GetComponent<Player2>().setMoveSpeed(12f);
+            p2.GetComponent<Player2>().setDirection("left");
         }
         else if(p2.GetComponent<Player2>().getCharacter() == "Warrior"){
             p2.GetComponent<BoxCollider2D>().offset = new Vector2(-0.3f, -0.2f);

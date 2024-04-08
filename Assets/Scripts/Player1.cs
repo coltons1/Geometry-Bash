@@ -23,7 +23,7 @@ public class Player1 : MonoBehaviour
     public float bounceForce;
     public HealthBar Healthbar;
     public Animator p1Animator;
-    public string direction;
+    public string direction = "right";
     public bool isMeleeAttacking;
     public LayerMask groundLayer;
     public string character;
@@ -324,5 +324,9 @@ public class Player1 : MonoBehaviour
     }
     public void setKnockBack(float power){
         knockback = power;
+    }
+
+    public void setDirection(string dir){
+        direction = dir;
     }
 }

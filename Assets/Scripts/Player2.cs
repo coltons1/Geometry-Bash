@@ -22,7 +22,7 @@ public class Player2 : MonoBehaviour
     public float bounceForce;
     public HealthBar Healthbar;
     public Animator p2Animator;
-    public string direction;
+    public string direction = "right";
     public string character;
 
 
@@ -54,7 +54,7 @@ public class Player2 : MonoBehaviour
         p2Animator = Player.GetComponent<Animator>();
 
         //starts off the player's direction to face left
-        direction = "left";
+        direction = "right";
         //starts of with melee attack check to be false
         isMeleeAttacking = false;
         
@@ -309,6 +309,9 @@ public class Player2 : MonoBehaviour
 
     public void setMoveSpeed(float s){
         moveSpeed = s;
+    }
+    public void setDirection(string dir){
+        direction = dir;
     }
 }
 

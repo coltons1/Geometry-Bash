@@ -1739,6 +1739,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 490284277}
     - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
+      propertyPath: direction
+      value: right
+      objectReference: {fileID: 0}
+    - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: p1Animator
       value: 
       objectReference: {fileID: 416056371}
@@ -4399,7 +4403,7 @@ MonoBehaviour:
   bounceForce: 25
   Healthbar: {fileID: 21983570}
   p2Animator: {fileID: 1946572263}
-  direction: 
+  direction: right
   character: 
   isMeleeAttacking: 0
   knockBack: 8
