@@ -329,6 +329,10 @@ PrefabInstance:
       value: LeftPlatform (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1921415073013243192, guid: 6363fddff7579e4469582ffe68ded685, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1921415073013243192, guid: 6363fddff7579e4469582ffe68ded685, type: 3}
       propertyPath: m_TagString
       value: Platform
       objectReference: {fileID: 0}
@@ -457,6 +461,10 @@ PrefabInstance:
     - target: {fileID: 1921415073013243192, guid: 6363fddff7579e4469582ffe68ded685, type: 3}
       propertyPath: m_Name
       value: LeftPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1921415073013243192, guid: 6363fddff7579e4469582ffe68ded685, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1921415073013243192, guid: 6363fddff7579e4469582ffe68ded685, type: 3}
       propertyPath: m_TagString
@@ -635,6 +643,10 @@ PrefabInstance:
     - target: {fileID: 3022044526550154511, guid: f68ec1f8eda5c354aa4cd239a3bdc00a, type: 3}
       propertyPath: m_Name
       value: FallingPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 3022044526550154511, guid: f68ec1f8eda5c354aa4cd239a3bdc00a, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3022044526550154511, guid: f68ec1f8eda5c354aa4cd239a3bdc00a, type: 3}
       propertyPath: m_TagString
@@ -901,6 +913,10 @@ PrefabInstance:
     - target: {fileID: 7917665162580355621, guid: b615116b7dbf92a49800e0f0e3eb72f4, type: 3}
       propertyPath: m_Name
       value: Trampoline
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917665162580355621, guid: b615116b7dbf92a49800e0f0e3eb72f4, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

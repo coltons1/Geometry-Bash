@@ -1721,6 +1721,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 490284277}
     - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
+      propertyPath: boxSize.x
+      value: 1.82
+      objectReference: {fileID: 0}
+    - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
+      propertyPath: boxSize.y
+      value: 2.99
+      objectReference: {fileID: 0}
+    - target: {fileID: -7903825991947246747, guid: 83b2a7e283220764faf18857940b3faf, type: 3}
       propertyPath: p1Animator
       value: 
       objectReference: {fileID: 416056371}

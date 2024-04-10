@@ -391,6 +391,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -5.7
       objectReference: {fileID: 0}
+    - target: {fileID: 179684705101427644, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 179684705101427644, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 179684705292173323, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 179684705292173323, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 179684705292173324, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.648
@@ -410,6 +426,14 @@ PrefabInstance:
     - target: {fileID: 179684705292173327, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
       propertyPath: m_Color.r
       value: 0.7843138
+      objectReference: {fileID: 0}
+    - target: {fileID: 179684706566642994, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 179684706566642994, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     - target: {fileID: 179684706566642997, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -434,6 +458,10 @@ PrefabInstance:
     - target: {fileID: 3138493499316623464, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
       propertyPath: m_Name
       value: Falling Bridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 3138493499316623464, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3138493499316623464, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
       propertyPath: m_TagString
@@ -579,6 +607,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -5.71
       objectReference: {fileID: 0}
+    - target: {fileID: 179684705101427644, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 179684705101427644, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 179684705292173323, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 179684705292173323, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 179684705292173324, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22.042
@@ -598,6 +642,14 @@ PrefabInstance:
     - target: {fileID: 179684705292173327, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
       propertyPath: m_Color.r
       value: 0.7830189
+      objectReference: {fileID: 0}
+    - target: {fileID: 179684706566642994, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 179684706566642994, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     - target: {fileID: 179684706566642997, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -622,6 +674,10 @@ PrefabInstance:
     - target: {fileID: 3138493499316623464, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
       propertyPath: m_Name
       value: Falling Bridge (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3138493499316623464, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3138493499316623464, guid: a07cf3f8e74375246be44e96342e033b, type: 3}
       propertyPath: m_TagString
@@ -725,7 +781,7 @@ GameObject:
   - component: {fileID: 1835947829}
   - component: {fileID: 1835947828}
   - component: {fileID: 1835947830}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BottomPlatform
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -957,6 +1013,10 @@ PrefabInstance:
       value: LeftPlatform
       objectReference: {fileID: 0}
     - target: {fileID: 1921415073013243192, guid: 6363fddff7579e4469582ffe68ded685, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1921415073013243192, guid: 6363fddff7579e4469582ffe68ded685, type: 3}
       propertyPath: m_TagString
       value: Platform
       objectReference: {fileID: 0}
@@ -1057,6 +1117,10 @@ PrefabInstance:
     - target: {fileID: 7461517219933937898, guid: f97517c187eac0b4697b28233d8696f0, type: 3}
       propertyPath: m_Name
       value: RightPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 7461517219933937898, guid: f97517c187eac0b4697b28233d8696f0, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7461517219933937898, guid: f97517c187eac0b4697b28233d8696f0, type: 3}
       propertyPath: m_TagString
