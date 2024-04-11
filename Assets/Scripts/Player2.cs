@@ -233,6 +233,8 @@ public class Player2 : MonoBehaviour
             Player.AddComponent<AttackTimer>();
             Player.GetComponent<AttackTimer>().setTimer(0.2f);
         }
+        p2.GetComponent<AudioSource>().Play();
+        Debug.Log("played audio :)");
 
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 

@@ -237,6 +237,7 @@ public class Player1 : MonoBehaviour
     //does a basic melee attack
     public void meleeAttack(){
         isMeleeAttacking = true;
+        p1.GetComponent<AudioSource>().Play();
 
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
