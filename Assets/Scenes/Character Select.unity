@@ -2775,6 +2775,7 @@ GameObject:
   - component: {fileID: 886988775}
   - component: {fileID: 886988779}
   - component: {fileID: 886988780}
+  - component: {fileID: 886988781}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -2858,6 +2859,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 886988781}
+        m_TargetAssemblyTypeName: AudioBoss, Assembly-CSharp
+        m_MethodName: SetAudioP2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 886988775}
         m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
         m_MethodName: LoadScene
@@ -2868,6 +2881,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Stage Select
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 886988781}
+        m_TargetAssemblyTypeName: AudioBoss, Assembly-CSharp
+        m_MethodName: SetAudioP1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 886988779}
@@ -3032,10 +3057,26 @@ MonoBehaviour:
   p1y: 0
   p2x: 0
   p2y: 0
-  HeroKnight: {fileID: 8300000, guid: 180f35aef2ea2654086bcbb52d58ec0b, type: 3}
-  Bandit: {fileID: 8300000, guid: 2829a5212f9da134e88443a1f91d0e48, type: 3}
+--- !u!114 &886988781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886988773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 383b78e566c9def43a8200c947fe9b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hero: {fileID: 0}
   Knight: {fileID: 8300000, guid: 6eb72c75e0fcdc04b905b225912096e7, type: 3}
-  Warrior: {fileID: 8300000, guid: b7cd703bfb101f4489fce92b8bbf68e1, type: 3}
+  Bandit: {fileID: 8300000, guid: 2829a5212f9da134e88443a1f91d0e48, type: 3}
+  Warrior: {fileID: 8300000, guid: 0d54653003bc3524ab6b64cac060bd52, type: 3}
+  p1: {fileID: 0}
+  p2: {fileID: 0}
+  p1Char: 
+  p2Char: 
 --- !u!1 &923331099
 GameObject:
   m_ObjectHideFlags: 0
@@ -5503,6 +5544,10 @@ MonoBehaviour:
   p2Animator: {fileID: 1946572263}
   direction: right
   character: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  grounded: 0
   isMeleeAttacking: 0
   knockBack: 8
   attackSpeed: 0
@@ -5561,7 +5606,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
