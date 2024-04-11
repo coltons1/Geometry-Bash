@@ -23,13 +23,16 @@ public class Player1 : MonoBehaviour
     public float bounceForce;
     public HealthBar Healthbar;
     public Animator p1Animator;
-    public string direction;
+    public string direction = "right";
     public bool isMeleeAttacking;
-    public LayerMask groundLayer;
     public string character;
     public  int attackPower = 10;
     public float knockback = 8f;
     public float attackSpeed = 0;
+    public bool grounded;
+    public Vector2 boxSize;
+    public float castDistance;
+    public LayerMask groundLayer;
     
     public Pause pause;
 
@@ -57,65 +60,56 @@ public class Player1 : MonoBehaviour
         //direction = "right";
 
         isMeleeAttacking = false;
-
+        grounded = true;
         
     }
 
     //When the object starts colliding
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        // makes the player take damage ob collsion
+            //when player 2 touches the ground, sets isJumping to false
         if(collision.gameObject.tag == "Platform")
         {
-            //when player 2 touches the ground, sets isJumping to false
-            if(collision.gameObject.tag == "Platform")
-            {
-                p1Animator.SetBool("isJumping", false);
-            }
+            p1Animator.SetBool("isJumping", false);
+            grounded = true;
+        }
             //takeDamage(10);
             //Healthbar.SetHealth(health); 
-        }
         if(collision.gameObject.tag == "Trampoline"){
             Debug.Log("trampoline touched");
             p1.velocity = Vector2.up * bounceForce;
             // Debug.Log(p1.velocity);
         }
     }
-    private void OnColliisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.name == "BottomPlatform")
-        {
-            //takeDamage(5);
-        }
-    }
 
     //While the object is colliding
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if(collision.gameObject.name == "BottomPlatform")
-        {
+        if(collision.gameObject.tag == "Platform"){
+            grounded = true;
         }
     }
     
     //When the object stops colliding
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        if(collision.gameObject.name == "BottomPlatform")
-        {
-
+        if(collision.gameObject.tag == "Platform"){
+            grounded = false;
         }
     }
 
-    private bool isGrounded(){
-        Vector2 position = transform.position;
-        Vector2 direction = Vector2.down;
-        float distance = 1.0f;
-        RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
-        if(hit.collider != null){
-            return true;
-        }
-        return false;
-    }
+    // public bool isGrounded(){
+    //     if(Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, castDistance, groundLayer)){
+    //         return true;
+    //     }
+    //     else {
+    //         return false;
+    //     }
+    // }
+
+    // private void OnDrawGizmos(){
+    //     Gizmos.DrawWireCube(transform.position-transform.up * castDistance, boxSize);
+    // }
 
     // Update is called once per frame
     void Update()
@@ -135,9 +129,10 @@ public class Player1 : MonoBehaviour
 
         //Player Jump
         //do the isGrounded method ig
-        if(Input.GetKeyDown(KeyCode.W) && p1.velocity.y == 0){
+        if(Input.GetKeyDown(KeyCode.W) && /*p1.velocity.y == 0*/ grounded == true){
 	        p1.velocity = new Vector3(p1.velocity.x, jumpHeight, 0);
-            p1Animator.SetBool("isJumping", true);            
+            p1Animator.SetBool("isJumping", true);   
+            grounded = false;         
 	    }
         
 
@@ -325,5 +320,9 @@ public class Player1 : MonoBehaviour
     }
     public void setKnockBack(float power){
         knockback = power;
+    }
+
+    public void setDirection(string dir){
+        direction = dir;
     }
 }
