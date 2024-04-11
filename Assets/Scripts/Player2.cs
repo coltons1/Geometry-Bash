@@ -22,7 +22,7 @@ public class Player2 : MonoBehaviour
     public float bounceForce;
     public HealthBar Healthbar;
     public Animator p2Animator;
-    public string direction;
+    public string direction = "right";
     public string character;
     public LayerMask groundLayer;
     public bool grounded;
@@ -30,9 +30,7 @@ public class Player2 : MonoBehaviour
     public float knockBack = 8f;
     public float attackSpeed = 0;
 
-
-
-
+    public Pause pause;
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +54,7 @@ public class Player2 : MonoBehaviour
         p2Animator = Player.GetComponent<Animator>();
 
         //starts off the player's direction to face left
-        direction = "left";
+        direction = "right";
         //starts of with melee attack check to be false
         isMeleeAttacking = false;
         grounded = true;
@@ -266,7 +264,6 @@ public class Player2 : MonoBehaviour
         Destroy(Player);
         //GameObject.Find("P2HealthBar").SetActive(false);
         p2Alive = false;
-        //GameObject.Find("Healthbars").SetActive(false);
         Destroy(GameObject.Find("Healthbars"));
 
         SceneManager.LoadScene("WinSceneP1");
@@ -300,6 +297,9 @@ public class Player2 : MonoBehaviour
 
     public void setMoveSpeed(float s){
         moveSpeed = s;
+    }
+    public void setDirection(string dir){
+        direction = dir;
     }
 }
 

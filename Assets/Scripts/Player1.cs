@@ -23,16 +23,19 @@ public class Player1 : MonoBehaviour
     public float bounceForce;
     public HealthBar Healthbar;
     public Animator p1Animator;
-    public string direction;
+    public string direction = "right";
     public bool isMeleeAttacking;
     public string character;
     public  int attackPower = 10;
-    public float knockback = 8;
+    public float knockback = 8f;
     public float attackSpeed = 0;
     public bool grounded;
     public Vector2 boxSize;
     public float castDistance;
     public LayerMask groundLayer;
+    
+    public Pause pause;
+
 
     // Start is called before the first frame update
     void Start()
@@ -72,7 +75,6 @@ public class Player1 : MonoBehaviour
         }
             //takeDamage(10);
             //Healthbar.SetHealth(health); 
-            //Healthbar.SetHealth(health);
         if(collision.gameObject.tag == "Trampoline"){
             Debug.Log("trampoline touched");
             p1.velocity = Vector2.up * bounceForce;
@@ -314,5 +316,12 @@ public class Player1 : MonoBehaviour
     }
     public void setAttackSpeed(float aS){
         attackSpeed = aS;
+    }
+    public void setKnockBack(float power){
+        knockback = power;
+    }
+
+    public void setDirection(string dir){
+        direction = dir;
     }
 }
