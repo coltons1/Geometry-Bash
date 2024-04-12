@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 443559503}
   - component: {fileID: 443559507}
   - component: {fileID: 443559508}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftBottomPlat
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -1078,6 +1078,10 @@ PrefabInstance:
       value: RightPlatform
       objectReference: {fileID: 0}
     - target: {fileID: 7461517219933937898, guid: f97517c187eac0b4697b28233d8696f0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7461517219933937898, guid: f97517c187eac0b4697b28233d8696f0, type: 3}
       propertyPath: m_TagString
       value: Platform
       objectReference: {fileID: 0}
@@ -1217,6 +1221,10 @@ PrefabInstance:
       value: LeftPlatform
       objectReference: {fileID: 0}
     - target: {fileID: 1921415073013243192, guid: 6363fddff7579e4469582ffe68ded685, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1921415073013243192, guid: 6363fddff7579e4469582ffe68ded685, type: 3}
       propertyPath: m_TagString
       value: Platform
       objectReference: {fileID: 0}
@@ -1331,6 +1339,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trampoline
       objectReference: {fileID: 0}
+    - target: {fileID: 7917665162580355621, guid: b615116b7dbf92a49800e0f0e3eb72f4, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: b615116b7dbf92a49800e0f0e3eb72f4, type: 3}
@@ -1346,7 +1358,7 @@ GameObject:
   - component: {fileID: 1609028840}
   - component: {fileID: 1609028839}
   - component: {fileID: 1609028842}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightBottomPlat
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -1950,7 +1962,7 @@ GameObject:
   - component: {fileID: 1930905317}
   - component: {fileID: 1930905316}
   - component: {fileID: 1930905319}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MiddlePlatform
   m_TagString: Platform
   m_Icon: {fileID: 0}
