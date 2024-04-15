@@ -24,6 +24,8 @@ public class Player2 : MonoBehaviour
     public Animator p2Animator;
     public string direction = "right";
     public string character;
+    public int attackPower = 10;
+
     public LayerMask groundLayer;
     public bool grounded;
     public bool isMeleeAttacking;
@@ -245,7 +247,7 @@ public class Player2 : MonoBehaviour
                 else{
                     p1.velocity = new Vector3(p1.velocity.x - knockBack, p1.velocity.y + 5, 0f);
                 }
-                enemy.GetComponent<Player1>().takeDamage(10);
+                enemy.GetComponent<Player1>().takeDamage(attackPower);
             }            
         }    
         
@@ -305,9 +307,14 @@ public class Player2 : MonoBehaviour
     private void setIsMeleeFalse(){
         p2Animator.SetBool("isMelee", false);
     }
-
+    public void setAttackPower(int power){
+        attackPower = power;
+    }
     public void setMoveSpeed(float s){
         moveSpeed = s;
+    }
+    public void setAttackSpeed(float aS){
+        attackSpeed = aS;
     }
     public void setDirection(string dir){
         direction = dir;
