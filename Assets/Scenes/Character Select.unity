@@ -6080,6 +6080,7 @@ MonoBehaviour:
   p2Animator: {fileID: 1946572263}
   direction: right
   character: 
+  attackPower: 10
   groundLayer:
     serializedVersion: 2
     m_Bits: 0

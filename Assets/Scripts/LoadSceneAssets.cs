@@ -43,10 +43,10 @@ public class LoadSceneAssets : MonoBehaviour
 
         }
         else if(p1.GetComponent<Player1>().getCharacter() == "Warrior"){
-            p1.GetComponent<BoxCollider2D>().offset = new Vector2(-0.3f, -0.2f);
-            p1.transform.GetChild(0).gameObject.transform.position = new Vector2(p1.transform.position.x + 0.9f, p1.transform.position.y - 0.2f);
+            p1.GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0f);
+            p1.transform.GetChild(0).gameObject.transform.position = new Vector2(p1.transform.position.x + 0.8f, p1.transform.position.y + 0.2f);
             p1.transform.GetChild(1).gameObject.transform.position = new Vector2(p1.transform.GetChild(1).gameObject.transform.position.x -0.75f, p1.transform.position.y + 1.4f);
-            setCharStats(p1,2.0f,10.0f,0.9f,15,8);
+            setCharStats(p1,1.75f,10.0f,0.9f,15,8);
 
         }
         else if(p1.GetComponent<Player1>().getCharacter() == "Knight"){
@@ -61,34 +61,40 @@ public class LoadSceneAssets : MonoBehaviour
         p2.transform.position = new Vector2(p2x, p2y);
         p2.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f,0.0f);
         if(p2.GetComponent<Player2>().getCharacter() == "Hero"){
-            p2.GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0.7f);
-            p2.GetComponent<Player2>().setKnockBack(8);
-            p2.GetComponent<Player2>().setMoveSpeed(10f);
+            //p2.GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0.7f);
+            //p2.GetComponent<Player2>().setKnockBack(8);
+            //p2.GetComponent<Player2>().setMoveSpeed(10f);
+            setCharStats(p1, 1.25f,12.0f,0.3f,7,8);
+
             
         }
         else if(p2.GetComponent<Player2>().getCharacter() == "Bandit"){
             p2.GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0.7f);
             p2.transform.GetChild(0).gameObject.transform.position = new Vector2(p2.transform.position.x - 1.0f, p2.transform.position.y + 2.0f);
-            p2.GetComponent<Player2>().setKnockBack(10);
-            p2.GetComponent<Player2>().setMoveSpeed(12f);
-            p2.GetComponent<Player2>().setDirection("left");
+            //p2.GetComponent<Player2>().setKnockBack(10);
+            //p2.GetComponent<Player2>().setMoveSpeed(12f);
+            //p2.GetComponent<Player2>().setDirection("left");
+            setCharStats(p1,1.25f,10.0f,0.5f,10,8);
+
         }
         else if(p2.GetComponent<Player2>().getCharacter() == "Warrior"){
-            p2.GetComponent<BoxCollider2D>().offset = new Vector2(-0.3f, -0.2f);
-            p2.transform.GetChild(0).gameObject.transform.position = new Vector2(p2.transform.position.x + 0.3f, p2.transform.position.y - 0.2f);
+            //p2.GetComponent<BoxCollider2D>().offset = new Vector2(-0.3f, -0.2f);
+            p2.transform.GetChild(0).gameObject.transform.position = new Vector2(p2.transform.position.x + 0.8f, p2.transform.position.y + 0.2f);
             p2.transform.GetChild(1).gameObject.transform.position = new Vector2(p2.transform.GetChild(1).gameObject.transform.position.x -0.75f, p2.transform.position.y + 1.4f);
-            p2.GetComponent<Player2>().setKnockBack(10);
-            p2.GetComponent<Player2>().setMoveSpeed(10f);
-           
+            //p2.GetComponent<Player2>().setKnockBack(10);
+            //p2.GetComponent<Player2>().setMoveSpeed(10f);
+            setCharStats(p2,1.75f,10.0f,0.9f,15,8);
+
 
         }
         else if(p2.GetComponent<Player2>().getCharacter() == "Knight"){
             p2.GetComponent<BoxCollider2D>().offset = new Vector2(-0.0f, 0.1f);
             p2.transform.GetChild(0).gameObject.transform.position = new Vector2(p2.transform.position.x + 1.65f, p2.transform.position.y + 0.1f);
             p2.transform.GetChild(1).gameObject.transform.position = new Vector2(p2.transform.GetChild(1).gameObject.transform.position.x + 0.15f, p2.transform.position.y + 1.6f);
-            p2.GetComponent<Player2>().setAttackRange(2.0f);
-            p2.GetComponent<Player2>().setKnockBack(12);
-            p2.GetComponent<Player2>().setMoveSpeed(8f);
+            //p2.GetComponent<Player2>().setAttackRange(2.0f);
+            //p2.GetComponent<Player2>().setKnockBack(12);
+            //p2.GetComponent<Player2>().setMoveSpeed(8f);
+            setCharStats(p2,2.0f,8.0f,1f,17,12);
             
 
 
@@ -120,7 +126,7 @@ public class LoadSceneAssets : MonoBehaviour
         currentScene = SceneManager.GetActiveScene();
     }
 
-    private void setCharStats(GameObject player, float attackR, float moveS, float attackS, int attackP, int knock){
+    public void setCharStats(GameObject player, float attackR, float moveS, float attackS, int attackP, int knock){
         if(player = p1){
             player.GetComponent<Player1>().setAttackRange(attackR);
             player.GetComponent<Player1>().setAttackPower(attackP);
