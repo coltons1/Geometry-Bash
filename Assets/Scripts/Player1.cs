@@ -23,16 +23,16 @@ public class Player1 : MonoBehaviour
     public float bounceForce;
     public HealthBar Healthbar;
     public Animator p1Animator;
-    public string direction = "right";
+    public string direction;
     public bool isMeleeAttacking;
+    public LayerMask groundLayer;
     public string character;
     public  int attackPower = 10;
     public float knockback = 8f;
     public float attackSpeed = 0;
-    public bool grounded;
-    public Vector2 boxSize;
-    public float castDistance;
-    public LayerMask groundLayer;
+    private AudioSource[] audioSources;
+    private AudioSource meleeSFX;
+    private AudioSource rangeSFX;
     
     public Pause pause;
 
@@ -60,56 +60,70 @@ public class Player1 : MonoBehaviour
         //direction = "right";
 
         isMeleeAttacking = false;
-        grounded = true;
+
+        audioSources = p1.GetComponents<AudioSource>();
+
+        meleeSFX = audioSources[0];
+        rangeSFX = audioSources[1];
         
+
     }
 
     //When the object starts colliding
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-            //when player 2 touches the ground, sets isJumping to false
+        // makes the player take damage ob collsion
         if(collision.gameObject.tag == "Platform")
         {
-            p1Animator.SetBool("isJumping", false);
-            grounded = true;
-        }
+            //when player 2 touches the ground, sets isJumping to false
+            if(collision.gameObject.tag == "Platform")
+            {
+                p1Animator.SetBool("isJumping", false);
+            }
             //takeDamage(10);
             //Healthbar.SetHealth(health); 
+        }
         if(collision.gameObject.tag == "Trampoline"){
             Debug.Log("trampoline touched");
             p1.velocity = Vector2.up * bounceForce;
             // Debug.Log(p1.velocity);
         }
     }
+    private void OnColliisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.name == "BottomPlatform")
+        {
+            //takeDamage(5);
+        }
+    }
 
     //While the object is colliding
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Platform"){
-            grounded = true;
+        if(collision.gameObject.name == "BottomPlatform")
+        {
         }
     }
     
     //When the object stops colliding
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Platform"){
-            grounded = false;
+        if(collision.gameObject.name == "BottomPlatform")
+        {
+
         }
     }
 
-    // public bool isGrounded(){
-    //     if(Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, castDistance, groundLayer)){
-    //         return true;
-    //     }
-    //     else {
-    //         return false;
-    //     }
-    // }
-
-    // private void OnDrawGizmos(){
-    //     Gizmos.DrawWireCube(transform.position-transform.up * castDistance, boxSize);
-    // }
+    private bool isGrounded(){
+        Vector2 position = transform.position;
+        Vector2 direction = Vector2.down;
+        float distance = 1.0f;
+        RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
+        if(hit.collider != null){
+            return true;
+        }
+        return false;
+    }
 
     // Update is called once per frame
     void Update()
@@ -129,10 +143,9 @@ public class Player1 : MonoBehaviour
 
         //Player Jump
         //do the isGrounded method ig
-        if(Input.GetKeyDown(KeyCode.W) && /*p1.velocity.y == 0*/ grounded == true){
+        if(Input.GetKeyDown(KeyCode.W) && p1.velocity.y == 0){
 	        p1.velocity = new Vector3(p1.velocity.x, jumpHeight, 0);
-            p1Animator.SetBool("isJumping", true);   
-            grounded = false;         
+            p1Animator.SetBool("isJumping", true);            
 	    }
         
 
@@ -232,7 +245,8 @@ public class Player1 : MonoBehaviour
     //does a basic melee attack
     public void meleeAttack(){
         isMeleeAttacking = true;
-        p1.GetComponent<AudioSource>().Play();
+        meleeSFX.Play();
+        Debug.Log("played audio :)");
 
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
@@ -249,7 +263,7 @@ public class Player1 : MonoBehaviour
                 enemy.GetComponent<Player2>().takeDamage(attackPower);
             }
         }
-        Debug.Log("attacked");
+        Debug.Log("p1 attacked");
         if(Player.GetComponent<AttackTimer>() == null){
             Player.AddComponent<AttackTimer>();
             Player.GetComponent<AttackTimer>().setTimer(0.2f);
@@ -265,6 +279,7 @@ public class Player1 : MonoBehaviour
     //does a basic melee attack
     private void attackRanged(){
         Instantiate(rangedAttack,attackPoint.position, Quaternion.Euler(0f,0f,0f));
+        rangeSFX.Play();
     }
 
     public void youLose(){
@@ -321,7 +336,6 @@ public class Player1 : MonoBehaviour
     public void setKnockBack(float power){
         knockback = power;
     }
-
     public void setDirection(string dir){
         direction = dir;
     }
