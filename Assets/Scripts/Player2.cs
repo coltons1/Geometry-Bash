@@ -218,6 +218,7 @@ public class Player2 : MonoBehaviour
 
     //does a basic melee attack
     public void meleeAttack(){
+        isMeleeAttacking = true;
         //adds timer that makes it to you can only attack once per second
         if(Player.GetComponent<AttackTimer>() == null){
             Player.AddComponent<AttackTimer>();
@@ -242,7 +243,7 @@ public class Player2 : MonoBehaviour
             }            
         }    
         
-        Debug.Log("attacked");
+        Debug.Log("p2 attacked");
     }
 
     private void OnDrawGizmosSelected(){

@@ -249,7 +249,7 @@ public class Player1 : MonoBehaviour
                 enemy.GetComponent<Player2>().takeDamage(attackPower);
             }
         }
-        Debug.Log("attacked");
+        Debug.Log("p1 attacked");
         if(Player.GetComponent<AttackTimer>() == null){
             Player.AddComponent<AttackTimer>();
             Player.GetComponent<AttackTimer>().setTimer(0.2f);
