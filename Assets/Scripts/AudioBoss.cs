@@ -11,6 +11,8 @@ public class AudioBoss : MonoBehaviour
     public AudioClip WarriorM;
 
     public AudioClip RangeAttack;
+    public AudioClip Damaged;
+    public AudioClip Died;
 
 
     public GameObject p1;
@@ -45,6 +47,8 @@ public class AudioBoss : MonoBehaviour
                 //Melee Sound FX
                 AudioSourcesP1[0].clip = HeroM;
                 AudioSourcesP1[1].clip = RangeAttack;
+                AudioSourcesP1[2].clip = Damaged;
+                AudioSourcesP1[3].clip = Died;
                 
                 //p1.GetComponent<AudioSource>().clip = HeroM;
                 Debug.Log("Assigned");
@@ -54,6 +58,8 @@ public class AudioBoss : MonoBehaviour
                 //Melee Sound FX
                 AudioSourcesP1[0].clip = KnightM;
                 AudioSourcesP1[1].clip = RangeAttack;
+                AudioSourcesP1[2].clip = Damaged;
+                AudioSourcesP1[3].clip = Died;
                 
                 Debug.Log("Assigned");
                 break;
@@ -62,6 +68,8 @@ public class AudioBoss : MonoBehaviour
                 //Melee Sound FX
                 AudioSourcesP1[0].clip = BanditM;
                 AudioSourcesP1[1].clip = RangeAttack;
+                AudioSourcesP1[2].clip = Damaged;
+                AudioSourcesP1[3].clip = Died;
                 
                 Debug.Log("Assigned");
                 break;
@@ -70,6 +78,8 @@ public class AudioBoss : MonoBehaviour
                 //Melee Sound FX
                 AudioSourcesP1[0].clip = WarriorM;
                 AudioSourcesP1[1].clip = RangeAttack;
+                AudioSourcesP1[2].clip = Damaged;
+                AudioSourcesP1[3].clip = Died;
                 
                 Debug.Log("Assigned");
                 break;
@@ -85,6 +95,8 @@ public class AudioBoss : MonoBehaviour
                 
                 AudioSourcesP2[0].clip = HeroM;
                 AudioSourcesP2[1].clip = RangeAttack;
+                AudioSourcesP2[2].clip = Damaged;
+                AudioSourcesP2[3].clip = Died;
                 
                 Debug.Log("Assigned");
                 break;
@@ -93,6 +105,8 @@ public class AudioBoss : MonoBehaviour
                 //Melee Sound FX
                 AudioSourcesP2[0].clip = KnightM;
                 AudioSourcesP2[1].clip = RangeAttack;
+                AudioSourcesP2[2].clip = Damaged;
+                AudioSourcesP2[3].clip = Died;
                 
                 Debug.Log("Assigned");
                 break;
@@ -101,6 +115,8 @@ public class AudioBoss : MonoBehaviour
                 //Melee Sound FX
                 AudioSourcesP2[0].clip = BanditM;
                 AudioSourcesP2[1].clip = RangeAttack;
+                AudioSourcesP2[2].clip = Damaged;
+                AudioSourcesP2[3].clip = Died;
                 
                 Debug.Log("Assigned");
                 break;
@@ -109,6 +125,8 @@ public class AudioBoss : MonoBehaviour
                 //Melee Sound FX
                 AudioSourcesP2[0].clip = WarriorM;
                 AudioSourcesP2[1].clip = RangeAttack;
+                AudioSourcesP2[2].clip = Damaged;
+                AudioSourcesP2[3].clip = Died;
 
                 Debug.Log("Assigned");
                 break;

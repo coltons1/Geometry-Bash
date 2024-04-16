@@ -32,8 +32,10 @@ public class Player2 : MonoBehaviour
     public float knockBack = 8f;
     public float attackSpeed = 0;
     private AudioSource[] audioSources;
-    private AudioClip meleeSFX;
-    private AudioClip rangeSFX;
+    private AudioSource meleeSFX;
+    private AudioSource rangeSFX;
+    private AudioSource damageSFX;
+    private AudioSource deadSFX;
     public Pause pause;
 
     // Start is called before the first frame update
@@ -64,10 +66,11 @@ public class Player2 : MonoBehaviour
         grounded = true;
 
         audioSources = p2.GetComponents<AudioSource>();
-
         
-        meleeSFX = audioSources[0].clip;
-        rangeSFX = audioSources[1].clip;
+        meleeSFX = audioSources[0];
+        rangeSFX = audioSources[1];
+        damageSFX = audioSources[2];
+        deadSFX = audioSources[3];
         
         
     }
@@ -219,15 +222,16 @@ public class Player2 : MonoBehaviour
     public void takeDamage(int damage){
         health = health - damage;
         Healthbar.SetHealth(health);
+        damageSFX.Play();
         if(health <= 0){
             youLose();
+            deadSFX.Play();
         }
         Debug.Log("*Ooh Ouch Yikes Yowch Oof Skeeouch Yeeowch*");
     }
 
     //does a basic melee attack
     public void meleeAttack(){
-        isMeleeAttacking = true;
         //adds timer that makes it to you can only attack once per second
         if(Player.GetComponent<AttackTimer>() == null){
             Player.AddComponent<AttackTimer>();
@@ -248,11 +252,11 @@ public class Player2 : MonoBehaviour
                 else{
                     p1.velocity = new Vector3(p1.velocity.x - knockBack, p1.velocity.y + 5, 0f);
                 }
-                enemy.GetComponent<Player1>().takeDamage(attackPower);
+                enemy.GetComponent<Player1>().takeDamage(10);
             }            
         }    
         
-        Debug.Log("p2 attacked");
+        Debug.Log("attacked");
     }
 
     private void OnDrawGizmosSelected(){
@@ -273,6 +277,7 @@ public class Player2 : MonoBehaviour
     //creats ranged attack
     private void attackRanged(){
         Instantiate(rangedAttack,attackPoint.position, Quaternion.Euler(0f,0f,0f));
+        rangeSFX.Play();
     }
     public void youLose(){
         Destroy(Player);
@@ -302,20 +307,21 @@ public class Player2 : MonoBehaviour
     public void setAttackRange(float range){
         attackRange = range;
     }
+    public void setAttackPower(int power){
+        attackPower = power;
+    }
+    public void setAttackSpeed(float aS){
+        attackSpeed = aS;
+    }
     public void setKnockBack(float power){
         knockBack = power;
     }
     private void setIsMeleeFalse(){
         p2Animator.SetBool("isMelee", false);
     }
-    public void setAttackPower(int power){
-        attackPower = power;
-    }
+
     public void setMoveSpeed(float s){
         moveSpeed = s;
-    }
-    public void setAttackSpeed(float aS){
-        attackSpeed = aS;
     }
     public void setDirection(string dir){
         direction = dir;

@@ -33,6 +33,9 @@ public class Player1 : MonoBehaviour
     private AudioSource[] audioSources;
     private AudioSource meleeSFX;
     private AudioSource rangeSFX;
+    private AudioSource damageSFX;
+    private AudioSource deadSFX;
+    
     
     public Pause pause;
 
@@ -65,6 +68,8 @@ public class Player1 : MonoBehaviour
 
         meleeSFX = audioSources[0];
         rangeSFX = audioSources[1];
+        damageSFX = audioSources[2];
+        deadSFX = audioSources[3];
         
 
     }
@@ -234,8 +239,10 @@ public class Player1 : MonoBehaviour
     public void takeDamage(int damage){
         health = health - damage;
         Healthbar.SetHealth(health);
+        damageSFX.Play();
         if(health <= 0){
             youLose();
+            deadSFX.Play();
         }
 
 
