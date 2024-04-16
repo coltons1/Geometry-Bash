@@ -31,7 +31,9 @@ public class Player2 : MonoBehaviour
     public bool isMeleeAttacking;
     public float knockBack = 8f;
     public float attackSpeed = 0;
-
+    private AudioSource[] audioSources;
+    private AudioClip meleeSFX;
+    private AudioClip rangeSFX;
     public Pause pause;
 
     // Start is called before the first frame update
@@ -60,6 +62,13 @@ public class Player2 : MonoBehaviour
         //starts of with melee attack check to be false
         isMeleeAttacking = false;
         grounded = true;
+
+        audioSources = p2.GetComponents<AudioSource>();
+
+        
+        meleeSFX = audioSources[0].clip;
+        rangeSFX = audioSources[1].clip;
+        
         
     }
 

@@ -5,16 +5,22 @@ using UnityEngine;
 public class AudioBoss : MonoBehaviour
 {
 
-    public AudioClip Hero;
-    public AudioClip Knight;
-    public AudioClip Bandit;
-    public AudioClip Warrior;
+    public AudioClip HeroM;
+    public AudioClip KnightM;
+    public AudioClip BanditM;
+    public AudioClip WarriorM;
+
+    public AudioClip RangeAttack;
+
 
     public GameObject p1;
     public GameObject p2;
 
     public string p1Char;
     public string p2Char;
+
+    public AudioSource[] AudioSourcesP1;
+    public AudioSource[] AudioSourcesP2;
 
     
 
@@ -23,6 +29,10 @@ public class AudioBoss : MonoBehaviour
     {
         p1 = GameObject.Find("Player 1");
         p2 = GameObject.Find("Player 2");
+
+        AudioSourcesP1 = p1.GetComponents<AudioSource>();
+        AudioSourcesP2 = p2.GetComponents<AudioSource>(); 
+        
     }
 
     // Update is called once per frame
@@ -32,22 +42,35 @@ public class AudioBoss : MonoBehaviour
 
         switch(p1Char){
             case "Hero":
-                p1.GetComponent<AudioSource>().clip = Hero;
+                //Melee Sound FX
+                AudioSourcesP1[0].clip = HeroM;
+                AudioSourcesP1[1].clip = RangeAttack;
+                
+                //p1.GetComponent<AudioSource>().clip = HeroM;
                 Debug.Log("Assigned");
                 break;
 
             case "Knight":
-                p1.GetComponent<AudioSource>().clip = Knight;
+                //Melee Sound FX
+                AudioSourcesP1[0].clip = KnightM;
+                AudioSourcesP1[1].clip = RangeAttack;
+                
                 Debug.Log("Assigned");
                 break;
 
             case "Bandit":
-                p1.GetComponent<AudioSource>().clip = Bandit;
+                //Melee Sound FX
+                AudioSourcesP1[0].clip = BanditM;
+                AudioSourcesP1[1].clip = RangeAttack;
+                
                 Debug.Log("Assigned");
                 break;
             
             case "Warrior":
-                p1.GetComponent<AudioSource>().clip = Warrior;
+                //Melee Sound FX
+                AudioSourcesP1[0].clip = WarriorM;
+                AudioSourcesP1[1].clip = RangeAttack;
+                
                 Debug.Log("Assigned");
                 break;
         }
@@ -58,22 +81,35 @@ public class AudioBoss : MonoBehaviour
 
         switch(p2Char){
             case "Hero":
-                p2.GetComponent<AudioSource>().clip = Hero;
+                //Melee Sound FX
+                
+                AudioSourcesP2[0].clip = HeroM;
+                AudioSourcesP2[1].clip = RangeAttack;
+                
                 Debug.Log("Assigned");
                 break;
 
             case "Knight":
-                p2.GetComponent<AudioSource>().clip = Knight;
+                //Melee Sound FX
+                AudioSourcesP2[0].clip = KnightM;
+                AudioSourcesP2[1].clip = RangeAttack;
+                
                 Debug.Log("Assigned");
                 break;
 
             case "Bandit":
-                p2.GetComponent<AudioSource>().clip = Bandit;
+                //Melee Sound FX
+                AudioSourcesP2[0].clip = BanditM;
+                AudioSourcesP2[1].clip = RangeAttack;
+                
                 Debug.Log("Assigned");
                 break;
             
             case "Warrior":
-                p2.GetComponent<AudioSource>().clip = Warrior;
+                //Melee Sound FX
+                AudioSourcesP2[0].clip = WarriorM;
+                AudioSourcesP2[1].clip = RangeAttack;
+
                 Debug.Log("Assigned");
                 break;
         }
