@@ -30,7 +30,7 @@ public class Player2 : MonoBehaviour
     public bool grounded;
     public bool isMeleeAttacking;
     public float knockBack = 8f;
-    public float attackSpeed = 0;
+    public float attackSpeed = 0f;
     private AudioSource[] audioSources;
     private AudioSource meleeSFX;
     private AudioSource rangeSFX;
@@ -188,7 +188,7 @@ public class Player2 : MonoBehaviour
                 Invoke("setIsMeleeFalse", 0.05f);
                 if(Player.GetComponent<DelayTimer>() == null){
                     Player.AddComponent<DelayTimer>();
-                    Player.GetComponent<DelayTimer>().setTimer(0.2f);
+                    Player.GetComponent<DelayTimer>().setTimer(0.4f);
 
                 }
             }
@@ -235,7 +235,7 @@ public class Player2 : MonoBehaviour
         //adds timer that makes it to you can only attack once per second
         if(Player.GetComponent<AttackTimer>() == null){
             Player.AddComponent<AttackTimer>();
-            Player.GetComponent<AttackTimer>().setTimer(0.2f);
+            Player.GetComponent<AttackTimer>().setTimer(attackSpeed);
         }
         p2.GetComponent<AudioSource>().Play();
         Debug.Log("played audio :)");

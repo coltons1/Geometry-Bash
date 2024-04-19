@@ -29,7 +29,7 @@ public class Player1 : MonoBehaviour
     public string character;
     public  int attackPower = 10;
     public float knockback = 8f;
-    public float attackSpeed = 0;
+    public float attackSpeed = 0.0f;
     private AudioSource[] audioSources;
     private AudioSource meleeSFX;
     private AudioSource rangeSFX;
@@ -205,10 +205,11 @@ public class Player1 : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E)){
             if(Player.GetComponent<AttackTimer>() == null && Player.GetComponent<DelayTimer>() == null){
                 p1Animator.SetBool("isMelee", true);
+                meleeSFX.Play();
                 Invoke("setIsMeleeFalse", 0.1f);
                 if(Player.GetComponent<DelayTimer>() == null){
                     Player.AddComponent<DelayTimer>();
-                    Player.GetComponent<DelayTimer>().setTimer(0.2f);
+                    Player.GetComponent<DelayTimer>().setTimer(0.4f);
 
                 }
             }
@@ -252,7 +253,7 @@ public class Player1 : MonoBehaviour
     //does a basic melee attack
     public void meleeAttack(){
         isMeleeAttacking = true;
-        meleeSFX.Play();
+        //meleeSFX.Play();
         Debug.Log("played audio :)");
 
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
@@ -273,7 +274,7 @@ public class Player1 : MonoBehaviour
         Debug.Log("p1 attacked");
         if(Player.GetComponent<AttackTimer>() == null){
             Player.AddComponent<AttackTimer>();
-            Player.GetComponent<AttackTimer>().setTimer(0.2f);
+            Player.GetComponent<AttackTimer>().setTimer(attackSpeed);
         }
 
         /*if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("YourAnimationName"))
