@@ -29,4 +29,9 @@ public class ChangeScene : MonoBehaviour
 
         }*/
     }
+
+    public void stopPlayerMovement(){
+        Time.timeScale = 0;
+        Debug.Log("time scale set to 0");
+    }
 }
