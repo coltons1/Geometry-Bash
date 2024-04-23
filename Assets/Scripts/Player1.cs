@@ -85,13 +85,10 @@ public class Player1 : MonoBehaviour
             {
                 p1Animator.SetBool("isJumping", false);
             }
-            //takeDamage(10);
-            //Healthbar.SetHealth(health); 
+            
         }
         if(collision.gameObject.tag == "Trampoline"){
-            Debug.Log("trampoline touched");
             p1.velocity = Vector2.up * bounceForce;
-            // Debug.Log(p1.velocity);
         }
     }
     private void OnColliisionEnter2D(Collision2D collision)
@@ -253,8 +250,6 @@ public class Player1 : MonoBehaviour
     //does a basic melee attack
     public void meleeAttack(){
         isMeleeAttacking = true;
-        //meleeSFX.Play();
-        Debug.Log("played audio :)");
 
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
@@ -271,7 +266,7 @@ public class Player1 : MonoBehaviour
                 enemy.GetComponent<Player2>().takeDamage(attackPower);
             }
         }
-        Debug.Log("p1 attacked");
+        
         if(Player.GetComponent<AttackTimer>() == null){
             Player.AddComponent<AttackTimer>();
             Player.GetComponent<AttackTimer>().setTimer(attackSpeed);
@@ -299,7 +294,7 @@ public class Player1 : MonoBehaviour
         
         SceneManager.LoadScene("WinSceneP2");
 
-        Debug.Log("Player 2 wins");
+        
     }
     
     private void OnDrawGizmosSelected(){
