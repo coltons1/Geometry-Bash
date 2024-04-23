@@ -185,10 +185,11 @@ public class Player2 : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.U)){
             if(Player.GetComponent<AttackTimer>() == null && Player.GetComponent<DelayTimer>() == null){
                 p2Animator.SetBool("isMelee", true);
+                p2.GetComponent<AudioSource>().Play();
                 Invoke("setIsMeleeFalse", 0.05f);
                 if(Player.GetComponent<DelayTimer>() == null){
                     Player.AddComponent<DelayTimer>();
-                    Player.GetComponent<DelayTimer>().setTimer(0.4f);
+                    Player.GetComponent<DelayTimer>().setTimer(0.3f);
 
                 }
             }
@@ -237,7 +238,7 @@ public class Player2 : MonoBehaviour
             Player.AddComponent<AttackTimer>();
             Player.GetComponent<AttackTimer>().setTimer(attackSpeed);
         }
-        p2.GetComponent<AudioSource>().Play();
+        //p2.GetComponent<AudioSource>().Play();
         Debug.Log("played audio :)");
 
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);

@@ -209,7 +209,7 @@ public class Player1 : MonoBehaviour
                 Invoke("setIsMeleeFalse", 0.1f);
                 if(Player.GetComponent<DelayTimer>() == null){
                     Player.AddComponent<DelayTimer>();
-                    Player.GetComponent<DelayTimer>().setTimer(0.4f);
+                    Player.GetComponent<DelayTimer>().setTimer(0.2f);
 
                 }
             }
