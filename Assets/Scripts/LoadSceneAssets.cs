@@ -142,4 +142,9 @@ public class LoadSceneAssets : MonoBehaviour
             player.GetComponent<Player2>().setKnockBack(knock);            
         }
     }
+
+
+    public void resumePlayerMovement(){
+        Time.timeScale = 1;
+    }
 }
