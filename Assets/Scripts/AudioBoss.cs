@@ -49,9 +49,7 @@ public class AudioBoss : MonoBehaviour
                 AudioSourcesP1[1].clip = RangeAttack;
                 AudioSourcesP1[2].clip = Damaged;
                 AudioSourcesP1[3].clip = Died;
-                
-                //p1.GetComponent<AudioSource>().clip = HeroM;
-                Debug.Log("Assigned");
+
                 break;
 
             case "Knight":
@@ -60,8 +58,7 @@ public class AudioBoss : MonoBehaviour
                 AudioSourcesP1[1].clip = RangeAttack;
                 AudioSourcesP1[2].clip = Damaged;
                 AudioSourcesP1[3].clip = Died;
-                
-                Debug.Log("Assigned");
+
                 break;
 
             case "Bandit":
@@ -71,7 +68,6 @@ public class AudioBoss : MonoBehaviour
                 AudioSourcesP1[2].clip = Damaged;
                 AudioSourcesP1[3].clip = Died;
                 
-                Debug.Log("Assigned");
                 break;
             
             case "Warrior":
@@ -81,7 +77,6 @@ public class AudioBoss : MonoBehaviour
                 AudioSourcesP1[2].clip = Damaged;
                 AudioSourcesP1[3].clip = Died;
                 
-                Debug.Log("Assigned");
                 break;
         }
     }
@@ -98,7 +93,6 @@ public class AudioBoss : MonoBehaviour
                 AudioSourcesP2[2].clip = Damaged;
                 AudioSourcesP2[3].clip = Died;
                 
-                Debug.Log("Assigned");
                 break;
 
             case "Knight":
@@ -108,7 +102,6 @@ public class AudioBoss : MonoBehaviour
                 AudioSourcesP2[2].clip = Damaged;
                 AudioSourcesP2[3].clip = Died;
                 
-                Debug.Log("Assigned");
                 break;
 
             case "Bandit":
@@ -118,7 +111,6 @@ public class AudioBoss : MonoBehaviour
                 AudioSourcesP2[2].clip = Damaged;
                 AudioSourcesP2[3].clip = Died;
                 
-                Debug.Log("Assigned");
                 break;
             
             case "Warrior":
@@ -128,7 +120,6 @@ public class AudioBoss : MonoBehaviour
                 AudioSourcesP2[2].clip = Damaged;
                 AudioSourcesP2[3].clip = Died;
 
-                Debug.Log("Assigned");
                 break;
         }
 

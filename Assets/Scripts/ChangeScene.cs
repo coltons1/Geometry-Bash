@@ -29,4 +29,12 @@ public class ChangeScene : MonoBehaviour
 
         }*/
     }
+
+    public void stopPlayerMovement(){
+        Time.timeScale = 0;
+    }
+
+    public void resumePlayerMovement(){
+        Time.timeScale = 1;
+    }
 }

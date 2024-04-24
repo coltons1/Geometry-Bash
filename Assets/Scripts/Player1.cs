@@ -29,7 +29,7 @@ public class Player1 : MonoBehaviour
     public string character;
     public  int attackPower = 10;
     public float knockback = 8f;
-    public float attackSpeed = 0;
+    public float attackSpeed = 0.0f;
     private AudioSource[] audioSources;
     private AudioSource meleeSFX;
     private AudioSource rangeSFX;
@@ -83,11 +83,15 @@ public class Player1 : MonoBehaviour
         {
             p1Animator.SetBool("isJumping", false);
             grounded = true;
+            //when player 2 touches the ground, sets isJumping to false
+            if(collision.gameObject.tag == "Platform")
+            {
+                p1Animator.SetBool("isJumping", false);
+            }
+            
         }
         if(collision.gameObject.tag == "Trampoline"){
-            Debug.Log("trampoline touched");
             p1.velocity = Vector2.up * bounceForce;
-            // Debug.Log(p1.velocity);
         }
     }
     private void OnCollisionStay2D(Collision2D collision)
@@ -193,6 +197,7 @@ public class Player1 : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E)){
             if(Player.GetComponent<AttackTimer>() == null && Player.GetComponent<DelayTimer>() == null){
                 p1Animator.SetBool("isMelee", true);
+                meleeSFX.Play();
                 Invoke("setIsMeleeFalse", 0.1f);
                 if(Player.GetComponent<DelayTimer>() == null){
                     Player.AddComponent<DelayTimer>();
@@ -240,8 +245,6 @@ public class Player1 : MonoBehaviour
     //does a basic melee attack
     public void meleeAttack(){
         isMeleeAttacking = true;
-        meleeSFX.Play();
-        Debug.Log("played audio :)");
 
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
@@ -258,10 +261,10 @@ public class Player1 : MonoBehaviour
                 enemy.GetComponent<Player2>().takeDamage(attackPower);
             }
         }
-        Debug.Log("p1 attacked");
+        
         if(Player.GetComponent<AttackTimer>() == null){
             Player.AddComponent<AttackTimer>();
-            Player.GetComponent<AttackTimer>().setTimer(0.2f);
+            Player.GetComponent<AttackTimer>().setTimer(attackSpeed);
         }
 
         /*if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("YourAnimationName"))
@@ -286,7 +289,7 @@ public class Player1 : MonoBehaviour
         
         SceneManager.LoadScene("WinSceneP2");
 
-        Debug.Log("Player 2 wins");
+        
     }
     
     private void OnDrawGizmosSelected(){

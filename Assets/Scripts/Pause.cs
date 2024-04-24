@@ -60,14 +60,12 @@ public class Pause : MonoBehaviour
     }
 
     public void OpenControls(){
-        Debug.Log("Controls Clicked");
         ControlsImage.enabled = true;
         ControlsBackImage.enabled = true;
         BackButton.enabled = true;
         p1.GetComponent<SpriteRenderer>().enabled = false;
         p2.GetComponent<SpriteRenderer>().enabled = false;
         h.GetComponent<Canvas>().enabled = false;
-        Debug.Log("disappear");
 
     }
 

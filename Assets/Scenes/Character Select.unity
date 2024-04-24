@@ -3590,7 +3590,7 @@ MonoBehaviour:
   HeroM: {fileID: 8300000, guid: 180f35aef2ea2654086bcbb52d58ec0b, type: 3}
   KnightM: {fileID: 8300000, guid: 6eb72c75e0fcdc04b905b225912096e7, type: 3}
   BanditM: {fileID: 8300000, guid: 2829a5212f9da134e88443a1f91d0e48, type: 3}
-  WarriorM: {fileID: 8300000, guid: 818ceeca65489e14ab6864f21ac80fd5, type: 3}
+  WarriorM: {fileID: 8300000, guid: e82bbf25f546510468b7945834cf6b6f, type: 3}
   RangeAttack: {fileID: 8300000, guid: 1d74880bed4586644a16a79a2d9dc8af, type: 3}
   Damaged: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
   Died: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
@@ -4261,6 +4261,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1256861058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1256861059}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1256861059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256861058}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.68077, y: -1.1415287, z: -0.03000815}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1351608506
 GameObject:
   m_ObjectHideFlags: 0

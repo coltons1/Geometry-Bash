@@ -17,7 +17,6 @@ public class DetectOut : MonoBehaviour
     public void OnTriggerExit2D(Collider2D other){
         if(other.CompareTag("PlayerOne")){
             Destroy(Player1);
-            Debug.Log("Player one is dead :(");
         }
     }
 }

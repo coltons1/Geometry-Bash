@@ -33,7 +33,6 @@ private string direction;
     {
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(this.gameObject.transform.position, 0.5f, enemyLayer);
         foreach(Collider2D enemy in hitEnemys){
-            Debug.Log("hit");
             enemy.GetComponent<Player1>().takeDamage(5);
             Rigidbody2D p1 = GameObject.Find("Player 1").GetComponent<Rigidbody2D>();
             if(direction == "right"){
@@ -47,7 +46,6 @@ private string direction;
         
         Collider2D[] hitNonEnemys = Physics2D.OverlapCircleAll(this.gameObject.transform.position, 0.5f, nonEnemyLayer);
         foreach(Collider2D nonEnemy in hitNonEnemys){
-            Debug.Log("hit");
             Invoke("removeRangedAttack", 0.001f);
         }
     }
