@@ -35,6 +35,7 @@ public class Player1 : MonoBehaviour
     private AudioSource rangeSFX;
     private AudioSource damageSFX;
     private AudioSource deadSFX;
+    public bool grounded;
     
     
     public Pause pause;
@@ -61,7 +62,7 @@ public class Player1 : MonoBehaviour
         rangedAttack.transform.position = attackPoint.position;
 
         //direction = "right";
-
+        grounded = true;
         isMeleeAttacking = false;
 
         audioSources = p1.GetComponents<AudioSource>();
@@ -75,18 +76,13 @@ public class Player1 : MonoBehaviour
     }
 
     //When the object starts colliding
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        // makes the player take damage ob collsion
+        //when player 2 touches the ground, sets isJumping to false
         if(collision.gameObject.tag == "Platform")
         {
-            //when player 2 touches the ground, sets isJumping to false
-            if(collision.gameObject.tag == "Platform")
-            {
-                p1Animator.SetBool("isJumping", false);
-            }
-            //takeDamage(10);
-            //Healthbar.SetHealth(health); 
+            p1Animator.SetBool("isJumping", false);
+            grounded = true;
         }
         if(collision.gameObject.tag == "Trampoline"){
             Debug.Log("trampoline touched");
@@ -94,32 +90,24 @@ public class Player1 : MonoBehaviour
             // Debug.Log(p1.velocity);
         }
     }
-    private void OnColliisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if(collision.gameObject.name == "BottomPlatform")
+        if(collision.gameObject.tag == "Platform")
         {
-            //takeDamage(5);
-        }
-    }
-
-    //While the object is colliding
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if(collision.gameObject.name == "BottomPlatform")
-        {
+            grounded = true;
         }
     }
     
     //When the object stops colliding
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        if(collision.gameObject.name == "BottomPlatform")
+        if(collision.gameObject.tag == "Platform")
         {
-
+            grounded = false;
         }
     }
 
-    private bool isGrounded(){
+    /*private bool isGrounded(){
         Vector2 position = transform.position;
         Vector2 direction = Vector2.down;
         float distance = 1.0f;
@@ -128,7 +116,7 @@ public class Player1 : MonoBehaviour
             return true;
         }
         return false;
-    }
+    }*/
 
     // Update is called once per frame
     void Update()
@@ -148,7 +136,7 @@ public class Player1 : MonoBehaviour
 
         //Player Jump
         //do the isGrounded method ig
-        if(Input.GetKeyDown(KeyCode.W) && p1.velocity.y == 0){
+        if(Input.GetKeyDown(KeyCode.W) && grounded == true){
 	        p1.velocity = new Vector3(p1.velocity.x, jumpHeight, 0);
             p1Animator.SetBool("isJumping", true);            
 	    }
@@ -230,7 +218,7 @@ public class Player1 : MonoBehaviour
         if(p1.transform.position.x < -20 ||
         p1.transform.position.x > 20 ||
         p1.transform.position.y < -12 ||
-        p1.transform.position.y > 12){
+        p1.transform.position.y > 15){
             youLose();
         }
     }
