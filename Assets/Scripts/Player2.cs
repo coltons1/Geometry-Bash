@@ -208,7 +208,7 @@ public class Player2 : MonoBehaviour
         if(p2.transform.position.x < -20 ||
         p2.transform.position.x > 20 ||
         p2.transform.position.y < -12 ||
-        p2.transform.position.y > 12){
+        p2.transform.position.y > 15){
             youLose();
         }
     }
