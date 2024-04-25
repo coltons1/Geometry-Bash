@@ -278,7 +278,8 @@ public class Player2 : MonoBehaviour
         Destroy(GameObject.Find("Healthbars"));
 
         SceneManager.LoadScene("WinSceneP1");
-        
+        GameObject.Find("Player 1").transform.position = new Vector2(0.0f,0.0f);
+
         //GameObject.Find("Player 1").SetActive(false);
 
     }

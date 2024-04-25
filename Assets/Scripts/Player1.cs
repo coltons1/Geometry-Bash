@@ -293,6 +293,7 @@ public class Player1 : MonoBehaviour
         Destroy(GameObject.Find("Healthbars"));
         
         SceneManager.LoadScene("WinSceneP2");
+        GameObject.Find("Player 2").transform.position = new Vector2(0.0f,0.0f);
 
         
     }
