@@ -171,7 +171,7 @@ public class Player2 : MonoBehaviour
 	    }
 
         //Player 2 Move Down
-        if(Input.GetKey(KeyCode.K)){
+        if(Input.GetKey(KeyCode.K) && grounded == false){
             p2.velocity = new Vector3(p2.velocity.x, -jumpHeight / 1.25f, 0);
         }
 
