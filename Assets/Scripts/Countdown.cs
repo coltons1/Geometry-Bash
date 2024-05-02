@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Countdown : MonoBehaviour
 {
@@ -13,40 +14,54 @@ public class Countdown : MonoBehaviour
     public TextMeshProUGUI timerText;
     private string minutes;
     private string seconds;
-    private ChangeScene cS;
+    public bool hasRun;
+
     // Start is called before the first frame update
     void Start()
     {
-        initialTime = 90.0f;
-        timerText = GameObject.Find("timerText").GetComponent<TextMeshProUGUI>();
-        currentTime = 0f;
-        timerRunning = true;
+        if(GameObject.Find("timerText") != null){
+            initialTime = 5.0f;
+            timerText = GameObject.Find("timerText").GetComponent<TextMeshProUGUI>();
+            currentTime = 0f;
+            timerRunning = true;
+            hasRun = false;
+            Debug.Log("Timer Started");
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(timerRunning){
-            currentTime = initialTime - Time.time;
+
+        if(timerRunning == true){
+            hasRun = false;
+            currentTime = initialTime - Time.timeSinceLevelLoad;
             string minutes = ((int)currentTime / 60).ToString("00");
             string seconds = (currentTime % 60).ToString("00");
             timerText.text = minutes + ":" + seconds;
         }
         
-
-        if(currentTime == 0.0){
+        if(currentTime <= 0.0 && hasRun == false){
+            Debug.Log("Checking Time End");
+            timerRunning = false;
             timerEnd();
+            Destroy(timerText);
+            
+        }
+
+    }
+
+    public void timerEnd(){
+        if(hasRun == false){
+            initialTime = 90.0f;
+            onCountdownEnd();
+            hasRun = true;
+            Debug.Log("Timer End Ran");
         }
     }
 
-    void timerEnd(){
-        cS.LoadScene("Draw");
+    public void onCountdownEnd(){
+        SceneManager.LoadScene("Draw");
     }
-
-    void stopTimer(){
-        timerRunning = false;
-        initialTime = 90.0f;
-    }
-
-
 }

@@ -1242,6 +1242,7 @@ GameObject:
   - component: {fileID: 1398592184}
   - component: {fileID: 1398592183}
   - component: {fileID: 1398592185}
+  - component: {fileID: 1398592186}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -1352,6 +1353,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1398592185}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1398592186}
+        m_TargetAssemblyTypeName: Countdown, Assembly-CSharp
+        m_MethodName: timerEnd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1519,6 +1532,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1398592186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398592178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0b84b232f486846b7c8926b85c004b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 0}
 --- !u!1001 &1409496617
 PrefabInstance:
   m_ObjectHideFlags: 0
